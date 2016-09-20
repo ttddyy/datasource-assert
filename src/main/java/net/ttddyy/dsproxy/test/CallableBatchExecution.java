@@ -15,7 +15,7 @@ import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.toKeyNameMap;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class CallableBatchExecution extends BaseQueryExecution implements BatchParameterHolder, QueryHolder, BatchExecution {
 

@@ -10,7 +10,7 @@ import net.ttddyy.dsproxy.test.StatementExecution;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public enum ExecutionType {
 

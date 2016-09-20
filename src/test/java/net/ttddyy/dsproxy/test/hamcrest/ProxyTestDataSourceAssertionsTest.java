@@ -45,7 +45,7 @@ import static org.mockito.Mockito.withSettings;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class ProxyTestDataSourceAssertionsTest {
 

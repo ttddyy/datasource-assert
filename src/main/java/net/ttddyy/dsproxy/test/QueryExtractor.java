@@ -6,7 +6,7 @@ import java.util.List;
  * Retrieve queries from {@link QueryExecution}.
  *
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public interface QueryExtractor {
 

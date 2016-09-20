@@ -12,7 +12,7 @@ import java.util.Collection;
  * Hamcrest matchers for {@link QueriesHolder}.
  *
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class QueriesHolderAssertions {
 

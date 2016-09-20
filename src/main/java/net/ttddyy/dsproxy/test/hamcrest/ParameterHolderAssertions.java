@@ -23,7 +23,7 @@ import java.util.TreeSet;
  * Hamcrest matchers for {@link ParameterHolder}({@link ParameterByIndexHolder}, {@link ParameterByNameHolder}).
  *
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class ParameterHolderAssertions {
 

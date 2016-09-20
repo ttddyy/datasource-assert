@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public interface ParameterByIndexHolder extends ParameterHolder {
 

@@ -16,7 +16,7 @@ import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createSetParam;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class QueryExecutionFactoryListener implements QueryExecutionListener {
 

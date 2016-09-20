@@ -6,7 +6,7 @@ import java.util.SortedSet;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public interface OutParameterHolder extends ParameterHolder {
 

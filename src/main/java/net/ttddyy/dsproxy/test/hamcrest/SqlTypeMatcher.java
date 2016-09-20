@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author Tadaya Tsuyukubo
  * @see java.sql.Types
- * @since 1.4
+ * @since 1.0
  */
 public class SqlTypeMatcher extends TypeSafeMatcher<Integer> {
 

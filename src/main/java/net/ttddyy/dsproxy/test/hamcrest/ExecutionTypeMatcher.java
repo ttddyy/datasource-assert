@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class ExecutionTypeMatcher extends TypeSafeMatcher<QueryExecution> {
 

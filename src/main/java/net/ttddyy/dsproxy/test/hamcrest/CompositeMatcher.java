@@ -13,7 +13,7 @@ import org.hamcrest.internal.ReflectiveTypeFinder;
  * @param <T> type for this matcher
  * @param <S> type for sub-matcher
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public abstract class CompositeMatcher<T, S> extends BaseMatcher<T> {
     private static final ReflectiveTypeFinder TYPE_FINDER = new ReflectiveTypeFinder("getValue", 1, 0);

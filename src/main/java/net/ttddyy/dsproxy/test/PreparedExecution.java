@@ -14,7 +14,7 @@ import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.toKeyIndexMap;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class PreparedExecution extends BaseQueryExecution implements QueryHolder, ParameterByIndexHolder {
 

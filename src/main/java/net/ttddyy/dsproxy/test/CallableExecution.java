@@ -15,7 +15,7 @@ import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.toKeyNameMap;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class CallableExecution extends BaseQueryExecution implements QueryHolder, ParameterByIndexHolder, ParameterByNameHolder, OutParameterHolder {
 

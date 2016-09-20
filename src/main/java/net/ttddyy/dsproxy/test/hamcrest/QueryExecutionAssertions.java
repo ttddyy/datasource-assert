@@ -9,7 +9,7 @@ import org.hamcrest.TypeSafeMatcher;
  * Hamcrest matchers for {@link QueryExecution}.
  *
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class QueryExecutionAssertions {
 

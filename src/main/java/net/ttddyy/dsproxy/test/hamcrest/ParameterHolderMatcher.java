@@ -11,7 +11,7 @@ import org.hamcrest.StringDescription;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public abstract class ParameterHolderMatcher<S> extends BaseMatcher<ParameterHolder> {
 

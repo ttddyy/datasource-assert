@@ -35,7 +35,7 @@ import java.util.Map;
  * @see BatchParameterHolderAssertions
  * @see ParameterHolderAssertions
  * @see OutParameterHolderAssertions
- * @since 1.4
+ * @since 1.0
  */
 public class DataSourceProxyMatchers {
 

@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class ParameterHolderMatcherTest {
 

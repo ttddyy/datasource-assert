@@ -29,7 +29,7 @@ import static org.mockito.Mockito.when;
 
 /**
  * @author Tadaya Tsuyukubo
- * @since 1.4
+ * @since 1.0
  */
 public class QueryExecutionAssertionsTest {
 

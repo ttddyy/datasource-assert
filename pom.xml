@@ -1,0 +1,218 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.ttddyy</groupId>
+  <artifactId>datasource-test-proxy</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <name>datasource-test-proxy</name>
+  <description>
+    Provide a datasource proxy that can inject your own logic into all queries.
+  </description>
+  <url>https://github.com/ttddyy/datasource-test-proxy/</url>
+
+  <licenses>
+    <license>
+      <name>Apache2 License</name>
+      <url>https://opensource.org/licenses/Apache-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:ttddyy/datasource-test-proxy.git</connection>
+    <developerConnection>scm:git:git@github.com:ttddyy/datasource-test-proxy.git
+    </developerConnection>
+    <url>git@github.com:ttddyy/datasource-test-proxy.git</url>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/ttddyy/maven/datasource-test-proxy</url>
+    </repository>
+  </distributionManagement>
+
+  <developers>
+    <developer>
+      <id>tadaya</id>
+      <name>Tadaya Tsuyukubo</name>
+      <email>tadaya@ttddyy.net</email>
+      <url>http://www.ttddyy.net</url>
+    </developer>
+  </developers>
+
+  <properties>
+    <datasource-proxy.version>1.4-SNAPSHOT</datasource-proxy.version>
+    <flyway.version>3.2.1</flyway.version>
+    <guava.version>18.0</guava.version>
+
+
+    <surefire.version>2.19.1</surefire.version>
+    <asciidoctor.version>1.5.2</asciidoctor.version>
+    <hsqldb.version>2.2.9</hsqldb.version>
+
+    <junit.version>4.12</junit.version>
+    <mockito.version>1.9.5</mockito.version>
+    <hamcrest.version>2.0.0.0</hamcrest.version>
+    <assertj.version>2.1.0</assertj.version>
+
+
+  </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+        <version>${asciidoctor.version}</version>
+        <executions>
+          <execution>
+            <id>output-html</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+              <sourceDocumentName>index.adoc</sourceDocumentName>
+              <backend>html5</backend>
+              <sourceHighlighter>highlightjs</sourceHighlighter>
+              <attributes>
+                <toc>left</toc>
+                <highlightjs-theme>github</highlightjs-theme>
+                <setanchors/>
+                <icons>font</icons>
+                <sectnums/>
+              </attributes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+          <testSource>1.8</testSource>
+          <testTarget>1.8</testTarget>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <version>1.15</version>
+        <configuration>
+          <signature>
+            <groupId>org.codehaus.mojo.signature</groupId>
+            <artifactId>java17</artifactId>
+            <version>1.0</version>
+          </signature>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>net.ttddyy</groupId>
+      <artifactId>datasource-proxy</artifactId>
+      <version>${datasource-proxy.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+      </exclusions>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>java-hamcrest</artifactId>
+      <version>${hamcrest.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+
+    <!-- For Test -->
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>${hsqldb.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>${flyway.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>

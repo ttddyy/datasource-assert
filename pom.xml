@@ -61,8 +61,18 @@
     <hamcrest.version>2.0.0.0</hamcrest.version>
     <assertj.version>2.1.0</assertj.version>
 
-
   </properties>
+
+  <repositories>
+    <repository>
+      <id>ossrh-snapshot</id>
+      <name>OSSRH snapshot repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>

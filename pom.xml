@@ -47,7 +47,7 @@
   </developers>
 
   <properties>
-    <datasource-proxy.version>1.4-SNAPSHOT</datasource-proxy.version>
+    <datasource-proxy.version>1.4</datasource-proxy.version>
     <flyway.version>3.2.1</flyway.version>
     <guava.version>18.0</guava.version>
 

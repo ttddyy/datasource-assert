@@ -3,9 +3,7 @@ package net.ttddyy.dsproxy.test.assertj;
 import net.ttddyy.dsproxy.QueryType;
 import net.ttddyy.dsproxy.listener.QueryUtils;
 import net.ttddyy.dsproxy.test.StatementBatchExecution;
-import org.assertj.core.api.AbstractCharSequenceAssert;
-import org.assertj.core.api.AbstractListAssert;
-import org.assertj.core.api.Assertions;
+import org.assertj.core.api.*;
 import org.assertj.core.data.Index;
 
 import java.util.List;
@@ -38,7 +36,7 @@ public class StatementBatchExecutionAssert extends AbstractExecutionAssert<State
         return this;
     }
 
-    public AbstractListAssert<?, ? extends List<? extends String>, String> queries() {
+    public AbstractListAssert<?, ? extends List<? extends String>, String, ObjectAssert<String>> queries() {
         return Assertions.assertThat(this.actual.getQueries());
     }
 

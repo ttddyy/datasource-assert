@@ -4,14 +4,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.ttddyy</groupId>
-  <artifactId>datasource-test-proxy</artifactId>
+  <artifactId>datasource-assertions</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <packaging>jar</packaging>
 
-  <name>datasource-test-proxy</name>
+  <name>datasource-assertions</name>
   <description>
-    Provide a datasource proxy that can inject your own logic into all queries.
+    Provide assertions for DataSource using datasource-proxy including AssertJ and Hamcrest custom
+    assertions(assertThat)
   </description>
   <url>https://github.com/ttddyy/datasource-test-proxy/</url>
 
@@ -24,16 +25,16 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:ttddyy/datasource-test-proxy.git</connection>
-    <developerConnection>scm:git:git@github.com:ttddyy/datasource-test-proxy.git
+    <connection>scm:git:git@github.com:ttddyy/datasource-assertions.git</connection>
+    <developerConnection>scm:git:git@github.com:ttddyy/datasource-assertions.git
     </developerConnection>
-    <url>git@github.com:ttddyy/datasource-test-proxy.git</url>
+    <url>git@github.com:ttddyy/datasource-assertions.git</url>
   </scm>
 
   <distributionManagement>
     <repository>
       <id>bintray</id>
-      <url>https://api.bintray.com/maven/ttddyy/maven/datasource-test-proxy</url>
+      <url>https://api.bintray.com/maven/ttddyy/maven/datasource-assertions</url>
     </repository>
   </distributionManagement>
 

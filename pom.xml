@@ -14,7 +14,7 @@
     Provide assertions for DataSource using datasource-proxy.
     Also, include custom assertions(assertThat) for AssertJ and Hamcrest.
   </description>
-  <url>https://github.com/ttddyy/datasource-test-proxy/</url>
+  <url>https://github.com/ttddyy/datasource-assertions/</url>
 
   <licenses>
     <license>

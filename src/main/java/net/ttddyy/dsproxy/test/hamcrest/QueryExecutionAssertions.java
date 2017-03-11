@@ -11,7 +11,7 @@ import org.hamcrest.TypeSafeMatcher;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class QueryExecutionAssertions {
+class QueryExecutionAssertions {
 
     /**
      * Matcher to check {@link QueryExecution} was successful.

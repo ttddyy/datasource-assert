@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
 
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.executions;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.statement;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.query;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.executions;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.statement;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.query;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
@@ -66,7 +66,7 @@ public class ProxyTestDataSourceTest {
         se = (StatementExecution) queryExecutions.get(2);
         assertThat(se.getQuery()).isEqualTo("SELECT id FROM emp WHERE id = 1");
 
-        // junit assertions
+        // junit(hamcrest) assertions
         Assert.assertThat(ds, executions(0, is(statement())));
         Assert.assertThat(ds, executions(1, is(statement())));
         Assert.assertThat(ds, executions(2, is(statement())));

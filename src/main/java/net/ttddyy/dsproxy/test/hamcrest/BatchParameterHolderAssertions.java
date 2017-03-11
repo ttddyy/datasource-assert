@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class BatchParameterHolderAssertions {
+class BatchParameterHolderAssertions {
 
     /**
      * Matcher to check the batch size.

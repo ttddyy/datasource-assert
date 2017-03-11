@@ -14,7 +14,7 @@ import java.util.Collection;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class QueriesHolderAssertions {
+class QueriesHolderAssertions {
 
     /**
      * Matcher to check the specified index query as {@link String}.

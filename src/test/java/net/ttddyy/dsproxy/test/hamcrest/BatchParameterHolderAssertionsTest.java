@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.paramIndexes;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.fail;
@@ -60,7 +61,7 @@ public class BatchParameterHolderAssertionsTest {
         given(holder.getBatchExecutionEntries()).willReturn(entries);
 
 
-        Assert.assertThat(holder, BatchParameterHolderAssertions.batch(0, ParameterHolderAssertions.paramIndexes(hasItem(100))));
+        Assert.assertThat(holder, BatchParameterHolderAssertions.batch(0, paramIndexes(hasItem(100))));
     }
 
     @Test
@@ -70,7 +71,7 @@ public class BatchParameterHolderAssertionsTest {
 
 
         try {
-            Assert.assertThat(holder, BatchParameterHolderAssertions.batch(10, ParameterHolderAssertions.paramIndexes(hasItem(100))));
+            Assert.assertThat(holder, BatchParameterHolderAssertions.batch(10, paramIndexes(hasItem(100))));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected: batch[10] exists\n     but: batch[] size was 0");
@@ -89,7 +90,7 @@ public class BatchParameterHolderAssertionsTest {
 
 
         try {
-            Assert.assertThat(holder, BatchParameterHolderAssertions.batch(0, ParameterHolderAssertions.paramIndexes(hasItem(50))));
+            Assert.assertThat(holder, BatchParameterHolderAssertions.batch(0, paramIndexes(hasItem(50))));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected: batch[0] parameter indexes as a collection containing <50>\n     but: batch[0] mismatches were: [was <100>]");

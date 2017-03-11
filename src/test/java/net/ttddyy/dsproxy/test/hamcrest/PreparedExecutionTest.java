@@ -5,10 +5,10 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createSetParam;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.param;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramIndexes;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramsByIndex;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.query;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.param;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.paramIndexes;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.paramsByIndex;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.query;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;

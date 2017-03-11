@@ -6,10 +6,10 @@ import org.junit.Test;
 
 import static net.ttddyy.dsproxy.test.hamcrest.QueriesHolderAssertions.queries;
 import static net.ttddyy.dsproxy.test.hamcrest.QueriesHolderAssertions.queryTypes;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.delete;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.insert;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.select;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.update;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.delete;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.insert;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.select;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.update;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;

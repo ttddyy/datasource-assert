@@ -18,7 +18,7 @@ import java.util.TreeSet;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class OutParameterHolderAssertions {
+class OutParameterHolderAssertions {
 
     /**
      * Matcher to examine out-parameter names as a {@link Collection} of {@link String}.

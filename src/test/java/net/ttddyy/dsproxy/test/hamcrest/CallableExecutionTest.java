@@ -5,11 +5,7 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createSetParam;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramIndexes;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramNames;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramsByIndex;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramsByName;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.query;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.*;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
@@ -82,10 +78,10 @@ public class CallableExecutionTest {
         ce.getAllParameters().add(createSetParam("foo", "FOO"));
         ce.getAllParameters().add(createSetParam("number", 100));
 
-        assertThat(ce, ParameterHolderAssertions.param("foo", is((Object) "FOO")));
+        assertThat(ce, param("foo", is((Object) "FOO")));
 
-        assertThat(ce, ParameterHolderAssertions.param("foo", (Matcher) startsWith("FOO")));
-        assertThat(ce, ParameterHolderAssertions.param("number", is((Object) 100)));
+        assertThat(ce, param("foo", (Matcher) startsWith("FOO")));
+        assertThat(ce, param("number", is((Object) 100)));
     }
 
     @Test
@@ -94,10 +90,10 @@ public class CallableExecutionTest {
         ce.getAllParameters().add(createSetParam(1, "FOO"));
         ce.getAllParameters().add(createSetParam(2, 100));
 
-        assertThat(ce, ParameterHolderAssertions.param(1, is((Object) "FOO")));
+        assertThat(ce, param(1, is((Object) "FOO")));
 
-        assertThat(ce, ParameterHolderAssertions.param(1, (Matcher) startsWith("FOO")));
-        assertThat(ce, ParameterHolderAssertions.param(2, is((Object) 100)));
+        assertThat(ce, param(1, (Matcher) startsWith("FOO")));
+        assertThat(ce, param(2, is((Object) 100)));
     }
 //
 //    @Test

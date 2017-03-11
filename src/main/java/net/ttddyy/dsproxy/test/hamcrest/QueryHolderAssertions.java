@@ -14,7 +14,7 @@ import org.hamcrest.TypeSafeMatcher;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class QueryHolderAssertions {
+class QueryHolderAssertions {
 
     /**
      * Matcher to examine the query with given {@link String} matcher.

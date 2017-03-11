@@ -48,9 +48,9 @@ public class DataSourceProxyMatchers {
      *
      * Example:
      * <pre>
-     * assertThat(ds, executions(0, IS_BATCH));
-     * assertThat(ds, executions(0, IS_STATEMENT));
-     * assertThat(ds, executions(0, IS_STATEMENT_OR_BATCH_STATEMENT));
+     * assertThat(ds, executions(0, ExecutionType.IS_BATCH));
+     * assertThat(ds, executions(0, ExecutionType.IS_STATEMENT));
+     * assertThat(ds, executions(0, ExecutionType.IS_STATEMENT_OR_BATCH_STATEMENT));
      * </pre>
      */
     public static Matcher<ProxyTestDataSource> executions(int index, ExecutionType executionType) {
@@ -830,7 +830,7 @@ public class DataSourceProxyMatchers {
      * Matcher to examine parameter by index with value as {@link Date}.
      * <p>
      * Example:
-     * <pre> assertThat(parameterByIndexHolder, paramAsDate(1, is((float)1.0))); </pre>
+     * <pre> assertThat(parameterByIndexHolder, paramAsDate(1, is(new Date(100)))); </pre>
      */
     public static Matcher<? super ParameterHolder> paramAsDate(Integer index, Matcher<? super Date> matcher) {
         return ParameterHolderAssertions.paramAsDate(index, matcher);

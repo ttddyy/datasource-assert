@@ -2,18 +2,7 @@ package net.ttddyy.dsproxy.test.hamcrest;
 
 import net.ttddyy.dsproxy.QueryType;
 import net.ttddyy.dsproxy.listener.QueryUtils;
-import net.ttddyy.dsproxy.test.CallableBatchExecution;
-import net.ttddyy.dsproxy.test.CallableExecution;
-import net.ttddyy.dsproxy.test.DefaultQueryExtractor;
-import net.ttddyy.dsproxy.test.PreparedBatchExecution;
-import net.ttddyy.dsproxy.test.PreparedExecution;
-import net.ttddyy.dsproxy.test.ProxyTestDataSource;
-import net.ttddyy.dsproxy.test.QueriesHolder;
-import net.ttddyy.dsproxy.test.QueryExecution;
-import net.ttddyy.dsproxy.test.QueryExtractor;
-import net.ttddyy.dsproxy.test.QueryHolder;
-import net.ttddyy.dsproxy.test.StatementBatchExecution;
-import net.ttddyy.dsproxy.test.StatementExecution;
+import net.ttddyy.dsproxy.test.*;
 import org.hamcrest.Description;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
@@ -36,30 +25,18 @@ class ProxyTestDataSourceAssertions {
      *
      * Example:
      * <pre>
-     * assertThat(ds, executions(0, IS_BATCH));
-     * assertThat(ds, executions(0, IS_STATEMENT));
-     * assertThat(ds, executions(0, IS_STATEMENT_OR_BATCH_STATEMENT));
-     * </pre>
-     */
-    public static Matcher<ProxyTestDataSource> executions(int index, ExecutionType executionType) {
-        return executions(index, new ExecutionTypeMatcher(executionType));
-    }
-
-    /**
-     * Matcher for {@link QueryExecution} of given index.
-     *
-     * Example:
-     * <pre>
      * assertThat(ds, executions(0, statement()));
      * assertThat(ds, executions(0, isPreparedOrBatchPrepared()));
      * assertThat(ds, executions(0, is(success())));
      * </pre>
      */
-    public static Matcher<ProxyTestDataSource> executions(final int index, Matcher<? super QueryExecution> queryExecutionMatcher) {
+    public static Matcher<ProxyTestDataSource> executions(final int index,
+            Matcher<? super QueryExecution> queryExecutionMatcher) {
         return new CompositeMatcher<ProxyTestDataSource, QueryExecution>(queryExecutionMatcher) {
 
             @Override
-            protected boolean validateByThisMatcher(ProxyTestDataSource item, Description expected, Description actual) {
+            protected boolean validateByThisMatcher(ProxyTestDataSource item, Description expected,
+                    Description actual) {
                 List<QueryExecution> queryExecutions = item.getQueryExecutions();
                 int size = queryExecutions.size();
                 if (size - 1 < index) {
@@ -81,7 +58,6 @@ class ProxyTestDataSourceAssertions {
             }
         };
     }
-
 
     /**
      * Matcher to check the number of {@link QueryExecution} in {@link ProxyTestDataSource}.
@@ -245,7 +221,6 @@ class ProxyTestDataSourceAssertions {
         };
     }
 
-
     /**
      * Matcher to check the number of queries in {@link QueryExecution} in {@link ProxyTestDataSource}.
      *
@@ -274,7 +249,8 @@ class ProxyTestDataSourceAssertions {
             }
 
             @Override
-            protected void describeMismatchSafely(ProxyTestDataSource item, Description mismatchDescription) {
+            protected void describeMismatchSafely(ProxyTestDataSource item,
+                    Description mismatchDescription) {
                 // but was clause
                 int actualSize = countQueries(item);
                 mismatchDescription.appendText("was " + actualSize + " query executions");
@@ -323,7 +299,6 @@ class ProxyTestDataSourceAssertions {
     public static Matcher<ProxyTestDataSource> updateCount(int count) {
         return new QueryTypeCountMatcher(QueryType.UPDATE, count);
     }
-
 
     /**
      * Matcher to check the number of DELETE queries in {@link QueryExecution} in {@link ProxyTestDataSource}.
@@ -379,9 +354,11 @@ class ProxyTestDataSourceAssertions {
         }
 
         @Override
-        protected void describeMismatchSafely(ProxyTestDataSource item, Description mismatchDescription) {
+        protected void describeMismatchSafely(ProxyTestDataSource item,
+                Description mismatchDescription) {
             // but was clause
-            String msg = "was " + this.matchedCount + " " + this.expectedQueryType + " query executions";
+            String msg =
+                    "was " + this.matchedCount + " " + this.expectedQueryType + " query executions";
             mismatchDescription.appendText(msg);
         }
 

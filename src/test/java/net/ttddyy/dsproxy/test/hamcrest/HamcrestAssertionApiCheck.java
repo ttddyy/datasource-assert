@@ -3,8 +3,8 @@ package net.ttddyy.dsproxy.test.hamcrest;
 import net.ttddyy.dsproxy.QueryType;
 import net.ttddyy.dsproxy.test.*;
 
-import java.sql.JDBCType;
-import java.sql.Types;
+import java.math.BigDecimal;
+import java.sql.*;
 
 import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.*;
 import static org.hamcrest.Matchers.*;
@@ -59,6 +59,7 @@ public class HamcrestAssertionApiCheck {
         assertThat(ds, totalQueryCount(5));
         assertThat(ds, selectCount(3));
         assertThat(ds, insertCount(3));
+        assertThat(ds, otherCount(3));
         assertThat(ds, allOf(updateCount(3), deleteCount(1)));
 
         ds.reset();
@@ -87,7 +88,6 @@ public class HamcrestAssertionApiCheck {
         assertThat(qe, callable());
         assertThat(qe, batchCallable());
         assertThat(qe, callableOrBatchCallable());
-
 
     }
 
@@ -135,6 +135,18 @@ public class HamcrestAssertionApiCheck {
         assertThat(pe, param(1, Integer.class, is(100)));
         assertThat(pe, param(1, is((Object) 100)));  // Object matcher
         assertThat(pe, paramAsInteger(1, is(100)));
+        assertThat(pe, paramAsLong(1, is(100L)));
+        assertThat(pe, paramAsDouble(1, is(100.0)));
+        assertThat(pe, paramAsShort(1, is((short) 1)));
+        assertThat(pe, paramAsBoolean(1, is(true)));
+        assertThat(pe, paramAsByte(1, is(new Byte("1"))));
+        assertThat(pe, paramAsFloat(1, is(Float.valueOf("1"))));
+        assertThat(pe, paramAsBigDecimal(1, is(BigDecimal.ONE)));
+        assertThat(pe, paramAsBytes(1, is("100".getBytes())));
+        assertThat(pe, paramAsDate(1, is(new Date(100))));
+        assertThat(pe, paramAsTime(1, is(new Time(1000))));
+        assertThat(pe, paramAsTimestamp(1, is(new Timestamp(1000))));
+        assertThat(pe, paramAsArray(1, is((Array) new Object())));
         assertThat(pe, paramsByIndex(hasEntry(1, (Object) "FOO")));  // map matcher
 
         // setNull parameters
@@ -195,8 +207,20 @@ public class HamcrestAssertionApiCheck {
         assertThat(ce, param("foo", is((Object) 100)));
         assertThat(ce, param("foo", Integer.class, is(100)));
         assertThat(ce, paramAsInteger("foo", is(100)));
-        assertThat(ce, param(1, is((Object) 100)));
-        assertThat(ce, param(1, Integer.class, is(100)));
+        assertThat(ce, paramAsLong("foo", is(100L)));
+        assertThat(ce, paramAsDouble("foo", is(100.0)));
+        assertThat(ce, paramAsShort("foo", is((short) 1)));
+        assertThat(ce, paramAsBoolean("foo", is(true)));
+        assertThat(ce, paramAsByte("foo", is(new Byte("1"))));
+        assertThat(ce, paramAsFloat("foo", is(Float.valueOf("1"))));
+        assertThat(ce, paramAsBigDecimal("foo", is(BigDecimal.ONE)));
+        assertThat(ce, paramAsBytes("foo", is("100".getBytes())));
+        assertThat(ce, paramAsDate("foo", is(new Date(100))));
+        assertThat(ce, paramAsTime("foo", is(new Time(1000))));
+        assertThat(ce, paramAsTimestamp("foo", is(new Timestamp(1000))));
+        assertThat(ce, paramAsArray("foo", is((Array) new Object())));
+        assertThat(ce, param("foo", is((Object) 100)));
+        assertThat(ce, param("foo", Integer.class, is(100)));
         assertThat(ce, paramAsInteger(1, is(100)));
 
         // setNull parameters

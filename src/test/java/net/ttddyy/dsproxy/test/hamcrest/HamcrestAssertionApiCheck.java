@@ -1,79 +1,13 @@
 package net.ttddyy.dsproxy.test.hamcrest;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.test.CallableBatchExecution;
-import net.ttddyy.dsproxy.test.CallableExecution;
-import net.ttddyy.dsproxy.test.PreparedBatchExecution;
-import net.ttddyy.dsproxy.test.PreparedExecution;
-import net.ttddyy.dsproxy.test.ProxyTestDataSource;
-import net.ttddyy.dsproxy.test.QueryExecution;
-import net.ttddyy.dsproxy.test.StatementBatchExecution;
-import net.ttddyy.dsproxy.test.StatementExecution;
+import net.ttddyy.dsproxy.test.*;
 
 import java.sql.JDBCType;
 import java.sql.Types;
 
-import static net.ttddyy.dsproxy.test.hamcrest.BatchParameterHolderAssertions.batch;
-import static net.ttddyy.dsproxy.test.hamcrest.BatchParameterHolderAssertions.batchSize;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isBatch;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isBatchCallable;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isBatchPrepared;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isBatchStatement;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isCallable;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isCallableOrBatchCallable;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isPrepared;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isPreparedOrBatchPrepared;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isStatement;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.isStatementOrBatchStatement;
-import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.nullParam;
-import static net.ttddyy.dsproxy.test.hamcrest.OutParameterHolderAssertions.outParam;
-import static net.ttddyy.dsproxy.test.hamcrest.OutParameterHolderAssertions.outParamIndexes;
-import static net.ttddyy.dsproxy.test.hamcrest.OutParameterHolderAssertions.outParamNames;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.param;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramAsInteger;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramIndexes;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramNames;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramsByIndex;
-import static net.ttddyy.dsproxy.test.hamcrest.ParameterHolderAssertions.paramsByName;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.batchCallableCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.batchPreparedCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.batchStatementCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.callableCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.callableOrBatchCallableCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.deleteCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.executionCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.executions;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.insertCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.preparedCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.preparedOrBatchPreparedCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.selectCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.statementCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.statementOrBatchStatementCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.totalQueryCount;
-import static net.ttddyy.dsproxy.test.hamcrest.ProxyTestDataSourceAssertions.updateCount;
-import static net.ttddyy.dsproxy.test.hamcrest.QueriesHolderAssertions.queries;
-import static net.ttddyy.dsproxy.test.hamcrest.QueriesHolderAssertions.queryTypes;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.batch;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.batchCallable;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.batchPrepared;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.batchStatement;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.callable;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.callableOrBatchCallable;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.failure;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.prepared;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.preparedOrBatchPrepared;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.statement;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.statementOrBatchStatement;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryExecutionAssertions.success;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.query;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.queryType;
-import static net.ttddyy.dsproxy.test.hamcrest.QueryHolderAssertions.select;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.hasEntry;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.startsWith;
+import static net.ttddyy.dsproxy.test.hamcrest.DataSourceProxyMatchers.*;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -121,38 +55,26 @@ public class HamcrestAssertionApiCheck {
 
         assertThat(ds, executions(0, is(success())));
 
-
         // query count
         assertThat(ds, totalQueryCount(5));
         assertThat(ds, selectCount(3));
         assertThat(ds, insertCount(3));
         assertThat(ds, allOf(updateCount(3), deleteCount(1)));
 
-        // TODO:
-        // ds.reset();
+        ds.reset();
 
         assertThat(ds.getFirstStatement(), query(is("abc")));
         assertThat(ds.getFirstBatchStatement(), queries(0, is("abc")));
         assertThat(ds.getFirstBatchCallable(), query(is("abc")));
 
-//        List<QueryExecution> list = ds.getExecutions()
-        // List<StatementExecution> list = ds.getStatements()
-        // List<StatementBatchExecution> list = ds.getStatements()
-        // List<PreparedExecution> list = ds.getPreparedStatements()
-        // List<PreparedBatchExecution> list = ds.getPreparedStatements()
     }
 
     private void queryExecution() {
-        QueryExecution qe = new StatementExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        QueryExecution qe = ds.getFirstStatement();
 
         assertThat(qe, success());
         assertThat(qe, failure());
-
-        // type of query
-        // TODO: for QueryHolder, QueriesHolder
-//        assertThat(qe, select());
-//        assertThat(qe, delete());
-//        assertThat(qe, anyOf(insert(), update()));
 
         // type of execution
         assertThat(qe, isBatch());
@@ -166,10 +88,12 @@ public class HamcrestAssertionApiCheck {
         assertThat(qe, batchCallable());
         assertThat(qe, callableOrBatchCallable());
 
+
     }
 
     private void statementExecution() {
-        StatementExecution se = new StatementExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        StatementExecution se = ds.getFirstStatement();
 
         assertThat(se, success());
         assertThat(se, failure());
@@ -182,7 +106,8 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void batchStatementExecution() {
-        StatementBatchExecution sbe = new StatementBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertThat(sbe, success());
         assertThat(sbe, failure());
@@ -190,10 +115,12 @@ public class HamcrestAssertionApiCheck {
         assertThat(sbe, queries(0, is("...")));   // string matcher
         assertThat(sbe, queries(hasItems("...", "...")));  // collection matcher
         assertThat(sbe, queryTypes(0, is(select())));
+        assertThat(sbe, queryTypes(0, anyOf(insert(), update())));
     }
 
     private void preparedStatementExecution() {
-        PreparedExecution pe = new PreparedExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        PreparedExecution pe = ds.getFirstPrepared();
 
         assertThat(pe, success());
         assertThat(pe, failure());
@@ -218,7 +145,8 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void preparedBatchStatementExecution() {
-        PreparedBatchExecution pbe = new PreparedBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertThat(pbe, success());
         assertThat(pbe, failure());
@@ -240,17 +168,18 @@ public class HamcrestAssertionApiCheck {
         assertThat(pbe, batch(0, nullParam(10, Types.INTEGER)));
         assertThat(pbe, batch(0, nullParam(10)));
 
-        assertThat(pbe, batch(0, allOf(paramAsInteger(1, is(100)), paramAsInteger(2, is(200)), nullParam(3))));
+        assertThat(pbe, batch(0,
+                allOf(paramAsInteger(1, is(100)), paramAsInteger(2, is(200)), nullParam(3))));
     }
 
     private void callableStatementExecution() {
-        CallableExecution ce = new CallableExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        CallableExecution ce = ds.getFirstCallable();
 
         assertThat(ce, success());
         assertThat(ce, failure());
 
         assertThat(ce, query(is("FOO")));
-
 
         // parameter names/indexes
         assertThat(ce, paramNames("foo", "bar", "baz"));
@@ -276,7 +205,8 @@ public class HamcrestAssertionApiCheck {
         assertThat(ce, nullParam(2));
         assertThat(ce, nullParam(2, Types.INTEGER));
 
-        assertThat(ce, allOf(paramAsInteger(1, is(100)), paramAsInteger("foo", is(100)), nullParam("bar")));
+        assertThat(ce, allOf(paramAsInteger(1, is(100)), paramAsInteger("foo", is(100)),
+                nullParam("bar")));
 
         // registerOut parameters
         assertThat(ce, outParamNames(hasItem("foo")));
@@ -287,11 +217,13 @@ public class HamcrestAssertionApiCheck {
         assertThat(ce, outParam(10, JDBCType.INTEGER));
         assertThat(ce, allOf(outParam("foo", JDBCType.INTEGER), outParam(10, Types.INTEGER)));
 
-        assertThat(ce, allOf(paramAsInteger(10, is(100)), paramAsInteger("foo", is(100)), outParam("bar", JDBCType.INTEGER)));
+        assertThat(ce, allOf(paramAsInteger(10, is(100)), paramAsInteger("foo", is(100)),
+                outParam("bar", JDBCType.INTEGER)));
     }
 
     private void callableBatchStatementExecution() {
-        CallableBatchExecution cbe = new CallableBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertThat(cbe, success());
         assertThat(cbe, failure());
@@ -310,7 +242,6 @@ public class HamcrestAssertionApiCheck {
         assertThat(cbe, batch(0, paramsByName(hasEntry("foo", (Object) "FOO"))));
         assertThat(cbe, batch(0, paramsByIndex(hasEntry(1, (Object) "FOO"))));
 
-
         // parameters
         assertThat(cbe, batch(0, param("foo", is((Object) 100))));
         assertThat(cbe, batch(0, param("foo", Integer.class, is(100))));
@@ -325,8 +256,8 @@ public class HamcrestAssertionApiCheck {
         assertThat(cbe, batch(0, nullParam(2)));
         assertThat(cbe, batch(0, nullParam(2, Types.INTEGER)));
 
-        assertThat(cbe, batch(0, allOf(paramAsInteger(1, is(100)), paramAsInteger("foo", is(100)), nullParam("bar"))));
-
+        assertThat(cbe, batch(0, allOf(paramAsInteger(1, is(100)), paramAsInteger("foo", is(100)),
+                nullParam("bar"))));
 
         // registerOut parameters
         assertThat(cbe, batch(0, outParamNames(hasItem("foo"))));
@@ -335,9 +266,12 @@ public class HamcrestAssertionApiCheck {
         assertThat(cbe, batch(0, outParam("foo", JDBCType.INTEGER)));
         assertThat(cbe, batch(0, outParam(10, Types.INTEGER)));
         assertThat(cbe, batch(0, outParam(10, JDBCType.INTEGER)));
-        assertThat(cbe, batch(0, allOf(outParam("foo", JDBCType.INTEGER), outParam(10, Types.INTEGER))));
+        assertThat(cbe,
+                batch(0, allOf(outParam("foo", JDBCType.INTEGER), outParam(10, Types.INTEGER))));
 
-        assertThat(cbe, batch(0, allOf(paramAsInteger("foo", is(100)), outParam("bar", Types.INTEGER), nullParam("baz"))));
+        assertThat(cbe, batch(0,
+                allOf(paramAsInteger("foo", is(100)), outParam("bar", Types.INTEGER),
+                        nullParam("baz"))));
     }
 
 }

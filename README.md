@@ -1,4 +1,4 @@
-# datasource-assertions
+# datasource-asserts
 
 Assertions for `DataSource` using [datasource-proxy].  
 Also, includes custom assertions for `assertThat` in [Assertj][assertj] and [Hamcrest][hamcrest].
@@ -6,13 +6,13 @@ Also, includes custom assertions for `assertThat` in [Assertj][assertj] and [Ham
 ## Usage examples
 
 ### Regular assertions(assertEquals, etc)
-- [SimpleAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/test/SimpleAssertionApiCheck.java)
+- [SimpleAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/SimpleAssertionApiCheck.java)
 
 ### With AssertJ
-- [AssertJAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/test/assertj/AssertJAssertionApiCheck.java)
+- [AssertJAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/assertj/AssertJAssertionApiCheck.java)
 
 ### With Hamcrest
-- [HamcrestAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/test/hamcrest/HamcrestAssertionApiCheck.java)
+- [HamcrestAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/hamcrest/HamcrestAssertionApiCheck.java)
 
 ----
 

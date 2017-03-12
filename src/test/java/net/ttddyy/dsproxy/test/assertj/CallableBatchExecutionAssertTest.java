@@ -98,7 +98,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetParam("bar", "BAR"));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("bar", "BAR")));
@@ -174,7 +174,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
@@ -217,7 +217,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1), nullParam("bar")));
@@ -263,7 +263,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("foo", JDBCType.BIGINT));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
@@ -332,7 +332,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("foo", "FOO"),
@@ -363,7 +363,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetParam("bar", "BAR"));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(param(1, "foo"), param("bar", "BAR")));
@@ -413,7 +413,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
@@ -463,7 +463,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("bar", Types.DOUBLE));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
@@ -518,7 +518,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamNames("foo", "bar", "baz"));
@@ -546,7 +546,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamIndexes(1, 2, 3));
@@ -574,7 +574,7 @@ public class CallableBatchExecutionAssertTest {
         entry.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         CallableBatchExecution cbe = new CallableBatchExecution();
-        cbe.getBatchExecutionEntries().add(entry);
+        cbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys(1));

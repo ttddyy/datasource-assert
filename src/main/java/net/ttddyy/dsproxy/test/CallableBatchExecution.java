@@ -32,4 +32,8 @@ public class CallableBatchExecution extends BaseQueryExecution implements BatchP
         return batchExecutionEntries;
     }
 
+    public boolean addBatchExecutionEntry(CallableBatchExecutionEntry entry) {
+        return this.batchExecutionEntries.add(entry);
+    }
+
 }

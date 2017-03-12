@@ -1,4 +1,4 @@
-# datasource-asserts
+# datasource-assert
 
 Assertions for `DataSource` using [datasource-proxy].  
 Also, includes custom assertions for `assertThat` in [Assertj][assertj] and [Hamcrest][hamcrest].

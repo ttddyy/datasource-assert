@@ -53,43 +53,7 @@ public class AssertJAssertionApiCheck {
         assertThat(ds).hasDeleteCount(3);
         assertThat(ds).hasOtherCount(3);
 
-
-//        // each execution
-//        assertThat(ds, executions(0, isBatch()));
-//        assertThat(ds, executions(0, batch()));
-//        assertThat(ds, executions(0, is(batch())));
-//
-//        assertThat(ds, executions(0, isStatement()));
-//        assertThat(ds, executions(0, statement()));
-//        assertThat(ds, executions(0, is(isStatement())));
-//
-//        assertThat(ds, executions(0, isBatchStatement()));
-//        assertThat(ds, executions(0, batchStatement()));
-//        assertThat(ds, executions(0, is(batchStatement())));
-//
-//        assertThat(ds, executions(0, isStatementOrBatchStatement()));
-//        assertThat(ds, executions(0, isPrepared()));
-//        assertThat(ds, executions(0, isBatchPrepared()));
-//        assertThat(ds, executions(0, isPreparedOrBatchPrepared()));
-//        assertThat(ds, executions(0, isCallable()));
-//        assertThat(ds, executions(0, isBatchCallable()));
-//        assertThat(ds, executions(0, isCallableOrBatchCallable()));
-//
-//        assertThat(ds, executions(0, is(success())));
-//
-//
-//        // query count
-//        assertThat(ds, totalQueryCount(5));
-//        assertThat(ds, selectCount(3));
-//        assertThat(ds, insertCount(3));
-//        assertThat(ds, allOf(updateCount(3), deleteCount(1)));
-//
-         ds.reset();
-
-//        assertThat(ds.getFirstStatement(), query(is("abc")));
-//        assertThat(ds.getFirstBatchStatement(), queries(0, is("abc")));
-//        assertThat(ds.getFirstBatchCallable(), query(is("abc")));
-//
+        ds.reset();
 
         assertThat(ds.getQueryExecutions().get(0)).isSuccess();
         assertThat(ds.getQueryExecutions().get(0)).isFailure();
@@ -113,12 +77,13 @@ public class AssertJAssertionApiCheck {
         assertThat(ds.getQueryExecutions().get(0)).asBatchCallable();
 
         assertThat(ds.getFirstBatchStatement()).queries().contains("ABC", atIndex(3));
-        ds.getFirstBatchStatement().getQueries().get(3);
+        assertThat(ds.getFirstBatchStatement().getQueries().get(3)).startsWith("SELECT ");
     }
 
 
     private void statementExecution() {
-        StatementExecution se = new StatementExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        StatementExecution se = ds.getFirstStatement();
 
         assertThat(se).isSuccess();
         assertThat(se).isFailure();
@@ -128,7 +93,8 @@ public class AssertJAssertionApiCheck {
     }
 
     private void batchStatementExecution() {
-        StatementBatchExecution sbe = new StatementBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertThat(sbe).isSuccess();
         assertThat(sbe).isFailure();
@@ -141,7 +107,8 @@ public class AssertJAssertionApiCheck {
     }
 
     public void preparedExecution() {
-        PreparedExecution pe = new PreparedExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        PreparedExecution pe = ds.getFirstPrepared();
 
         assertThat(pe).isSuccess();
         assertThat(pe).isFailure();
@@ -156,7 +123,8 @@ public class AssertJAssertionApiCheck {
     }
 
     public void preparedBatchExecution() {
-        PreparedBatchExecution pbe = new PreparedBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertThat(pbe).isSuccess();
         assertThat(pbe).isFailure();
@@ -165,21 +133,16 @@ public class AssertJAssertionApiCheck {
 
         assertThat(pbe).batch(0, containsParams(param(10, "value"), param(11, 100), nullParam(12)));
         assertThat(pbe).batch(0, containsParamsExactly(param(10, "value"), param(11, 100), nullParam(12)));
-//        assertThat(pbe).batch(0, containsParamValuesExactly("value", 100, null, 12));  // TODO: for values??
-
         assertThat(pbe).batch(0, containsParamIndexes(10, 11));
-
-//        assertThat(pbe).batch(0).containsParam(10, "value").containsParam(10, "value");
-//        assertThat(pbe).batch(0).containsParams(param(10, "value"), param(10, "value"), nullParam(12));
-//        assertThat(pbe).batch(0).containsParamIndex(10);
-//        assertThat(pbe).batch(0).containsParamValuesExactly("value", 100, null, 12);
+//        assertThat(pbe).batch(0, containsParamValuesExactly("value", 100, null, 12));  // TODO: for values??
 
         assertThat(pbe.getQuery()).isEqualTo("...");
     }
 
 
     public void callableExecution() {
-        CallableExecution ce = new CallableExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        CallableExecution ce = ds.getFirstCallable();
 
         assertThat(ce).isSuccess();
         assertThat(ce).isFailure();
@@ -189,19 +152,11 @@ public class AssertJAssertionApiCheck {
                 .containsParam(10, "value")
                 .containsOutParam(10, Types.INTEGER)
                 .containsNullParam(10);
-//        assertThat(ce).containsParam(atIndex(10), "value");
 
         assertThat(ce).containsParams(param("key", "value"), param(10, "value"), param("a", 100), outParam("key", Types.INTEGER), nullParam("key"));
+        assertThat(ce).containsParamsExactly(param("key", "value"), param(10, "value"), param("a", 100), outParam("key", Types.INTEGER), nullParam("key"));
         assertThat(ce).containsParamKeys("key").containsParamKeys(10).containsParamIndex(10).containsParamName("key");
         assertThat(ce).containsParamKeys("key", 10).containsParamIndexes(10, 11).containsParamNames("key", "key");
-
-
-//        containsParams
-//        containsParamsExactly
-//        containsParamKeys
-//        containsParamIndexes
-//        containsParamNames
-
 
 //        assertThat(ce).containsOutParams(param("key", "value"), paramAsString("key", "value"));
 //        assertThat(ce).containsNullParams(param("key", "value"), paramAsString("key", "value"));
@@ -209,18 +164,13 @@ public class AssertJAssertionApiCheck {
     }
 
     public void callableBatchExecution() {
-        CallableBatchExecution cbe = new CallableBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource();
+        CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertThat(cbe).isSuccess();
         assertThat(cbe).isFailure();
 
         assertThat(cbe).hasBatchSize(3);
-
-//        assertThat(cbe).batch(0).param("key", "value").paramAsString("key", "value");
-//        assertThat(cbe).batch(0).param(10, "value").paramAsString(10, "value");
-//        assertThat(cbe).batch(0).outParam(10, "value").outParamAsString(10, "value");
-//        assertThat(cbe).batch(0).nullParam(10);
-
         assertThat(cbe).batch(0, containsParams(param("key", "value"), param("key", "value")));
         assertThat(cbe).batch(0, containsParams(param("key", "value"), param(10, "value"), param("a", 100), outParam("key", Types.INTEGER), nullParam("key")));
         assertThat(cbe).batch(0, containsParams(param("key", "value"), param(10, "value")));
@@ -230,19 +180,6 @@ public class AssertJAssertionApiCheck {
         assertThat(cbe).batch(0, containsParamKeys("key", 10));
         assertThat(cbe).batch(0, containsParamIndexes(10, 11));
         assertThat(cbe).batch(0, containsParamNames("key", "key2"));
-
-//        assertThat(cbe).batch(0).containsParam("key", "value").containsParam(10, "value").containsOutParam("key", Types.INTEGER).containsNullParam("key");
-//        assertThat(cbe).batch(0).containsParams(param("key", "value"), param(10, "value"), param("a", 100), outParam("key", Types.INTEGER), nullParam("key"));
-//        assertThat(cbe).batch(0).containsParamKey("key").containsParamKey(10).containsParamIndex(10).containsParamName("key");
-//        assertThat(cbe).batch(0).containsParamKeys("key", 10).containsParamIndexes(10, 11).containsParamNames("key", "key");
-
-//        containsParams
-//        containsParamsExactly
-//        containsParamKeys
-//        containsParamIndexes
-//        containsParamNames
-
-//        assertThat(cbe).batch(0).assertParamAsString(10).isEqualTo("");// string assert
 
         assertThat(cbe.getQuery()).isEqualTo("...");
 

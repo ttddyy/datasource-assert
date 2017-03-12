@@ -84,9 +84,8 @@ public class AssertJAssertionApiCheck {
 //        assertThat(ds, insertCount(3));
 //        assertThat(ds, allOf(updateCount(3), deleteCount(1)));
 //
-//        // TODO:
-//        // ds.reset();
-//
+         ds.reset();
+
 //        assertThat(ds.getFirstStatement(), query(is("abc")));
 //        assertThat(ds.getFirstBatchStatement(), queries(0, is("abc")));
 //        assertThat(ds.getFirstBatchCallable(), query(is("abc")));

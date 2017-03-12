@@ -1,6 +1,7 @@
 package net.ttddyy.dsproxy.test.hamcrest;
 
 import net.ttddyy.dsproxy.test.PreparedBatchExecution;
+import net.ttddyy.dsproxy.test.PreparedBatchExecutionEntry;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
@@ -38,11 +39,11 @@ public class PreparedBatchExecutionMathcerTest {
 
     @Test
     public void testBatchSize() {
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry1 = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry1 = new PreparedBatchExecutionEntry();
         entry1.getAllParameters().add(createSetParam(10, "FOO"));
         entry1.getAllParameters().add(createSetParam(11, "BAR"));
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry2 = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry2 = new PreparedBatchExecutionEntry();
         entry2.getAllParameters().add(createSetParam(20, "FOO"));
         entry2.getAllParameters().add(createSetParam(21, "BAR"));
 
@@ -56,7 +57,7 @@ public class PreparedBatchExecutionMathcerTest {
     @Test
     public void testBatch() {
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "FOO"));
         entry.getAllParameters().add(createSetParam(2, "BAR"));
         entry.getAllParameters().add(createSetParam(10, 100));
@@ -82,7 +83,7 @@ public class PreparedBatchExecutionMathcerTest {
     @Test
     public void testBatchByIndex() {
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "FOO"));
         entry.getAllParameters().add(createSetParam(2, "BAR"));
         entry.getAllParameters().add(createSetParam(3, 100));

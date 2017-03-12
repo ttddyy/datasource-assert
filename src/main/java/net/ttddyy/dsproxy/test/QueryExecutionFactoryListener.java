@@ -10,9 +10,7 @@ import net.ttddyy.dsproxy.proxy.ParameterSetOperation;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createRegisterOut;
-import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createSetNull;
-import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.createSetParam;
+import static net.ttddyy.dsproxy.test.ParameterKeyValueUtils.*;
 
 /**
  * @author Tadaya Tsuyukubo
@@ -107,7 +105,7 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         for (QueryInfo queryInfo : queryInfoList) {
 
             for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                PreparedBatchExecution.PreparedBatchExecutionEntry batchEntry = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+                PreparedBatchExecutionEntry batchEntry = new PreparedBatchExecutionEntry();
                 populateParameterSetOperations(batchEntry, params);
                 pbe.getBatchExecutionEntries().add(batchEntry);
             }
@@ -142,7 +140,7 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         for (QueryInfo queryInfo : queryInfoList) {
 
             for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                CallableBatchExecution.CallableBatchExecutionEntry batchEntry = new CallableBatchExecution.CallableBatchExecutionEntry();
+                CallableBatchExecutionEntry batchEntry = new CallableBatchExecutionEntry();
                 populateParameterSetOperations(batchEntry, params);
                 cbe.getBatchExecutionEntries().add(batchEntry);
             }

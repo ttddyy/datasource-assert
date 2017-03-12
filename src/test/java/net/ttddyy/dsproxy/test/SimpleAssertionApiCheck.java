@@ -5,9 +5,7 @@ import java.sql.Types;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * API compilation check with assertEquals.
@@ -104,9 +102,9 @@ public class SimpleAssertionApiCheck {
         assertEquals(3, batchEntries.size());
 
         BatchExecutionEntry entry = batchEntries.get(0);
-        assertTrue(entry instanceof PreparedBatchExecution.PreparedBatchExecutionEntry);
+        assertTrue(entry instanceof PreparedBatchExecutionEntry);
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry preparedBatchEntry = (PreparedBatchExecution.PreparedBatchExecutionEntry) entry;
+        PreparedBatchExecutionEntry preparedBatchEntry = (PreparedBatchExecutionEntry) entry;
 
         // parameter indexes
         List<Integer> indexes = preparedBatchEntry.getParamIndexes();
@@ -200,9 +198,9 @@ public class SimpleAssertionApiCheck {
         assertEquals(3, batchEntries.size());
 
         BatchExecutionEntry entry = batchEntries.get(0);
-        assertTrue(entry instanceof CallableBatchExecution.CallableBatchExecutionEntry);
+        assertTrue(entry instanceof CallableBatchExecutionEntry);
 
-        CallableBatchExecution.CallableBatchExecutionEntry callableBatchEntry = (CallableBatchExecution.CallableBatchExecutionEntry) entry;
+        CallableBatchExecutionEntry callableBatchEntry = (CallableBatchExecutionEntry) entry;
 
 
         // parameter names/indexes

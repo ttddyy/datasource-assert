@@ -2,7 +2,8 @@ package net.ttddyy.dsproxy.test.assertj;
 
 import net.ttddyy.dsproxy.test.BatchExecutionEntry;
 import net.ttddyy.dsproxy.test.CallableBatchExecution;
-import net.ttddyy.dsproxy.test.PreparedBatchExecution;
+import net.ttddyy.dsproxy.test.CallableBatchExecutionEntry;
+import net.ttddyy.dsproxy.test.PreparedBatchExecutionEntry;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -92,7 +93,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void batchWithContainsParams() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("bar", "BAR"));
 
@@ -168,7 +169,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void containsParamsWithSetNullParameters() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetNull(1, Types.VARCHAR));
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
@@ -211,7 +212,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void containsParamsWithSetNullParametersOnlyKeys() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetNull(1, Types.VARCHAR));
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
@@ -255,7 +256,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void containsParamsWithRegisterOutParameters() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createRegisterOut(1, Types.BOOLEAN));
         entry.getAllParameters().add(createRegisterOut("bar", Types.DOUBLE));
         entry.getAllParameters().add(createRegisterOut(2, JDBCType.VARCHAR));
@@ -322,7 +323,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void containsParamsWithMixedParameterTypes() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("foo", "FOO"));
         entry.getAllParameters().add(createSetNull(2, Types.VARCHAR));
@@ -357,7 +358,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void batchParamKeysWithContainsParamsExactly() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("bar", "BAR"));
 
@@ -407,7 +408,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void batchParamKeysWithContainsParamsExactlyForSetNullParameters() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetNull(1, Types.VARCHAR));
         entry.getAllParameters().add(createSetNull("bar", Types.DATE));
 
@@ -457,7 +458,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void batchParamKeysWithContainsParamsExactlyForRegisterOutParameters() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createRegisterOut(1, Types.BOOLEAN));
         entry.getAllParameters().add(createRegisterOut("bar", Types.DOUBLE));
 
@@ -507,7 +508,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void testBatchParamKeyNames() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
 
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("foo", "FOO"));
@@ -536,7 +537,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void testBatchParamKeyIndexes() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("foo", "FOO"));
         entry.getAllParameters().add(createSetNull(2, Types.VARCHAR));
@@ -564,7 +565,7 @@ public class CallableBatchExecutionAssertTest {
 
     @Test
     public void testBatchParamKeys() {
-        CallableBatchExecution.CallableBatchExecutionEntry entry = new CallableBatchExecution.CallableBatchExecutionEntry();
+        CallableBatchExecutionEntry entry = new CallableBatchExecutionEntry();
         entry.getAllParameters().add(createSetParam(1, "foo"));
         entry.getAllParameters().add(createSetParam("foo", "FOO"));
         entry.getAllParameters().add(createSetNull(2, Types.VARCHAR));
@@ -602,7 +603,7 @@ public class CallableBatchExecutionAssertTest {
     @Test
     public void testBatchWithWrongBatchExecutionEntryType() {
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
 
         CallableBatchExecution cbe = new CallableBatchExecution();
         cbe.getBatchExecutionEntries().add(entry);  // setting wrong type

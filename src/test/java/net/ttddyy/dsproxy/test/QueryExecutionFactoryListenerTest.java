@@ -154,13 +154,13 @@ public class QueryExecutionFactoryListenerTest {
         PreparedBatchExecution pbe = (PreparedBatchExecution) queryExecutions.get(0);
         assertThat(pbe.getQuery()).isEqualTo("SELECT id FROM foo");
         assertThat(pbe.getBatchExecutionEntries()).hasSize(2);
-        assertThat(pbe.getBatchExecutionEntries().get(0)).isInstanceOf(PreparedBatchExecution.PreparedBatchExecutionEntry.class);
-        PreparedBatchExecution.PreparedBatchExecutionEntry batchEntry1 = (PreparedBatchExecution.PreparedBatchExecutionEntry) pbe.getBatchExecutionEntries().get(0);
+        assertThat(pbe.getBatchExecutionEntries().get(0)).isInstanceOf(PreparedBatchExecutionEntry.class);
+        PreparedBatchExecutionEntry batchEntry1 = (PreparedBatchExecutionEntry) pbe.getBatchExecutionEntries().get(0);
         assertThat(batchEntry1.getParamIndexes()).hasSize(2).containsSequence(1, 2);
         assertThat(batchEntry1.getSetParamsByIndex()).hasSize(2).containsEntry(1, 100).containsEntry(2, 200);
         assertThat(batchEntry1.getSetNullParamsByIndex()).isEmpty();
-        assertThat(pbe.getBatchExecutionEntries().get(1)).isInstanceOf(PreparedBatchExecution.PreparedBatchExecutionEntry.class);
-        PreparedBatchExecution.PreparedBatchExecutionEntry batchEntry2 = (PreparedBatchExecution.PreparedBatchExecutionEntry) pbe.getBatchExecutionEntries().get(1);
+        assertThat(pbe.getBatchExecutionEntries().get(1)).isInstanceOf(PreparedBatchExecutionEntry.class);
+        PreparedBatchExecutionEntry batchEntry2 = (PreparedBatchExecutionEntry) pbe.getBatchExecutionEntries().get(1);
         assertThat(batchEntry2.getParamIndexes()).hasSize(3).containsSequence(10, 20, 30);
         assertThat(batchEntry2.getSetParamsByIndex()).hasSize(2).containsEntry(10, 1000).containsEntry(20, 2000);
         assertThat(batchEntry2.getSetNullParamsByIndex()).hasSize(1).containsEntry(30, Types.INTEGER);
@@ -268,10 +268,10 @@ public class QueryExecutionFactoryListenerTest {
         assertThat(cbe.getQuery()).isEqualTo("SELECT id FROM foo");
 
         assertThat(cbe.getBatchExecutionEntries()).hasSize(2);
-        assertThat(cbe.getBatchExecutionEntries().get(0)).isInstanceOf(CallableBatchExecution.CallableBatchExecutionEntry.class);
-        assertThat(cbe.getBatchExecutionEntries().get(1)).isInstanceOf(CallableBatchExecution.CallableBatchExecutionEntry.class);
+        assertThat(cbe.getBatchExecutionEntries().get(0)).isInstanceOf(CallableBatchExecutionEntry.class);
+        assertThat(cbe.getBatchExecutionEntries().get(1)).isInstanceOf(CallableBatchExecutionEntry.class);
 
-        CallableBatchExecution.CallableBatchExecutionEntry batchEntry1 = (CallableBatchExecution.CallableBatchExecutionEntry) cbe.getBatchExecutionEntries().get(0);
+        CallableBatchExecutionEntry batchEntry1 = (CallableBatchExecutionEntry) cbe.getBatchExecutionEntries().get(0);
         assertThat(batchEntry1.getParamIndexes()).hasSize(2).contains(1, 3);
         assertThat(batchEntry1.getParamNames()).hasSize(2).contains("foo", "baz");
         assertThat(batchEntry1.getSetParamsByIndex()).hasSize(1).containsEntry(1, 100);
@@ -284,7 +284,7 @@ public class QueryExecutionFactoryListenerTest {
         assertThat(batchEntry1.getOutParamsByName()).hasSize(1).containsEntry("foo-out", 1000);
 
 
-        CallableBatchExecution.CallableBatchExecutionEntry batchEntry2 = (CallableBatchExecution.CallableBatchExecutionEntry) cbe.getBatchExecutionEntries().get(1);
+        CallableBatchExecutionEntry batchEntry2 = (CallableBatchExecutionEntry) cbe.getBatchExecutionEntries().get(1);
         assertThat(batchEntry2.getParamIndexes()).hasSize(1).contains(2);
         assertThat(batchEntry2.getParamNames()).hasSize(1).contains("bar");
         assertThat(batchEntry2.getSetParamsByIndex()).hasSize(1).containsEntry(2, 200);

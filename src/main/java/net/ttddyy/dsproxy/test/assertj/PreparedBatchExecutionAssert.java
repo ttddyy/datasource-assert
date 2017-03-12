@@ -1,6 +1,7 @@
 package net.ttddyy.dsproxy.test.assertj;
 
 import net.ttddyy.dsproxy.test.PreparedBatchExecution;
+import net.ttddyy.dsproxy.test.PreparedBatchExecutionEntry;
 import net.ttddyy.dsproxy.test.assertj.data.ExecutionParameters;
 import net.ttddyy.dsproxy.test.assertj.helper.BatchExecutionEntryAsserts;
 import net.ttddyy.dsproxy.test.assertj.helper.ExecutionParameterAsserts;
@@ -35,10 +36,10 @@ public class PreparedBatchExecutionAssert extends AbstractExecutionAssert<Prepar
 
     public PreparedBatchExecutionAssert batch(int batchIndex, ExecutionParameters params) {
 
-        this.batchAssert.assertBatchExecutionEntry(this.actual, batchIndex, PreparedBatchExecution.PreparedBatchExecutionEntry.class);
+        this.batchAssert.assertBatchExecutionEntry(this.actual, batchIndex, PreparedBatchExecutionEntry.class);
 
         // entry is validated to be the one for prepared
-        PreparedBatchExecution.PreparedBatchExecutionEntry batchEntry = (PreparedBatchExecution.PreparedBatchExecutionEntry) this.actual.getBatchExecutionEntries().get(batchIndex);
+        PreparedBatchExecutionEntry batchEntry = (PreparedBatchExecutionEntry) this.actual.getBatchExecutionEntries().get(batchIndex);
         this.parameterAssert.assertParameterKeys(batchEntry, params, false);
 
         if (ExecutionParameters.ExecutionParametersType.CONTAINS_KEYS_ONLY == params.getType()) {

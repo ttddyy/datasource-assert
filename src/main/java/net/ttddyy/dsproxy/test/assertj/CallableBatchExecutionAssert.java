@@ -1,6 +1,7 @@
 package net.ttddyy.dsproxy.test.assertj;
 
 import net.ttddyy.dsproxy.test.CallableBatchExecution;
+import net.ttddyy.dsproxy.test.CallableBatchExecutionEntry;
 import net.ttddyy.dsproxy.test.assertj.data.ExecutionParameters;
 import net.ttddyy.dsproxy.test.assertj.helper.BatchExecutionEntryAsserts;
 import net.ttddyy.dsproxy.test.assertj.helper.ExecutionParameterAsserts;
@@ -36,10 +37,10 @@ public class CallableBatchExecutionAssert extends AbstractExecutionAssert<Callab
 
     public CallableBatchExecutionAssert batch(int batchIndex, ExecutionParameters params) {
 
-        this.batchAssert.assertBatchExecutionEntry(this.actual, batchIndex, CallableBatchExecution.CallableBatchExecutionEntry.class);
+        this.batchAssert.assertBatchExecutionEntry(this.actual, batchIndex, CallableBatchExecutionEntry.class);
 
         // entry is validated to be the one for callable
-        CallableBatchExecution.CallableBatchExecutionEntry batchEntry = (CallableBatchExecution.CallableBatchExecutionEntry) this.actual.getBatchExecutionEntries().get(batchIndex);
+        CallableBatchExecutionEntry batchEntry = (CallableBatchExecutionEntry) this.actual.getBatchExecutionEntries().get(batchIndex);
         this.parameterAssert.assertParameterKeys(batchEntry, params, true);
 
 

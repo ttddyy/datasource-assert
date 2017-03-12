@@ -4,7 +4,7 @@ import net.ttddyy.dsproxy.test.ParameterByIndexHolder;
 import net.ttddyy.dsproxy.test.ParameterByNameHolder;
 import net.ttddyy.dsproxy.test.ParameterHolder;
 import net.ttddyy.dsproxy.test.ParameterKeyValue;
-import net.ttddyy.dsproxy.test.PreparedBatchExecution;
+import net.ttddyy.dsproxy.test.PreparedBatchExecutionEntry;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
@@ -227,7 +227,7 @@ public class ParameterHolderMatcherTest {
     @Test
     public void testFailureMessageOfSubMatcherFailure() {
 
-        PreparedBatchExecution.PreparedBatchExecutionEntry entry = new PreparedBatchExecution.PreparedBatchExecutionEntry();
+        PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
 
         Matcher<String> subMatcher = is("foo");
         ParameterHolderMatcher.ParameterByIndexMatcher matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {

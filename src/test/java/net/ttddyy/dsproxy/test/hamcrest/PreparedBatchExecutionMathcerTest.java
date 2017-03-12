@@ -48,8 +48,8 @@ public class PreparedBatchExecutionMathcerTest {
         entry2.getAllParameters().add(createSetParam(21, "BAR"));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry1);
-        pbe.getBatchExecutionEntries().add(entry2);
+        pbe.addBatchExecutionEntry(entry1);
+        pbe.addBatchExecutionEntry(entry2);
 
         assertThat(pbe, batchSize(2));
     }
@@ -63,7 +63,7 @@ public class PreparedBatchExecutionMathcerTest {
         entry.getAllParameters().add(createSetParam(10, 100));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         assertThat(pbe, batch(0, paramsByIndex(hasEntry(2, (Object) "BAR"))));
         assertThat(pbe, batch(0, paramsByIndex(hasEntry(10, (Object) 100))));
@@ -90,7 +90,7 @@ public class PreparedBatchExecutionMathcerTest {
 
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         assertThat(pbe, batch(0, paramsByIndex(hasEntry(2, (Object) "BAR"))));
         assertThat(pbe, batch(0, paramsByIndex(hasEntry(3, (Object) 100))));

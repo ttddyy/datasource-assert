@@ -107,7 +107,7 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
             for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
                 PreparedBatchExecutionEntry batchEntry = new PreparedBatchExecutionEntry();
                 populateParameterSetOperations(batchEntry, params);
-                pbe.getBatchExecutionEntries().add(batchEntry);
+                pbe.addBatchExecutionEntry(batchEntry);
             }
         }
 

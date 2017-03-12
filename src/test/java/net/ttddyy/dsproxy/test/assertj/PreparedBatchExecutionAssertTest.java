@@ -91,7 +91,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetParam(2, "bar"));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParams(param(1, "foo"), param(2, "bar")));
@@ -158,7 +158,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(2, Types.DATE));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParams(nullParam(1, Types.VARCHAR), nullParam(2, Types.DATE)));
@@ -193,7 +193,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(2, Types.DATE));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParams(nullParam(1), nullParam(2)));
@@ -239,7 +239,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(20, Types.DATE));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful call
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParams(param(1, "foo"), nullParam(2, Types.VARCHAR)));
@@ -267,7 +267,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetParam(2, "BAR"));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParamsExactly(param(1, "foo"), param(2, "BAR")));
@@ -299,7 +299,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(2, Types.DATE));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
 
         // successful case
@@ -333,7 +333,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(2, Types.VARCHAR));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParamIndexes(1, 2));
@@ -357,7 +357,7 @@ public class PreparedBatchExecutionAssertTest {
         entry.getAllParameters().add(createSetNull(2, Types.VARCHAR));
 
         PreparedBatchExecution pbe = new PreparedBatchExecution();
-        pbe.getBatchExecutionEntries().add(entry);
+        pbe.addBatchExecutionEntry(entry);
 
         // successful case
         DataSourceProxyAssertions.assertThat(pbe).batch(0, containsParamKeys(1));

@@ -28,6 +28,11 @@ public class PreparedBatchExecution extends BaseQueryExecution implements QueryH
 
     @Override
     public List<BatchExecutionEntry> getBatchExecutionEntries() {
-        return batchExecutionEntries;
+        return this.batchExecutionEntries;
     }
+
+    public boolean addBatchExecutionEntry(PreparedBatchExecutionEntry entry) {
+        return this.batchExecutionEntries.add(entry);
+    }
+
 }

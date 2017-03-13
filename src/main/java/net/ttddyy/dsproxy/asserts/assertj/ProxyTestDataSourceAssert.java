@@ -1,12 +1,12 @@
 package net.ttddyy.dsproxy.asserts.assertj;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.listener.QueryUtils;
 import net.ttddyy.dsproxy.asserts.DefaultQueryExtractor;
 import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
 import net.ttddyy.dsproxy.asserts.QueryExecution;
 import net.ttddyy.dsproxy.asserts.QueryExtractor;
 import net.ttddyy.dsproxy.asserts.hamcrest.ExecutionType;
+import net.ttddyy.dsproxy.listener.QueryUtils;
 import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.data.Index;
 import org.assertj.core.internal.Objects;

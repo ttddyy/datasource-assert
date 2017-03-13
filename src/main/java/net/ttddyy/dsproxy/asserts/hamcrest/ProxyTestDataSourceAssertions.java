@@ -1,8 +1,19 @@
 package net.ttddyy.dsproxy.asserts.hamcrest;
 
 import net.ttddyy.dsproxy.QueryType;
+import net.ttddyy.dsproxy.asserts.CallableBatchExecution;
+import net.ttddyy.dsproxy.asserts.CallableExecution;
+import net.ttddyy.dsproxy.asserts.DefaultQueryExtractor;
+import net.ttddyy.dsproxy.asserts.PreparedBatchExecution;
+import net.ttddyy.dsproxy.asserts.PreparedExecution;
+import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
+import net.ttddyy.dsproxy.asserts.QueriesHolder;
+import net.ttddyy.dsproxy.asserts.QueryExecution;
+import net.ttddyy.dsproxy.asserts.QueryExtractor;
+import net.ttddyy.dsproxy.asserts.QueryHolder;
+import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
+import net.ttddyy.dsproxy.asserts.StatementExecution;
 import net.ttddyy.dsproxy.listener.QueryUtils;
-import net.ttddyy.dsproxy.asserts.*;
 import org.hamcrest.Description;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;

@@ -10,7 +10,9 @@ import net.ttddyy.dsproxy.proxy.ParameterSetOperation;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.*;
+import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.createRegisterOut;
+import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.createSetNull;
+import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.createSetParam;
 
 /**
  * @author Tadaya Tsuyukubo

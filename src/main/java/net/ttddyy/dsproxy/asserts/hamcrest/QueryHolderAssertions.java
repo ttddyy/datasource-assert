@@ -1,8 +1,8 @@
 package net.ttddyy.dsproxy.asserts.hamcrest;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.listener.QueryUtils;
 import net.ttddyy.dsproxy.asserts.QueryHolder;
+import net.ttddyy.dsproxy.listener.QueryUtils;
 import org.hamcrest.Description;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;

@@ -1,8 +1,8 @@
 package net.ttddyy.dsproxy.asserts.assertj;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.listener.QueryUtils;
 import net.ttddyy.dsproxy.asserts.StatementExecution;
+import net.ttddyy.dsproxy.listener.QueryUtils;
 import org.assertj.core.api.AbstractCharSequenceAssert;
 import org.assertj.core.api.Assertions;
 

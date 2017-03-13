@@ -1,11 +1,26 @@
 package net.ttddyy.dsproxy.asserts.hamcrest;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.asserts.*;
+import net.ttddyy.dsproxy.asserts.BatchParameterHolder;
+import net.ttddyy.dsproxy.asserts.CallableBatchExecution;
+import net.ttddyy.dsproxy.asserts.CallableExecution;
+import net.ttddyy.dsproxy.asserts.ParameterHolder;
+import net.ttddyy.dsproxy.asserts.PreparedBatchExecution;
+import net.ttddyy.dsproxy.asserts.PreparedExecution;
+import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
+import net.ttddyy.dsproxy.asserts.QueriesHolder;
+import net.ttddyy.dsproxy.asserts.QueryExecution;
+import net.ttddyy.dsproxy.asserts.QueryHolder;
+import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
+import net.ttddyy.dsproxy.asserts.StatementExecution;
 import org.hamcrest.Matcher;
 
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Array;
+import java.sql.Date;
+import java.sql.SQLType;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Map;
 

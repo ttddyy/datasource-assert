@@ -1,9 +1,12 @@
 package net.ttddyy.dsproxy.asserts.assertj;
 
 import net.ttddyy.dsproxy.QueryType;
-import net.ttddyy.dsproxy.listener.QueryUtils;
 import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
-import org.assertj.core.api.*;
+import net.ttddyy.dsproxy.listener.QueryUtils;
+import org.assertj.core.api.AbstractCharSequenceAssert;
+import org.assertj.core.api.AbstractListAssert;
+import org.assertj.core.api.Assertions;
+import org.assertj.core.api.ObjectAssert;
 import org.assertj.core.data.Index;
 
 import java.util.List;

@@ -9,6 +9,7 @@ import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
 import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
 import net.ttddyy.dsproxy.asserts.StatementExecution;
 
+import javax.sql.DataSource;
 import java.sql.Types;
 
 import static net.ttddyy.dsproxy.asserts.assertj.DataSourceProxyAssertions.assertThat;
@@ -30,9 +31,10 @@ import static org.assertj.core.api.Assertions.atIndex;
  */
 public class AssertJAssertionApiCheck {
 
+    private DataSource actualDataSource;
 
     private void testDataSource() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
 
         // execution count
         assertThat(ds).hasExecutionCount(3);
@@ -82,7 +84,7 @@ public class AssertJAssertionApiCheck {
 
 
     private void statementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         StatementExecution se = ds.getFirstStatement();
 
         assertThat(se).isSuccess();
@@ -93,7 +95,7 @@ public class AssertJAssertionApiCheck {
     }
 
     private void batchStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertThat(sbe).isSuccess();
@@ -107,7 +109,7 @@ public class AssertJAssertionApiCheck {
     }
 
     public void preparedExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         PreparedExecution pe = ds.getFirstPrepared();
 
         assertThat(pe).isSuccess();
@@ -123,7 +125,7 @@ public class AssertJAssertionApiCheck {
     }
 
     public void preparedBatchExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertThat(pbe).isSuccess();
@@ -141,7 +143,7 @@ public class AssertJAssertionApiCheck {
 
 
     public void callableExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         CallableExecution ce = ds.getFirstCallable();
 
         assertThat(ce).isSuccess();
@@ -164,7 +166,7 @@ public class AssertJAssertionApiCheck {
     }
 
     public void callableBatchExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertThat(cbe).isSuccess();

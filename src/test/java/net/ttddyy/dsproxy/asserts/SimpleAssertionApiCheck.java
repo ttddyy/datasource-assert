@@ -1,5 +1,6 @@
 package net.ttddyy.dsproxy.asserts;
 
+import javax.sql.DataSource;
 import java.sql.JDBCType;
 import java.sql.Types;
 import java.util.List;
@@ -14,8 +15,10 @@ import static org.junit.Assert.*;
  */
 public class SimpleAssertionApiCheck {
 
+    private DataSource actualDataSource;
+
     public void dataSource() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
 
         // execution count
         assertEquals(3, ds.getQueryExecutions().size());
@@ -29,7 +32,7 @@ public class SimpleAssertionApiCheck {
     }
 
     public void queryExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
 
         // each execution
         QueryExecution qe = ds.getQueryExecutions().get(0);
@@ -44,7 +47,8 @@ public class SimpleAssertionApiCheck {
     }
 
     public void statement() {
-        StatementExecution se = new StatementExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        StatementExecution se = ds.getFirstStatement();
 
         assertTrue(se.isSuccess());
         assertFalse(se.isSuccess());
@@ -53,7 +57,8 @@ public class SimpleAssertionApiCheck {
     }
 
     public void batchStatement() {
-        StatementBatchExecution sbe = new StatementBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertTrue(sbe.isSuccess());
         assertFalse(sbe.isSuccess());
@@ -64,7 +69,8 @@ public class SimpleAssertionApiCheck {
     }
 
     public void prepared() {
-        PreparedExecution pe = new PreparedExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        PreparedExecution pe = ds.getFirstPrepared();
 
         assertTrue(pe.isSuccess());
         assertFalse(pe.isSuccess());
@@ -89,8 +95,8 @@ public class SimpleAssertionApiCheck {
     }
 
     public void batchPrepared() {
-
-        PreparedBatchExecution pbe = new PreparedBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertTrue(pbe.isSuccess());
         assertFalse(pbe.isSuccess());
@@ -123,8 +129,8 @@ public class SimpleAssertionApiCheck {
     }
 
     public void callable() {
-
-        CallableExecution ce = new CallableExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        CallableExecution ce = ds.getFirstCallable();
 
         assertTrue(ce.isSuccess());
         assertFalse(ce.isSuccess());
@@ -184,8 +190,8 @@ public class SimpleAssertionApiCheck {
 
     public void batchCallable() {
 
-
-        CallableBatchExecution cbe = new CallableBatchExecution();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertTrue(cbe.isSuccess());
         assertFalse(cbe.isSuccess());

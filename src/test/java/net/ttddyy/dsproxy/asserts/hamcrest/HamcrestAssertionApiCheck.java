@@ -3,6 +3,7 @@ package net.ttddyy.dsproxy.asserts.hamcrest;
 import net.ttddyy.dsproxy.QueryType;
 import net.ttddyy.dsproxy.asserts.*;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
 
@@ -17,8 +18,10 @@ import static org.junit.Assert.assertThat;
  */
 public class HamcrestAssertionApiCheck {
 
+    private DataSource actualDataSource;
+
     private void testDataSource() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
 
         // execution count
         assertThat(ds, executionCount(3));
@@ -71,7 +74,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void queryExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         QueryExecution qe = ds.getFirstStatement();
 
         assertThat(qe, success());
@@ -92,7 +95,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void statementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         StatementExecution se = ds.getFirstStatement();
 
         assertThat(se, success());
@@ -106,7 +109,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void batchStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertThat(sbe, success());
@@ -119,7 +122,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void preparedStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         PreparedExecution pe = ds.getFirstPrepared();
 
         assertThat(pe, success());
@@ -157,7 +160,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void preparedBatchStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertThat(pbe, success());
@@ -185,7 +188,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void callableStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         CallableExecution ce = ds.getFirstCallable();
 
         assertThat(ce, success());
@@ -246,7 +249,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void callableBatchStatementExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource();
+        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
         CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertThat(cbe, success());

@@ -16,6 +16,7 @@ import static org.junit.Assert.fail;
 public class CompositeMatcherTest {
 
     @Test
+    @SuppressWarnings("unchecked")
     public void whenWrongExpectedTypeForCompositeMatcher() {
         Matcher<String> subMatcher = startsWith("foo");
 

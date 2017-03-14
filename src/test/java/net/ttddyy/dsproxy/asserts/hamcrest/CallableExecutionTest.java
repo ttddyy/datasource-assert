@@ -73,6 +73,7 @@ public class CallableExecutionTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testParamValueByName() {
         CallableExecution ce = new CallableExecution();
         ce.getAllParameters().add(createSetParam("foo", "FOO"));
@@ -85,6 +86,7 @@ public class CallableExecutionTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testParamValueByIndex() {
         CallableExecution ce = new CallableExecution();
         ce.getAllParameters().add(createSetParam(1, "FOO"));

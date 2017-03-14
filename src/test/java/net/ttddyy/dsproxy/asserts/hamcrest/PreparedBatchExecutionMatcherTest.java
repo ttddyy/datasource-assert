@@ -55,6 +55,7 @@ public class PreparedBatchExecutionMatcherTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testBatch() {
 
         PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
@@ -81,6 +82,7 @@ public class PreparedBatchExecutionMatcherTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testBatchByIndex() {
 
         PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();

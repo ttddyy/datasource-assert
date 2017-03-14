@@ -54,6 +54,7 @@ public class PreparedExecutionTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testParamValue() {
         PreparedExecution pe = new PreparedExecution();
         pe.getAllParameters().add(createSetParam(1, "foo"));

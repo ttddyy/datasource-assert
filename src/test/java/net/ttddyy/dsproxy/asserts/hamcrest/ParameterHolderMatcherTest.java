@@ -146,7 +146,7 @@ public class ParameterHolderMatcherTest {
         MockIndexOnlyParamHolder entry = new MockIndexOnlyParamHolder();
 
         Matcher<String> subMatcher = is("foo");
-        ParameterHolderMatcher.ParameterByNameMatcher matcher = new ParameterHolderMatcher.ParameterByNameMatcher<String>(subMatcher) {
+        ParameterHolderMatcher.ParameterByNameMatcher<String> matcher = new ParameterHolderMatcher.ParameterByNameMatcher<String>(subMatcher) {
             @Override
             public String featureValueOf(ParameterByNameHolder actual) {
                 return "bar";
@@ -164,7 +164,7 @@ public class ParameterHolderMatcherTest {
         MockNameOnlyParamHolder entry = new MockNameOnlyParamHolder();
 
         Matcher<String> subMatcher = is("foo");
-        ParameterHolderMatcher.ParameterByIndexMatcher matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
+        ParameterHolderMatcher.ParameterByIndexMatcher<String> matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
             @Override
             public String featureValueOf(ParameterByIndexHolder actual) {
                 return "bar";
@@ -182,7 +182,7 @@ public class ParameterHolderMatcherTest {
         MockIndexOnlyParamHolder entry = new MockIndexOnlyParamHolder();
 
         Matcher<String> subMatcher = is("foo");
-        ParameterHolderMatcher.ParameterByIndexMatcher matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
+        ParameterHolderMatcher.ParameterByIndexMatcher<String> matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
             @Override
             public String featureValueOf(ParameterByIndexHolder actual) {
                 return "bar";
@@ -206,7 +206,7 @@ public class ParameterHolderMatcherTest {
         MockNameOnlyParamHolder entry = new MockNameOnlyParamHolder();
 
         Matcher<String> subMatcher = is("foo");
-        ParameterHolderMatcher.ParameterByNameMatcher matcher = new ParameterHolderMatcher.ParameterByNameMatcher<String>(subMatcher) {
+        ParameterHolderMatcher.ParameterByNameMatcher<String> matcher = new ParameterHolderMatcher.ParameterByNameMatcher<String>(subMatcher) {
             @Override
             public String featureValueOf(ParameterByNameHolder actual) {
                 return "bar";
@@ -230,7 +230,7 @@ public class ParameterHolderMatcherTest {
         PreparedBatchExecutionEntry entry = new PreparedBatchExecutionEntry();
 
         Matcher<String> subMatcher = is("foo");
-        ParameterHolderMatcher.ParameterByIndexMatcher matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
+        ParameterHolderMatcher.ParameterByIndexMatcher<String> matcher = new ParameterHolderMatcher.ParameterByIndexMatcher<String>(subMatcher) {
             @Override
             public String featureValueOf(ParameterByIndexHolder actual) {
                 return "bar";
@@ -242,6 +242,7 @@ public class ParameterHolderMatcherTest {
     }
 
 
+    @SuppressWarnings("unchecked")
     private void validateAssertMessage(Object actual, Matcher matcher, String expected) {
         String message = "";
         try {

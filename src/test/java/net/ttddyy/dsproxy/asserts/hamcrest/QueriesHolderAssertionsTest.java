@@ -68,6 +68,7 @@ public class QueriesHolderAssertionsTest {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     public void queriesWithCollectionMatcher() {
         StatementBatchExecution sbe = new StatementBatchExecution();
         sbe.getQueries().add("foo");

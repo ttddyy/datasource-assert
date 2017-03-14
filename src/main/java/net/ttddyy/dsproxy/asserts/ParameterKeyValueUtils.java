@@ -64,7 +64,7 @@ public class ParameterKeyValueUtils {
     }
 
     public static SortedSet<ParameterKeyValue> filterBy(SortedSet<ParameterKeyValue> parameters, ParameterKeyValue.OperationType... operationTypes) {
-        SortedSet<ParameterKeyValue> result = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> result = new TreeSet<>();
         for (ParameterKeyValue keyValue : parameters) {
             if (Arrays.asList(operationTypes).contains(keyValue.getType())) {
                 result.add(keyValue);
@@ -74,7 +74,7 @@ public class ParameterKeyValueUtils {
     }
 
     public static SortedSet<ParameterKeyValue> filterByKeyType(SortedSet<ParameterKeyValue> parameters, ParameterKey.ParameterKeyType keyType) {
-        SortedSet<ParameterKeyValue> result = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> result = new TreeSet<>();
         for (ParameterKeyValue keyValue : parameters) {
             if (keyValue.getKey().getType() == keyType) {
                 result.add(keyValue);
@@ -84,7 +84,7 @@ public class ParameterKeyValueUtils {
     }
 
     public static SortedSet<ParameterKey> toParamKeys(SortedSet<ParameterKeyValue> parameters) {
-        SortedSet<ParameterKey> result = new TreeSet<ParameterKey>();
+        SortedSet<ParameterKey> result = new TreeSet<>();
         for (ParameterKeyValue keyValue : parameters) {
             result.add(keyValue.getKey());
         }
@@ -93,7 +93,7 @@ public class ParameterKeyValueUtils {
 
     @SuppressWarnings("unchecked")
     public static <T> Map<ParameterKey, T> toKeyValueMap(SortedSet<ParameterKeyValue> keyValues) {
-        Map<ParameterKey, T> result = new LinkedHashMap<ParameterKey, T>();
+        Map<ParameterKey, T> result = new LinkedHashMap<>();
         for (ParameterKeyValue keyValue : keyValues) {
             result.put(keyValue.getKey(), (T) keyValue.getValue());
         }
@@ -102,7 +102,7 @@ public class ParameterKeyValueUtils {
 
     @SuppressWarnings("unchecked")
     public static <T> Map<Integer, T> toKeyIndexMap(SortedSet<ParameterKeyValue> keyValues) {
-        Map<Integer, T> result = new LinkedHashMap<Integer, T>();
+        Map<Integer, T> result = new LinkedHashMap<>();
         for (ParameterKeyValue keyValue : keyValues) {
             result.put(keyValue.getKey().getIndex(), (T) keyValue.getValue());
         }
@@ -111,7 +111,7 @@ public class ParameterKeyValueUtils {
 
     @SuppressWarnings("unchecked")
     public static <T> Map<String, T> toKeyNameMap(SortedSet<ParameterKeyValue> keyValues) {
-        Map<String, T> result = new LinkedHashMap<String, T>();
+        Map<String, T> result = new LinkedHashMap<>();
         for (ParameterKeyValue keyValue : keyValues) {
             result.put(keyValue.getKey().getName(), (T) keyValue.getValue());
         }
@@ -119,7 +119,7 @@ public class ParameterKeyValueUtils {
     }
 
     public static Map<ParameterKey, ParameterKeyValue> toParamKeyMap(SortedSet<ParameterKeyValue> keyValues) {
-        Map<ParameterKey, ParameterKeyValue> result = new LinkedHashMap<ParameterKey, ParameterKeyValue>();
+        Map<ParameterKey, ParameterKeyValue> result = new LinkedHashMap<>();
         for (ParameterKeyValue keyValue : keyValues) {
             result.put(keyValue.getKey(), keyValue);
         }

@@ -19,7 +19,7 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyIndexMap;
 public class PreparedExecution extends BaseQueryExecution implements QueryHolder, ParameterByIndexHolder {
 
     private String query;
-    private SortedSet<ParameterKeyValue> parameters = new TreeSet<ParameterKeyValue>();
+    private SortedSet<ParameterKeyValue> parameters = new TreeSet<>();
 
     @Override
     public boolean isBatch() {
@@ -62,7 +62,7 @@ public class PreparedExecution extends BaseQueryExecution implements QueryHolder
 
     @Override
     public List<Integer> getParamIndexes() {
-        List<Integer> indexes = new ArrayList<Integer>();
+        List<Integer> indexes = new ArrayList<>();
         indexes.addAll(getSetParamsByIndex().keySet());
         indexes.addAll(getSetNullParamsByIndex().keySet());
         return indexes;

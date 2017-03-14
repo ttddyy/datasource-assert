@@ -109,7 +109,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void testTotalCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockSelectQueryExecution());  // select
         queryExecutions.add(getMockSelectQueryExecution());  // select
         queryExecutions.add(getMockInsertQueryExecution());  // insert
@@ -138,7 +138,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void testSelectCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockSelectQueryExecution());  // select
         queryExecutions.add(getMockSelectQueryExecution());  // select
         queryExecutions.add(getMockDeleteQueryExecution());  // delete
@@ -164,7 +164,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void testInsertCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockInsertQueryExecution());  // insert
         queryExecutions.add(getMockInsertQueryExecution());  // insert
         queryExecutions.add(getMockDeleteQueryExecution());  // delete
@@ -191,7 +191,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void testUpdateCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockUpdateQueryExecution());  // update
         queryExecutions.add(getMockUpdateQueryExecution());  // update
         queryExecutions.add(getMockSelectQueryExecution());  // select
@@ -218,7 +218,7 @@ public class ProxyTestDataSourceAssertionsTest {
     @Test
     public void testDeleteCount() {
 
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockDeleteQueryExecution());  // delete
         queryExecutions.add(getMockDeleteQueryExecution());  // delete
         queryExecutions.add(getMockSelectQueryExecution());  // select
@@ -245,7 +245,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void testOtherCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(getMockOtherQueryExecution());  // other
         queryExecutions.add(getMockOtherQueryExecution());  // other
         queryExecutions.add(getMockDeleteQueryExecution());  // delete
@@ -356,7 +356,7 @@ public class ProxyTestDataSourceAssertionsTest {
 
     @Test
     public void queryExecutionCount() {
-        List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+        List<QueryExecution> queryExecutions = new ArrayList<>();
         queryExecutions.add(new StatementExecution());
         queryExecutions.add(new StatementBatchExecution());
         queryExecutions.add(new PreparedExecution());

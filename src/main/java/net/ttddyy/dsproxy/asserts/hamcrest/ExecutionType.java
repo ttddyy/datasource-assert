@@ -29,6 +29,7 @@ public enum ExecutionType {
     private String description;
     private Class<? extends QueryExecution>[] executionTypes;
 
+    @SafeVarargs
     ExecutionType(String description, Class<? extends QueryExecution>... executionTypes) {
         this.description = description;
         this.executionTypes = executionTypes;

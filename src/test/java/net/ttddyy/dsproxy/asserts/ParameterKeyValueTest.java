@@ -16,7 +16,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToIndex() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam(3, 10));
         set.add(createSetParam(2, 10));
@@ -26,7 +26,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToSameIndex() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam(1, 30));
         set.add(createSetParam(1, 20));
@@ -39,7 +39,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToSameIndexDifferentValueType() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam(1, "30"));
         set.add(createSetParam(1, 20));
@@ -52,7 +52,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToDifferentValue() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, null));
         set.add(createRegisterOut(1, null));
         set.add(createSetParam(1, null));  // same key, value again
@@ -63,7 +63,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToDifferentKeyTypeWithInt() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam("10", 20));
         set.add(createSetParam(1, 20));
@@ -74,7 +74,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToNumberKeyInString() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam("1", 20));
 
@@ -84,7 +84,7 @@ public class ParameterKeyValueTest {
 
     @Test
     public void compareToDifferentKeyType() {
-        SortedSet<ParameterKeyValue> set = new TreeSet<ParameterKeyValue>();
+        SortedSet<ParameterKeyValue> set = new TreeSet<>();
         set.add(createSetParam(1, 10));
         set.add(createSetParam("foo", 200));
         set.add(createSetParam(1, 20));

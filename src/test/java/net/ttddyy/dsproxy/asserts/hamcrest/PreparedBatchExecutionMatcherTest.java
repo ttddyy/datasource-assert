@@ -25,7 +25,7 @@ import static org.junit.Assert.assertThat;
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
-public class PreparedBatchExecutionMathcerTest {
+public class PreparedBatchExecutionMatcherTest {
 
     @Test
     public void testQuery() {

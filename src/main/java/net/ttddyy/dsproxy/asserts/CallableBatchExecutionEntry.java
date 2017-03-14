@@ -19,7 +19,7 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyNameMap;
  */
 public class CallableBatchExecutionEntry implements BatchExecutionEntry, ParameterByIndexHolder, ParameterByNameHolder, OutParameterHolder {
 
-    private SortedSet<ParameterKeyValue> parameters = new TreeSet<ParameterKeyValue>();
+    private SortedSet<ParameterKeyValue> parameters = new TreeSet<>();
 
     @Override
     public SortedSet<ParameterKeyValue> getAllParameters() {
@@ -78,7 +78,7 @@ public class CallableBatchExecutionEntry implements BatchExecutionEntry, Paramet
 
     @Override
     public List<String> getParamNames() {
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         names.addAll(getSetParamsByName().keySet());
         names.addAll(getSetNullParamsByName().keySet());
         return names;
@@ -86,7 +86,7 @@ public class CallableBatchExecutionEntry implements BatchExecutionEntry, Paramet
 
     @Override
     public List<Integer> getParamIndexes() {
-        List<Integer> indexes = new ArrayList<Integer>();
+        List<Integer> indexes = new ArrayList<>();
         indexes.addAll(getSetParamsByIndex().keySet());
         indexes.addAll(getSetNullParamsByIndex().keySet());
         return indexes;
@@ -94,12 +94,12 @@ public class CallableBatchExecutionEntry implements BatchExecutionEntry, Paramet
 
     @Override
     public List<String> getOutParamNames() {
-        return new ArrayList<String>(getOutParamsByName().keySet());
+        return new ArrayList<>(getOutParamsByName().keySet());
     }
 
     @Override
     public List<Integer> getOutParamIndexes() {
-        return new ArrayList<Integer>(getOutParamsByIndex().keySet());
+        return new ArrayList<>(getOutParamsByIndex().keySet());
     }
 
 }

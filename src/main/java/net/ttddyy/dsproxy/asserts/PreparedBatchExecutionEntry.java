@@ -18,7 +18,7 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyIndexMap;
  */
 public class PreparedBatchExecutionEntry implements BatchExecutionEntry, ParameterByIndexHolder {
 
-    private SortedSet<ParameterKeyValue> parameters = new TreeSet<ParameterKeyValue>();
+    private SortedSet<ParameterKeyValue> parameters = new TreeSet<>();
 
     @Override
     public SortedSet<ParameterKeyValue> getAllParameters() {
@@ -48,7 +48,7 @@ public class PreparedBatchExecutionEntry implements BatchExecutionEntry, Paramet
 
     @Override
     public List<Integer> getParamIndexes() {
-        List<Integer> indexes = new ArrayList<Integer>();
+        List<Integer> indexes = new ArrayList<>();
         indexes.addAll(getSetParamsByIndex().keySet());
         indexes.addAll(getSetNullParamsByIndex().keySet());
         return indexes;

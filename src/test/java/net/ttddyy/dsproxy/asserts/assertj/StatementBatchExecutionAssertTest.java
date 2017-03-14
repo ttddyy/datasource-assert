@@ -63,7 +63,7 @@ public class StatementBatchExecutionAssertTest {
 
     @Test
     public void testHasBatchSize() {
-        List<String> entries = new ArrayList<String>();
+        List<String> entries = new ArrayList<>();
         entries.addAll(Arrays.asList("a", "b", "c"));
 
         StatementBatchExecution sbe = mock(StatementBatchExecution.class);

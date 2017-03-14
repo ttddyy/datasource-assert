@@ -107,7 +107,7 @@ public class ProxyTestDataSource extends ProxyDataSource {
 
     @SuppressWarnings("unchecked")
     private <T extends QueryExecution> List<T> getQueryExecutionsFilteredBy(Class<T> classToFilter) {
-        List<T> result = new ArrayList<T>();
+        List<T> result = new ArrayList<>();
         for (QueryExecution queryExecution : getQueryExecutions()) {
             if (classToFilter.isAssignableFrom(queryExecution.getClass())) {
                 result.add((T) queryExecution);

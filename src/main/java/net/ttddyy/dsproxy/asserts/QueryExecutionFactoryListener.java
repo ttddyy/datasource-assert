@@ -20,7 +20,7 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.createSetParam;
  */
 public class QueryExecutionFactoryListener implements QueryExecutionListener {
 
-    private List<QueryExecution> queryExecutions = new ArrayList<QueryExecution>();
+    private List<QueryExecution> queryExecutions = new ArrayList<>();
 
     public QueryExecutionFactoryListener() {
     }

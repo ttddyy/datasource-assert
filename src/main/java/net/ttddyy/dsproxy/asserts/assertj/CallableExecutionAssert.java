@@ -104,8 +104,8 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
         return this;
     }
 
-    public CallableExecutionAssert containsParamIndex(int paramIndexe) {
-        containsParamIndexes(paramIndexe);
+    public CallableExecutionAssert containsParamIndex(int paramIndex) {
+        containsParamIndexes(paramIndex);
         return this;
     }
 

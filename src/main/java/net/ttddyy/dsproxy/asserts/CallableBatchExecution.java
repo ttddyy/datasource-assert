@@ -11,7 +11,7 @@ public class CallableBatchExecution extends BaseQueryExecution implements BatchP
 
     private String query;
 
-    private List<BatchExecutionEntry> batchExecutionEntries = new ArrayList<BatchExecutionEntry>();
+    private List<BatchExecutionEntry> batchExecutionEntries = new ArrayList<>();
 
     @Override
     public boolean isBatch() {

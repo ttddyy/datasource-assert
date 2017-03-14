@@ -37,7 +37,7 @@ public class QueryExecutionFactoryListenerTest {
         QueryInfo queryInfo = new QueryInfo();
         queryInfo.setQuery("SELECT id FROM foo");
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo);
 
         listener.afterQuery(executionInfo, queryInfoList);
@@ -62,7 +62,7 @@ public class QueryExecutionFactoryListenerTest {
         QueryInfo queryInfo2 = new QueryInfo();
         queryInfo2.setQuery("SELECT 2");
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo1);
         queryInfoList.add(queryInfo2);
 
@@ -91,7 +91,7 @@ public class QueryExecutionFactoryListenerTest {
         ParameterSetOperation param1 = new ParameterSetOperation(setIntMethod, new Object[]{1, 100});
         ParameterSetOperation param2 = new ParameterSetOperation(setIntMethod, new Object[]{2, 200});
         ParameterSetOperation param3 = new ParameterSetOperation(setNullMethod, new Object[]{10, Types.VARCHAR});
-        List<ParameterSetOperation> params = new ArrayList<ParameterSetOperation>();
+        List<ParameterSetOperation> params = new ArrayList<>();
         params.addAll(Arrays.asList(param1, param2, param3));
 
 
@@ -99,7 +99,7 @@ public class QueryExecutionFactoryListenerTest {
         queryInfo.setQuery("SELECT id FROM foo");
         queryInfo.getParametersList().add(params);
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo);
 
         listener.afterQuery(executionInfo, queryInfoList);
@@ -128,13 +128,13 @@ public class QueryExecutionFactoryListenerTest {
 
         ParameterSetOperation param1 = new ParameterSetOperation(setIntMethod, new Object[]{1, 100});
         ParameterSetOperation param2 = new ParameterSetOperation(setIntMethod, new Object[]{2, 200});
-        List<ParameterSetOperation> params1 = new ArrayList<ParameterSetOperation>();
+        List<ParameterSetOperation> params1 = new ArrayList<>();
         params1.addAll(Arrays.asList(param1, param2));
 
         ParameterSetOperation param3 = new ParameterSetOperation(setIntMethod, new Object[]{10, 1000});
         ParameterSetOperation param4 = new ParameterSetOperation(setIntMethod, new Object[]{20, 2000});
         ParameterSetOperation param5 = new ParameterSetOperation(setNullMethod, new Object[]{30, Types.INTEGER});
-        List<ParameterSetOperation> params2 = new ArrayList<ParameterSetOperation>();
+        List<ParameterSetOperation> params2 = new ArrayList<>();
         params2.addAll(Arrays.asList(param3, param4, param5));
 
 
@@ -143,7 +143,7 @@ public class QueryExecutionFactoryListenerTest {
         queryInfo.getParametersList().add(params1);
         queryInfo.getParametersList().add(params2);
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo);
 
         listener.afterQuery(executionInfo, queryInfoList);
@@ -190,7 +190,7 @@ public class QueryExecutionFactoryListenerTest {
         ParameterSetOperation outParamByIndex2 = new ParameterSetOperation(registerOutParamMethod, new Object[]{20, 2000});
         ParameterSetOperation outParamByName1 = new ParameterSetOperation(registerOutParamMethod, new Object[]{"foo-out", 1000});
         ParameterSetOperation outParamByName2 = new ParameterSetOperation(registerOutParamMethod, new Object[]{"bar-out", 2000});
-        List<ParameterSetOperation> params = new ArrayList<ParameterSetOperation>();
+        List<ParameterSetOperation> params = new ArrayList<>();
         params.addAll(Arrays.asList(paramByIndex1, paramByIndex2, paramByName1, paramByName2, setNullByIndex, setNullByName, outParamByIndex1, outParamByIndex2, outParamByName1, outParamByName2));
 
 
@@ -198,7 +198,7 @@ public class QueryExecutionFactoryListenerTest {
         queryInfo.setQuery("SELECT id FROM foo");
         queryInfo.getParametersList().add(params);
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo);
 
         listener.afterQuery(executionInfo, queryInfoList);
@@ -244,8 +244,8 @@ public class QueryExecutionFactoryListenerTest {
         ParameterSetOperation outParamByIndex2 = new ParameterSetOperation(registerOutParamMethod, new Object[]{20, 2000});
         ParameterSetOperation outParamByName1 = new ParameterSetOperation(registerOutParamMethod, new Object[]{"foo-out", 1000});
         ParameterSetOperation outParamByName2 = new ParameterSetOperation(registerOutParamMethod, new Object[]{"bar-out", 2000});
-        List<ParameterSetOperation> params1 = new ArrayList<ParameterSetOperation>();
-        List<ParameterSetOperation> params2 = new ArrayList<ParameterSetOperation>();
+        List<ParameterSetOperation> params1 = new ArrayList<>();
+        List<ParameterSetOperation> params2 = new ArrayList<>();
         params1.addAll(Arrays.asList(paramByIndex1, paramByName1, setNullByIndex, setNullByName, outParamByIndex1, outParamByName1));
         params2.addAll(Arrays.asList(paramByIndex2, paramByName2, outParamByIndex2, outParamByName2));
 
@@ -256,7 +256,7 @@ public class QueryExecutionFactoryListenerTest {
         queryInfo.getParametersList().add(params2);
 
 
-        List<QueryInfo> queryInfoList = new ArrayList<QueryInfo>();
+        List<QueryInfo> queryInfoList = new ArrayList<>();
         queryInfoList.add(queryInfo);
 
         listener.afterQuery(executionInfo, queryInfoList);

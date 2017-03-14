@@ -119,7 +119,7 @@ class OutParameterHolderAssertions {
                 Object value = actual.getOutParamsByName().get(paramName);
                 if (value == null) {
                     Set<String> names = actual.getOutParamsByName().keySet();
-                    SortedSet<String> sorted = new TreeSet<String>(names);
+                    SortedSet<String> sorted = new TreeSet<>(names);
                     descForExpected.appendText("out param name " + paramName + " exist");
                     descForFailure.appendText("out param names are " + sorted);
                     return false;
@@ -151,7 +151,7 @@ class OutParameterHolderAssertions {
                 Object value = actual.getOutParamsByIndex().get(index);
                 if (value == null) {
                     Set<Integer> indexes = actual.getOutParamsByIndex().keySet();
-                    SortedSet<Integer> sorted = new TreeSet<Integer>(indexes);
+                    SortedSet<Integer> sorted = new TreeSet<>(indexes);
                     descForExpected.appendText("out param index " + index + " exist");
                     descForFailure.appendText("out param indexes are " + sorted);
                     return false;

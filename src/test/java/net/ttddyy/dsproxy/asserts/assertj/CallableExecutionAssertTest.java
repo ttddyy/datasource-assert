@@ -426,7 +426,7 @@ public class CallableExecutionAssertTest {
 
         // wrong key type
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKey((double) 10.01);
+            DataSourceProxyAssertions.assertThat(ce).containsParamKey(10.01);
             fail("exception should be thrown");
         } catch (IllegalArgumentException e) {
             assertThat(e).hasMessage("param key should be int or String");

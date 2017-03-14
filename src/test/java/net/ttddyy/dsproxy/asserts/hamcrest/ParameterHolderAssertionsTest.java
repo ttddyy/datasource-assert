@@ -99,7 +99,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void testParamsByName() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
@@ -110,7 +110,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void testParamsByNameUnmatchedMessage() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
         map.put("bar", 200);
 
@@ -128,7 +128,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void testParamsByIndex() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
@@ -139,7 +139,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void testParamsByIndexUnmatchedMessage() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
@@ -156,24 +156,24 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void paramWithIndex() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
         given(holder.getSetParamsByIndex()).willReturn(map);
-        given(holder.getParamIndexes()).willReturn(new ArrayList<Integer>(map.keySet()));
+        given(holder.getParamIndexes()).willReturn(new ArrayList<>(map.keySet()));
 
         Assert.assertThat(holder, param(10, is((Object) 100)));
     }
 
     @Test
     public void paramWithIndexUnmatchedMessage() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
         given(holder.getSetParamsByIndex()).willReturn(map);
-        given(holder.getParamIndexes()).willReturn(new ArrayList<Integer>(map.keySet()));
+        given(holder.getParamIndexes()).willReturn(new ArrayList<>(map.keySet()));
 
         try {
             Assert.assertThat(holder, param(10, is((Object) 101)));
@@ -186,24 +186,24 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void paramWithName() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
         given(holder.getSetParamsByName()).willReturn(map);
-        given(holder.getParamNames()).willReturn(new ArrayList<String>(map.keySet()));
+        given(holder.getParamNames()).willReturn(new ArrayList<>(map.keySet()));
 
         Assert.assertThat(holder, param("foo", is((Object) 100)));
     }
 
     @Test
     public void paramWithNameUnmatchedMessage() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
         given(holder.getSetParamsByName()).willReturn(map);
-        given(holder.getParamNames()).willReturn(new ArrayList<String>(map.keySet()));
+        given(holder.getParamNames()).willReturn(new ArrayList<>(map.keySet()));
 
         try {
             Assert.assertThat(holder, param("foo", is((Object) 101)));
@@ -216,24 +216,24 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void paramWithIndexAndType() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
         given(holder.getSetParamsByIndex()).willReturn(map);
-        given(holder.getParamIndexes()).willReturn(new ArrayList<Integer>(map.keySet()));
+        given(holder.getParamIndexes()).willReturn(new ArrayList<>(map.keySet()));
 
         Assert.assertThat(holder, param(10, Integer.class, is(100)));
     }
 
     @Test
     public void paramWithIndexAndTypeUnmatchedMessage() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, 100);
 
         ParameterByIndexHolder holder = mock(ParameterByIndexHolder.class);
         given(holder.getSetParamsByIndex()).willReturn(map);
-        given(holder.getParamIndexes()).willReturn(new ArrayList<Integer>(map.keySet()));
+        given(holder.getParamIndexes()).willReturn(new ArrayList<>(map.keySet()));
 
         try {
             Assert.assertThat(holder, param(10, Integer.class, is(101)));
@@ -246,24 +246,24 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void paramWithNameAndType() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
         given(holder.getSetParamsByName()).willReturn(map);
-        given(holder.getParamNames()).willReturn(new ArrayList<String>(map.keySet()));
+        given(holder.getParamNames()).willReturn(new ArrayList<>(map.keySet()));
 
         Assert.assertThat(holder, param("foo", Integer.class, is(100)));
     }
 
     @Test
     public void paramWithNameAndTypeUnmatchedMessage() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
         given(holder.getSetParamsByName()).willReturn(map);
-        given(holder.getParamNames()).willReturn(new ArrayList<String>(map.keySet()));
+        given(holder.getParamNames()).willReturn(new ArrayList<>(map.keySet()));
 
         try {
             Assert.assertThat(holder, param("foo", Integer.class, is(101)));
@@ -283,7 +283,7 @@ public class ParameterHolderAssertionsTest {
         Timestamp timestamp = new Timestamp(1000);
         Array array = mock(Array.class);
 
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(10, "100");
         map.put(11, 101);
         map.put(12, 102L);
@@ -327,7 +327,7 @@ public class ParameterHolderAssertionsTest {
         Timestamp timestamp = new Timestamp(1000);
         Array array = mock(Array.class);
 
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("aa", "100");
         map.put("bb", 101);
         map.put("cc", 102L);
@@ -365,7 +365,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void setNullByIndex() {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         map.put(10, Types.ARRAY);
         map.put(1, 9999);
 
@@ -412,7 +412,7 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void setNullByName() {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         map.put("foo", Types.ARRAY);
         map.put("bar", 9999);
 

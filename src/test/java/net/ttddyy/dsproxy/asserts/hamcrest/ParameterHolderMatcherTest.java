@@ -27,7 +27,7 @@ import static org.junit.Assert.fail;
 public class ParameterHolderMatcherTest {
 
 
-    // ParamHolder that only implements ParamterByIndexHolder
+    // ParamHolder that only implements ParameterByIndexHolder
     private static class MockIndexOnlyParamHolder implements ParameterHolder, ParameterByIndexHolder {
 
         @Override
@@ -61,7 +61,7 @@ public class ParameterHolderMatcherTest {
         }
     }
 
-    // ParamHolder that only implements ParamterByNameHolder
+    // ParamHolder that only implements ParameterByNameHolder
     private static class MockNameOnlyParamHolder implements ParameterHolder, ParameterByNameHolder {
 
         @Override

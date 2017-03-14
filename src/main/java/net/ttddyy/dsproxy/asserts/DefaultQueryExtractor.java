@@ -11,7 +11,7 @@ public class DefaultQueryExtractor implements QueryExtractor {
 
     @Override
     public List<String> getQueries(QueryExecution queryExecution) {
-        List<String> queries = new ArrayList<String>();
+        List<String> queries = new ArrayList<>();
         if (queryExecution instanceof QueryHolder) {
             queries.add(((QueryHolder) queryExecution).getQuery());
         } else if (queryExecution instanceof QueriesHolder) {

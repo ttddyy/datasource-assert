@@ -42,7 +42,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
 
 
     private SortedSet<ParameterKey> getExpectedParamExecutionKeys(ExecutionParameters params, Class<?>... classes) {
-        SortedSet<ParameterKey> keys = new TreeSet<ParameterKey>();
+        SortedSet<ParameterKey> keys = new TreeSet<>();
         for (ExecutionParameter param : params.getParameters()) {
             for (Class<?> clazz : classes) {
                 if (clazz.isInstance(param)) {
@@ -67,7 +67,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
             return;  // valid
         }
 
-        SortedSet<ParameterKey> notFoundParameterKeys = new TreeSet<ParameterKey>(expectedParamKeyOnlyKeys);
+        SortedSet<ParameterKey> notFoundParameterKeys = new TreeSet<>(expectedParamKeyOnlyKeys);
         notFoundParameterKeys.removeAll(actualAllKeys);
 
         String actualKeys = getParameterKeysAsString(actualAllKeys);
@@ -82,7 +82,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
 
     // left - right
     private SortedSet<ParameterKey> getParameterKeysDiff(Set<ParameterKey> left, Set<ParameterKey> right) {
-        SortedSet<ParameterKey> result = new TreeSet<ParameterKey>(left);
+        SortedSet<ParameterKey> result = new TreeSet<>(left);
         result.removeAll(right);
         return result;
     }
@@ -107,7 +107,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
         SortedSet<ParameterKey> expectedSetNullParamKeys = getExpectedParamExecutionKeys(params, ExecutionParameter.SetNullParamExecution.class);
         SortedSet<ParameterKey> expectedOutParamKeys = getExpectedParamExecutionKeys(params, ExecutionParameter.RegisterOutParamExecutionWithIntType.class, ExecutionParameter.RegisterOutParamExecutionWithSQLType.class);
 
-        SortedSet<ParameterKey> expectedAllKeys = new TreeSet<ParameterKey>();
+        SortedSet<ParameterKey> expectedAllKeys = new TreeSet<>();
         expectedAllKeys.addAll(expectedSetParamKeys);
         expectedAllKeys.addAll(expectedSetNullParamKeys);
         expectedAllKeys.addAll(expectedOutParamKeys);
@@ -301,7 +301,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
     }
 
     private <T extends ParameterHolder> SortedMap<String, Object> getAllParamsForDisplay(T entry) {
-        SortedMap<String, Object> sorted = new TreeMap<String, Object>();
+        SortedMap<String, Object> sorted = new TreeMap<>();
         for (ParameterKeyValue keyValue : entry.getAllParameters()) {
             sorted.put(keyValue.getKey().getKeyAsString(), keyValue.getDisplayValue());  // display {key=val, key2=val2}
         }

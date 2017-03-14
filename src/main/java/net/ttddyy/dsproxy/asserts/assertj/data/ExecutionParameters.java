@@ -12,7 +12,7 @@ import java.util.List;
 public class ExecutionParameters {
 
     public enum ExecutionParametersType {
-        CONTAINS, CONTAINS_EXACTLY, CONTAINS_KEYS_ONLY;
+        CONTAINS, CONTAINS_EXACTLY, CONTAINS_KEYS_ONLY
     }
 
     public static ExecutionParameters containsParams(ExecutionParameter... params) {
@@ -32,7 +32,7 @@ public class ExecutionParameters {
 
     public static ExecutionParameters containsParamKeys(Object... paramKeys) {
 
-        List<ExecutionParameter> params = new ArrayList<ExecutionParameter>();
+        List<ExecutionParameter> params = new ArrayList<>();
 
         for (Object rawParamKey : paramKeys) {
             ExecutionParameter param;
@@ -55,7 +55,7 @@ public class ExecutionParameters {
 
     public static ExecutionParameters containsParamIndexes(int... paramIndexes) {
 
-        List<ExecutionParameter> params = new ArrayList<ExecutionParameter>();
+        List<ExecutionParameter> params = new ArrayList<>();
         for (int paramIndex : paramIndexes) {
             ExecutionParameter param = new ExecutionParameter.ParamKeyOnlyExecution(new ParameterKey(paramIndex));
             params.add(param);
@@ -69,7 +69,7 @@ public class ExecutionParameters {
 
     public static ExecutionParameters containsParamNames(String... paramNames) {
 
-        List<ExecutionParameter> params = new ArrayList<ExecutionParameter>();
+        List<ExecutionParameter> params = new ArrayList<>();
         for (String paramName : paramNames) {
             ExecutionParameter param = new ExecutionParameter.ParamKeyOnlyExecution(new ParameterKey(paramName));
             params.add(param);
@@ -82,7 +82,7 @@ public class ExecutionParameters {
 
     }
 
-    private List<ExecutionParameter> parameters = new ArrayList<ExecutionParameter>();
+    private List<ExecutionParameter> parameters = new ArrayList<>();
     private ExecutionParametersType type;
 
 

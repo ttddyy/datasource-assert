@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class SqlTypeMatcher extends TypeSafeMatcher<Integer> {
 
-    public static final Map<Integer, String> typeNameByValue = new HashMap<Integer, String>();
+    public static final Map<Integer, String> typeNameByValue = new HashMap<>();
 
     static {
         try {

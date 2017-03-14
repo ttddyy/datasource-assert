@@ -10,7 +10,7 @@ import java.util.List;
 public class PreparedBatchExecution extends BaseQueryExecution implements QueryHolder, BatchParameterHolder, BatchExecution {
 
     private String query;
-    private List<BatchExecutionEntry> batchExecutionEntries = new ArrayList<BatchExecutionEntry>();
+    private List<BatchExecutionEntry> batchExecutionEntries = new ArrayList<>();
 
     @Override
     public boolean isBatch() {

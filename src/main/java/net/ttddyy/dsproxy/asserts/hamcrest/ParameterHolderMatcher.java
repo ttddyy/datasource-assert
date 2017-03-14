@@ -15,7 +15,7 @@ import org.hamcrest.StringDescription;
  */
 public abstract class ParameterHolderMatcher<S> extends BaseMatcher<ParameterHolder> {
 
-    protected static enum MatchBy {
+    protected enum MatchBy {
         INDEX, NAME, OUTPARAM
     }
 

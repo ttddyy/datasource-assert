@@ -615,7 +615,7 @@ class ParameterHolderAssertions {
                 Set<String> names = actual.getSetNullParamsByName().keySet();
                 if (!names.contains(name)) {
                     descForExpected.appendText("params[" + name + "] is NULL");
-                    SortedSet<String> sorted = new TreeSet<String>(names);
+                    SortedSet<String> sorted = new TreeSet<>(names);
                     descForFailure.appendText("setNull names are ").appendValueList("[", ", ", "]", sorted);
                     return false;
                 }
@@ -643,7 +643,7 @@ class ParameterHolderAssertions {
                 Set<Integer> indexes = actual.getSetNullParamsByIndex().keySet();
                 if (!indexes.contains(index)) {
                     descForExpected.appendText("params[" + index + "] is NULL");
-                    SortedSet<Integer> sorted = new TreeSet<Integer>(indexes);
+                    SortedSet<Integer> sorted = new TreeSet<>(indexes);
                     descForFailure.appendText("setNull indexes are ").appendValueList("[", ", ", "]", sorted);
                     return false;
                 }

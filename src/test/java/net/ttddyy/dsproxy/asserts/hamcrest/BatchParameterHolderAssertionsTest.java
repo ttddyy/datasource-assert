@@ -28,7 +28,7 @@ public class BatchParameterHolderAssertionsTest {
     public void testBatchSize() {
         BatchExecutionEntry entry = mock(BatchExecutionEntry.class);
 
-        ArrayList<BatchExecutionEntry> entries = new ArrayList<BatchExecutionEntry>();
+        ArrayList<BatchExecutionEntry> entries = new ArrayList<>();
         entries.add(entry);
 
         BatchParameterHolder holder = mock(BatchParameterHolder.class);

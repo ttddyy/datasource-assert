@@ -118,7 +118,7 @@ public class HamcrestAssertionApiCheck {
         assertThat(sbe, queries(0, is("...")));   // string matcher
         assertThat(sbe, queries(hasItems("...", "...")));  // collection matcher
         assertThat(sbe, queryTypes(0, is(select())));
-        assertThat(sbe, queryTypes(0, anyOf(insert(), update())));
+        assertThat(sbe, queryTypes(0, either(insert()).or(update())));
     }
 
     private void preparedStatementExecution() {

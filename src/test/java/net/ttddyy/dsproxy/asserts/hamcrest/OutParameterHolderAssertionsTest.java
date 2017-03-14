@@ -36,7 +36,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByName() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", Types.ARRAY);
         map.put("bar", JDBCType.BOOLEAN);
 
@@ -50,7 +50,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByNameFailureByExpectationMismatch() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", Types.ARRAY);
         map.put("bar", JDBCType.BOOLEAN);
 
@@ -75,7 +75,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByNameFailureByKeyNotExist() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", Types.ARRAY);
         map.put("bar", Types.ARRAY);
         map.put("baz", JDBCType.BOOLEAN);
@@ -101,7 +101,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByNameFailureByWrongValueType() {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         map.put("foo", Types.ARRAY);
         map.put("bar", JDBCType.BOOLEAN);
 
@@ -135,7 +135,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByIndex() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(1, Types.ARRAY);
         map.put(2, JDBCType.BOOLEAN);
 
@@ -149,7 +149,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByIndexFailureByExpectationMismatch() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(1, Types.ARRAY);
         map.put(2, JDBCType.BOOLEAN);
 
@@ -174,7 +174,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByIndexFailureByKeyNotExist() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(1, Types.ARRAY);
         map.put(2, Types.ARRAY);
         map.put(3, JDBCType.BOOLEAN);
@@ -200,7 +200,7 @@ public class OutParameterHolderAssertionsTest {
 
     @Test
     public void testOutParamsByIndexFailureByWrongValueType() {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         map.put(1, Types.ARRAY);
         map.put(2, JDBCType.BOOLEAN);
 

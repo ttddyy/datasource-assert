@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class StatementBatchExecution extends BaseQueryExecution implements QueriesHolder, BatchExecution {
 
-    private List<String> queries = new ArrayList<String>();
+    private List<String> queries = new ArrayList<>();
 
     @Override
     public boolean isBatch() {

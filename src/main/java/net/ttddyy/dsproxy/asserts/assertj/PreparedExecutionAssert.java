@@ -113,7 +113,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
     private String getFailureMessageForValuesExactly(SortedSet<ParameterKeyValue> actualKeyValues, Object[] expected) {
 
         // construct map for expected
-        Map<ParameterKey, Object> expectedParamAndValue = new LinkedHashMap<ParameterKey, Object>();
+        Map<ParameterKey, Object> expectedParamAndValue = new LinkedHashMap<>();
         for (int i = 0; i < expected.length; i++) {
             expectedParamAndValue.put(new ParameterKey(i + 1), expected[i]);
         }
@@ -130,7 +130,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
     }
 
     private String getActualKeyValueToDisplay(SortedSet<ParameterKeyValue> keyValues) {
-        Map<Integer, Object> actualValueMapToDisplay = new LinkedHashMap<Integer, Object>();
+        Map<Integer, Object> actualValueMapToDisplay = new LinkedHashMap<>();
 
         for (ParameterKeyValue keyValue : keyValues) {
             int index = keyValue.getKey().getIndex();
@@ -140,7 +140,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
     }
 
     private String getExpectedKeyValueToDisplay(Map<ParameterKey, Object> expectedParamValues) {
-        Map<Integer, Object> toDisplay = new LinkedHashMap<Integer, Object>();
+        Map<Integer, Object> toDisplay = new LinkedHashMap<>();
         for (Map.Entry<ParameterKey, Object> entry : expectedParamValues.entrySet()) {
             toDisplay.put(entry.getKey().getIndex(), entry.getValue() == null ? "NULL" : entry.getValue());
         }
@@ -148,9 +148,9 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
     }
 
     private String getMissingToDisplay(SortedSet<ParameterKeyValue> actual, Map<ParameterKey, Object> expected) {
-        Map<Integer, Object> missing = new LinkedHashMap<Integer, Object>();
+        Map<Integer, Object> missing = new LinkedHashMap<>();
 
-        Map<ParameterKey, ParameterKeyValue> actualParamKeyMap = toParamKeyMap(new TreeSet<ParameterKeyValue>(actual));
+        Map<ParameterKey, ParameterKeyValue> actualParamKeyMap = toParamKeyMap(new TreeSet<>(actual));
 
         for (Map.Entry<ParameterKey, Object> entry : expected.entrySet()) {
             int index = entry.getKey().getIndex();
@@ -181,7 +181,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
 
 
     private String getExtraToDisplay(SortedSet<ParameterKeyValue> actual, Map<ParameterKey, Object> expected) {
-        Map<Integer, Object> extra = new LinkedHashMap<Integer, Object>();
+        Map<Integer, Object> extra = new LinkedHashMap<>();
         for (ParameterKeyValue actualKeyValue : actual) {
             ParameterKey actualKey = actualKeyValue.getKey();
             if (!expected.containsKey(actualKey)) {  // map may contains value=null, thus cannot compare the result of get with null

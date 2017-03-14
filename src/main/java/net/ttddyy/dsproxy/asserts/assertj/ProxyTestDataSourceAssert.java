@@ -63,7 +63,7 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
     }
 
     public ProxyTestDataSourceAssert hasStatementOrBatchStatementCount(int count) {
-        List<QueryExecution> executions = new ArrayList<QueryExecution>();
+        List<QueryExecution> executions = new ArrayList<>();
         executions.addAll(actual.getStatements());
         executions.addAll(actual.getBatchStatements());
         checkExecutionCount(count, "statement or batch statement executions", executions);
@@ -81,7 +81,7 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
     }
 
     public ProxyTestDataSourceAssert hasPreparedOrBatchPreparedCount(int count) {
-        List<QueryExecution> executions = new ArrayList<QueryExecution>();
+        List<QueryExecution> executions = new ArrayList<>();
         executions.addAll(actual.getPrepareds());
         executions.addAll(actual.getBatchPrepareds());
         checkExecutionCount(count, "prepared or batch prepared executions", executions);
@@ -99,7 +99,7 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
     }
 
     public ProxyTestDataSourceAssert hasCallableOrBatchCallableCount(int count) {
-        List<QueryExecution> executions = new ArrayList<QueryExecution>();
+        List<QueryExecution> executions = new ArrayList<>();
         executions.addAll(actual.getCallables());
         executions.addAll(actual.getBatchCallables());
         checkExecutionCount(count, "callable or batch callable executions", executions);
@@ -151,7 +151,7 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
 
         boolean isTotal = expectedType == null;
 
-        List<String> allQueries = new ArrayList<String>();
+        List<String> allQueries = new ArrayList<>();
 
         // get counts
         int actualCount = 0;

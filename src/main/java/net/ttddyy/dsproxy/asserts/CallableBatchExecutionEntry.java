@@ -14,6 +14,8 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyIndexMap;
 import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyNameMap;
 
 /**
+ * Represent a single batch execution of {@link java.sql.CallableStatement}.
+ *
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */

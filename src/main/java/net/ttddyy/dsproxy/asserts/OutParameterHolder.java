@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.SortedSet;
 
 /**
+ * Represent an execution that hold out parameter.
+ *
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */

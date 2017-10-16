@@ -13,6 +13,8 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.filterByKeyType;
 import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toKeyIndexMap;
 
 /**
+ * Represent a single execution of {@link java.sql.PreparedStatement}.
+ *
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Represent a single batch execution of {@link java.sql.CallableStatement}.
+ *
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */

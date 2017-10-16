@@ -1,6 +1,8 @@
 package net.ttddyy.dsproxy.asserts;
 
 /**
+ * Base implementation class for {@link QueryExecution}.
+ *
  * @author Tadaya Tsuyukubo
  */
 public abstract class BaseQueryExecution implements QueryExecution {

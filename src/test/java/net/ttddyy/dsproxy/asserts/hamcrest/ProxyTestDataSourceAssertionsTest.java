@@ -281,11 +281,7 @@ public class ProxyTestDataSourceAssertionsTest {
         ds.getQueryExecutions().add(se1);
         ds.getQueryExecutions().add(se2);
 
-//        assertThat(ds, firstStatement(query(is("query-1"))));
-//        assertThat(ds, firstStatement(is(query(is("query-1")))));
     }
-
-    // TODO: asserts for fistStatement when there is no StatementExecution
 
     @Test
     public void testFirstBatchStatement() {
@@ -298,11 +294,7 @@ public class ProxyTestDataSourceAssertionsTest {
         ds.getQueryExecutions().add(sbe1);
         ds.getQueryExecutions().add(sbe2);
 
-//        assertThat(ds, firstBatchStatement(queries(hasItems("query1-1", "query1-2"))));
-//        assertThat(ds, firstBatchStatement(is(queries(hasItems("query1-1", "query1-2")))));
     }
-
-    // TODO: asserts for fistBatchStatement when there is no StatementExecution
 
     @Test
     public void withStatementBatchExecution() {

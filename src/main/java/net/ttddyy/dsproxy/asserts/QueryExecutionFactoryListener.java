@@ -61,7 +61,7 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         }
         queryExecution.setSuccess(execInfo.isSuccess());
 
-        queryExecutions.add(queryExecution);
+        this.queryExecutions.add(queryExecution);
     }
 
     private StatementExecution createStatementExecution(List<QueryInfo> queryInfoList) {
@@ -187,7 +187,7 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
 
 
     public List<QueryExecution> getQueryExecutions() {
-        return queryExecutions;
+        return this.queryExecutions;
     }
 
     public void reset() {

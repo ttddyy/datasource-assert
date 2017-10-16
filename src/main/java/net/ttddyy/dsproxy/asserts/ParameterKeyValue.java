@@ -44,7 +44,7 @@ public class ParameterKeyValue implements Comparable<ParameterKeyValue> {
     }
 
     public ParameterKey getKey() {
-        return key;
+        return this.key;
     }
 
     public void setKey(ParameterKey key) {
@@ -52,7 +52,7 @@ public class ParameterKeyValue implements Comparable<ParameterKeyValue> {
     }
 
     public Object getValue() {
-        return value;
+        return this.value;
     }
 
     public void setValue(Object value) {
@@ -60,7 +60,7 @@ public class ParameterKeyValue implements Comparable<ParameterKeyValue> {
     }
 
     public String getDisplayValue() {
-        return displayValue;
+        return this.displayValue;
     }
 
     public void setDisplayValue(String displayValue) {
@@ -68,7 +68,7 @@ public class ParameterKeyValue implements Comparable<ParameterKeyValue> {
     }
 
     public OperationType getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(OperationType type) {

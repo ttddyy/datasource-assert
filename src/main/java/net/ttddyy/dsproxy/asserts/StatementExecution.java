@@ -16,7 +16,7 @@ public class StatementExecution extends BaseQueryExecution implements QueryHolde
 
     @Override
     public String getQuery() {
-        return query;
+        return this.query;
     }
 
     public void setQuery(String query) {

@@ -273,7 +273,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
         Object actualValue = toKeyValueMap(executionEntry.getSetNullParams()).get(expectedParamKey);
         if (sqlType != actualValue) {
             SortedMap<String, Object> sortedParams = getAllParamsForDisplay(executionEntry);
-            String displayValue = setNullValueConverter.getDisplayValue(sqlType);
+            String displayValue = this.setNullValueConverter.getDisplayValue(sqlType);
             String expectedEntry = String.format("%s=%s", expectedParamKey.getKeyAsString(), displayValue);
             failWithMessage("%nExpecting: parameters %n<%s>%nto contain:%n<[%s]>%nbut could not find:%n<[%s]>", sortedParams, expectedEntry, expectedEntry);
         }
@@ -284,7 +284,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
         Object actualValue = toKeyValueMap(executionEntry.getOutParams()).get(expectedParamKey);
         if (!new Integer(sqlType).equals(actualValue)) {
             SortedMap<String, Object> sortedParams = getAllParamsForDisplay(executionEntry);
-            String displayValue = registerOutParameterValueConverter.getDisplayValue(sqlType);
+            String displayValue = this.registerOutParameterValueConverter.getDisplayValue(sqlType);
             String expectedEntry = String.format("%s=%s", expectedParamKey.getKeyAsString(), displayValue);
             failWithMessage("%nExpecting: parameters %n<%s>%nto contain:%n<[%s]>%nbut could not find:%n<[%s]>", sortedParams, expectedEntry, expectedEntry);
         }
@@ -294,7 +294,7 @@ public class ExecutionParameterAsserts extends AbstractHelperAsserts {
         Object actualValue = toKeyValueMap(executionEntry.getOutParams()).get(expectedParamKey);
         if (sqlType != actualValue) {
             SortedMap<String, Object> sortedParams = getAllParamsForDisplay(executionEntry);
-            String displayValue = registerOutParameterValueConverter.getDisplayValue(sqlType);
+            String displayValue = this.registerOutParameterValueConverter.getDisplayValue(sqlType);
             String expectedEntry = String.format("%s=%s", expectedParamKey.getKeyAsString(), displayValue);
             failWithMessage("%nExpecting: parameters %n<%s>%nto contain:%n<[%s]>%nbut could not find:%n<[%s]>", sortedParams, expectedEntry, expectedEntry);
         }

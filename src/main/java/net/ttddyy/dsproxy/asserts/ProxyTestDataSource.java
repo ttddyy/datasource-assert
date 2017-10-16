@@ -140,6 +140,6 @@ public class ProxyTestDataSource extends ProxyDataSource {
     }
 
     public QueryExecutionFactoryListener getQueryExecutionFactoryListener() {
-        return queryExecutionFactoryListener;
+        return this.queryExecutionFactoryListener;
     }
 }

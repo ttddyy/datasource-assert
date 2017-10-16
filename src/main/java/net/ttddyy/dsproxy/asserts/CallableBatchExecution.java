@@ -26,12 +26,12 @@ public class CallableBatchExecution extends BaseQueryExecution implements BatchP
 
     @Override
     public String getQuery() {
-        return query;
+        return this.query;
     }
 
     @Override
     public List<BatchExecutionEntry> getBatchExecutionEntries() {
-        return batchExecutionEntries;
+        return this.batchExecutionEntries;
     }
 
     public boolean addBatchExecutionEntry(CallableBatchExecutionEntry entry) {

@@ -73,9 +73,9 @@ public abstract class ParameterHolderMatcher<S> extends BaseMatcher<ParameterHol
             featureValue = getFeatureValue(byOutParamHolder);
         }
 
-        if (!subMatcher.matches(featureValue)) {
+        if (!this.subMatcher.matches(featureValue)) {
             Description description = new StringDescription();
-            subMatcher.describeMismatch(featureValue, description);  // get mismatch desc
+            this.subMatcher.describeMismatch(featureValue, description);  // get mismatch desc
             this.descForExpected.appendDescriptionOf(subMatcher);  // populate from SelfDescribing
             this.descForFailure.appendText(description.toString());
             return false;

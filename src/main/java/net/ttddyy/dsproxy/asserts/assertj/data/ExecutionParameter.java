@@ -46,7 +46,7 @@ public abstract class ExecutionParameter {
         }
 
         public Integer getSqlType() {
-            return sqlType;
+            return this.sqlType;
         }
     }
 
@@ -59,7 +59,7 @@ public abstract class ExecutionParameter {
         }
 
         public int getSqlType() {
-            return sqlType;
+            return this.sqlType;
         }
     }
 
@@ -72,7 +72,7 @@ public abstract class ExecutionParameter {
         }
 
         public SQLType getSqlType() {
-            return sqlType;
+            return this.sqlType;
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class ExecutionParameter {
     }
 
     public ParameterKey getKey() {
-        return key;
+        return this.key;
     }
 
 }

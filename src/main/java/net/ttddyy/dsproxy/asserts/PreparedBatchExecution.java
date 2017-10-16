@@ -25,7 +25,7 @@ public class PreparedBatchExecution extends BaseQueryExecution implements QueryH
 
     @Override
     public String getQuery() {
-        return query;
+        return this.query;
     }
 
     @Override

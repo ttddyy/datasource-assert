@@ -20,7 +20,7 @@ public class StatementBatchExecution extends BaseQueryExecution implements Queri
 
     @Override
     public List<String> getQueries() {
-        return queries;
+        return this.queries;
     }
 
     public void setQueries(List<String> queries) {

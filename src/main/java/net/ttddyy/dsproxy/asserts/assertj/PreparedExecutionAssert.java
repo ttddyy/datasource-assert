@@ -55,8 +55,8 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
 
     public PreparedExecutionAssert containsParams(ExecutionParameter... params) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParams(params);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, false);
-        parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, false);
+        this.parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
         return this;
     }
 
@@ -67,7 +67,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
 
     public PreparedExecutionAssert containsParamIndexes(int... paramIndexes) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParamIndexes(paramIndexes);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, false);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, false);
         return this;
     }
 

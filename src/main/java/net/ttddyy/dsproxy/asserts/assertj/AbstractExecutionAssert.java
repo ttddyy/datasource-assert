@@ -21,13 +21,13 @@ public abstract class AbstractExecutionAssert<S extends AbstractAssert<S, A>, A 
     }
 
     protected void isExecutionSuccess() {
-        if (!actual.isSuccess()) {
+        if (!this.actual.isSuccess()) {
             failWithMessage("%nExpecting: <%s> but was: <%s>%n", "Successful execution", "Failure execution");
         }
     }
 
     protected void isExecutionFailure() {
-        if (actual.isSuccess()) {
+        if (this.actual.isSuccess()) {
             failWithMessage("%nExpecting: <%s> but was: <%s>%n", "Failure execution", "Successful execution");
         }
     }

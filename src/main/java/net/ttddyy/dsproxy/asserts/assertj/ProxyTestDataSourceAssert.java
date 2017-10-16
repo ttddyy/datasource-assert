@@ -43,65 +43,65 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
 
         QueryExecution queryExecution = queryExecutions.get(index.value);
         Class[] expectedExecutionTypes = executionType.getExecutionTypes();
-        objects.assertIsInstanceOfAny(info, queryExecution, expectedExecutionTypes);
+        this.objects.assertIsInstanceOfAny(info, queryExecution, expectedExecutionTypes);
         return this;
     }
 
     public ProxyTestDataSourceAssert hasExecutionCount(int count) {
-        checkExecutionCount(count, "executions", actual.getQueryExecutions());
+        checkExecutionCount(count, "executions", this.actual.getQueryExecutions());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasStatementCount(int count) {
-        checkExecutionCount(count, "statement executions", actual.getStatements());
+        checkExecutionCount(count, "statement executions", this.actual.getStatements());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasBatchStatementCount(int count) {
-        checkExecutionCount(count, "batch statement executions", actual.getBatchStatements());
+        checkExecutionCount(count, "batch statement executions", this.actual.getBatchStatements());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasStatementOrBatchStatementCount(int count) {
         List<QueryExecution> executions = new ArrayList<>();
-        executions.addAll(actual.getStatements());
-        executions.addAll(actual.getBatchStatements());
+        executions.addAll(this.actual.getStatements());
+        executions.addAll(this.actual.getBatchStatements());
         checkExecutionCount(count, "statement or batch statement executions", executions);
         return this;
     }
 
     public ProxyTestDataSourceAssert hasPreparedCount(int count) {
-        checkExecutionCount(count, "prepared executions", actual.getPrepareds());
+        checkExecutionCount(count, "prepared executions", this.actual.getPrepareds());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasBatchPreparedCount(int count) {
-        checkExecutionCount(count, "batch prepared executions", actual.getBatchPrepareds());
+        checkExecutionCount(count, "batch prepared executions", this.actual.getBatchPrepareds());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasPreparedOrBatchPreparedCount(int count) {
         List<QueryExecution> executions = new ArrayList<>();
-        executions.addAll(actual.getPrepareds());
-        executions.addAll(actual.getBatchPrepareds());
+        executions.addAll(this.actual.getPrepareds());
+        executions.addAll(this.actual.getBatchPrepareds());
         checkExecutionCount(count, "prepared or batch prepared executions", executions);
         return this;
     }
 
     public ProxyTestDataSourceAssert hasCallableCount(int count) {
-        checkExecutionCount(count, "callable executions", actual.getCallables());
+        checkExecutionCount(count, "callable executions", this.actual.getCallables());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasBatchCallableCount(int count) {
-        checkExecutionCount(count, "batch callable executions", actual.getBatchCallables());
+        checkExecutionCount(count, "batch callable executions", this.actual.getBatchCallables());
         return this;
     }
 
     public ProxyTestDataSourceAssert hasCallableOrBatchCallableCount(int count) {
         List<QueryExecution> executions = new ArrayList<>();
-        executions.addAll(actual.getCallables());
-        executions.addAll(actual.getBatchCallables());
+        executions.addAll(this.actual.getCallables());
+        executions.addAll(this.actual.getBatchCallables());
         checkExecutionCount(count, "callable or batch callable executions", executions);
         return this;
     }
@@ -155,8 +155,8 @@ public class ProxyTestDataSourceAssert extends AbstractAssert<ProxyTestDataSourc
 
         // get counts
         int actualCount = 0;
-        for (QueryExecution queryExecution : actual.getQueryExecutions()) {
-            List<String> queries = queryExtractor.getQueries(queryExecution);
+        for (QueryExecution queryExecution : this.actual.getQueryExecutions()) {
+            List<String> queries = this.queryExtractor.getQueries(queryExecution);
             for (String query : queries) {
                 QueryType queryType = QueryUtils.getQueryType(query);
                 if (isTotal || expectedType.equals(queryType)) {

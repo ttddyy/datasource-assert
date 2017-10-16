@@ -53,11 +53,11 @@ public enum ExecutionType {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public Class<? extends QueryExecution>[] getExecutionTypes() {
-        return executionTypes;
+        return this.executionTypes;
     }
 
 }

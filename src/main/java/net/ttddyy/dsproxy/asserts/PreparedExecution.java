@@ -30,7 +30,7 @@ public class PreparedExecution extends BaseQueryExecution implements QueryHolder
 
     @Override
     public String getQuery() {
-        return query;
+        return this.query;
     }
 
     public void setQuery(String query) {

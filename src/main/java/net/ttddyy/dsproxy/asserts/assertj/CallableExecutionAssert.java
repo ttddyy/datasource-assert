@@ -81,15 +81,15 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
 
     public CallableExecutionAssert containsParams(ExecutionParameter... params) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParams(params);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
-        parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
+        this.parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
         return this;
     }
 
     public CallableExecutionAssert containsParamsExactly(ExecutionParameter... params) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParamsExactly(params);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
-        parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
+        this.parameterAsserts.assertExecutionParameters(this.actual, executionParameters);
         return this;
     }
 
@@ -100,7 +100,7 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
 
     public CallableExecutionAssert containsParamKeys(Object... paramKeys) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParamKeys(paramKeys);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
         return this;
     }
 
@@ -111,7 +111,7 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
 
     public CallableExecutionAssert containsParamIndexes(int... paramIndexes) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParamIndexes(paramIndexes);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
         return this;
     }
 
@@ -122,7 +122,7 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
 
     public CallableExecutionAssert containsParamNames(String... paramNames) {
         ExecutionParameters executionParameters = ExecutionParameters.containsParamNames(paramNames);
-        parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
+        this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
         return this;
     }
 

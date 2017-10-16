@@ -86,13 +86,19 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         PreparedExecution pe = new PreparedExecution();
         pe.setQuery(query);
 
-        // TODO: size of queryInfoList must be 1 for Prepared
-        for (QueryInfo queryInfo : queryInfoList) {
-            // TODO: size of parametersList must be 1 for Prepared
-            for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                populateParameterSetOperations(pe, params);
-            }
+        if (queryInfoList.size() != 1) {
+            throw new DataSourceAssertException("queryInfoList size for PreparedStatement must be 1 but was " + queryInfoList.size());
         }
+
+        QueryInfo queryInfo = queryInfoList.get(0);
+
+        if (queryInfo.getParametersList().size() != 1) {
+            throw new DataSourceAssertException("parametersList size for PreparedStatement must be 1 but was " + queryInfo.getParametersList().size());
+        }
+
+        List<ParameterSetOperation> params = queryInfo.getParametersList().get(0);
+
+        populateParameterSetOperations(pe, params);
 
         return pe;
     }
@@ -103,14 +109,16 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         PreparedBatchExecution pbe = new PreparedBatchExecution();
         pbe.setQuery(query);
 
-        // TODO: size of queryInfoList must be 1 for Batch Prepared
-        for (QueryInfo queryInfo : queryInfoList) {
+        if (queryInfoList.size() != 1) {
+            throw new DataSourceAssertException("queryInfoList size for batch PreparedStatement must be 1 but was " + queryInfoList.size());
+        }
 
-            for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                PreparedBatchExecutionEntry batchEntry = new PreparedBatchExecutionEntry();
-                populateParameterSetOperations(batchEntry, params);
-                pbe.addBatchExecutionEntry(batchEntry);
-            }
+        QueryInfo queryInfo = queryInfoList.get(0);
+
+        for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
+            PreparedBatchExecutionEntry batchEntry = new PreparedBatchExecutionEntry();
+            populateParameterSetOperations(batchEntry, params);
+            pbe.addBatchExecutionEntry(batchEntry);
         }
 
         return pbe;
@@ -122,13 +130,20 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         CallableExecution ce = new CallableExecution();
         ce.setQuery(query);
 
-        // TODO: size of queryInfoList must be 1 for Callable
-        for (QueryInfo queryInfo : queryInfoList) {
-            // TODO: size of parametersList must be 1 for Callable
-            for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                populateParameterSetOperations(ce, params);
-            }
+        if (queryInfoList.size() != 1) {
+            throw new DataSourceAssertException("queryInfoList size for CallableStatement must be 1 but was " + queryInfoList.size());
         }
+
+        QueryInfo queryInfo = queryInfoList.get(0);
+
+        if (queryInfo.getParametersList().size() != 1) {
+            throw new DataSourceAssertException("parametersList size for CallableStatement must be 1 but was " + queryInfo.getParametersList().size());
+        }
+
+        List<ParameterSetOperation> params = queryInfo.getParametersList().get(0);
+
+        populateParameterSetOperations(ce, params);
+
         return ce;
     }
 
@@ -138,14 +153,16 @@ public class QueryExecutionFactoryListener implements QueryExecutionListener {
         CallableBatchExecution cbe = new CallableBatchExecution();
         cbe.setQuery(query);
 
-        // TODO: size of queryInfoList must be 1 for Batch Callable
-        for (QueryInfo queryInfo : queryInfoList) {
+        if (queryInfoList.size() != 1) {
+            throw new DataSourceAssertException("queryInfoList size for batch CallableStatement must be 1 but was " + queryInfoList.size());
+        }
 
-            for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
-                CallableBatchExecutionEntry batchEntry = new CallableBatchExecutionEntry();
-                populateParameterSetOperations(batchEntry, params);
-                cbe.addBatchExecutionEntry(batchEntry);
-            }
+        QueryInfo queryInfo = queryInfoList.get(0);
+
+        for (List<ParameterSetOperation> params : queryInfo.getParametersList()) {
+            CallableBatchExecutionEntry batchEntry = new CallableBatchExecutionEntry();
+            populateParameterSetOperations(batchEntry, params);
+            cbe.addBatchExecutionEntry(batchEntry);
         }
 
         return cbe;

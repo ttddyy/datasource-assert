@@ -780,4 +780,12 @@ public class CallableExecutionAssertTest {
 
     }
 
+    @Test
+    public void testQuery() {
+        CallableExecution ce = new CallableExecution();
+        ce.setQuery("SELECT");
+
+        DataSourceProxyAssertions.assertThat(ce).query().isEqualTo("SELECT");
+    }
+
 }

@@ -5,6 +5,8 @@ import net.ttddyy.dsproxy.asserts.CallableBatchExecutionEntry;
 import net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters;
 import net.ttddyy.dsproxy.asserts.assertj.helper.BatchExecutionEntryAsserts;
 import net.ttddyy.dsproxy.asserts.assertj.helper.ExecutionParameterAsserts;
+import org.assertj.core.api.AbstractCharSequenceAssert;
+import org.assertj.core.api.Assertions;
 
 /**
  * @author Tadaya Tsuyukubo
@@ -52,6 +54,10 @@ public class CallableBatchExecutionAssert extends AbstractExecutionAssert<Callab
         this.parameterAssert.assertExecutionParameters(batchEntry, params);
 
         return this;
+    }
+
+    public AbstractCharSequenceAssert<?, String> query() {
+        return Assertions.assertThat(this.actual.getQuery());
     }
 
 }

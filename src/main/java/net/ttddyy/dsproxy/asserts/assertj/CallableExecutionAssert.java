@@ -4,6 +4,8 @@ import net.ttddyy.dsproxy.asserts.CallableExecution;
 import net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter;
 import net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters;
 import net.ttddyy.dsproxy.asserts.assertj.helper.ExecutionParameterAsserts;
+import org.assertj.core.api.AbstractCharSequenceAssert;
+import org.assertj.core.api.Assertions;
 
 import java.sql.SQLType;
 
@@ -124,6 +126,10 @@ public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExe
         ExecutionParameters executionParameters = ExecutionParameters.containsParamNames(paramNames);
         this.parameterAsserts.assertParameterKeys(this.actual, executionParameters, true);
         return this;
+    }
+
+    public AbstractCharSequenceAssert<?, String> query() {
+        return Assertions.assertThat(this.actual.getQuery());
     }
 
 }

@@ -369,4 +369,12 @@ public class PreparedExecutionAssertTest {
 
     }
 
+    @Test
+    public void testQuery() {
+        PreparedExecution pe = new PreparedExecution();
+        pe.setQuery("SELECT");
+
+        DataSourceProxyAssertions.assertThat(pe).query().isEqualTo("SELECT");
+    }
+
 }

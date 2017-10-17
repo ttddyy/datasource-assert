@@ -617,4 +617,12 @@ public class CallableBatchExecutionAssertTest {
 
     }
 
+    @Test
+    public void testQuery() {
+        CallableBatchExecution cbe = new CallableBatchExecution();
+        cbe.setQuery("SELECT");
+
+        DataSourceProxyAssertions.assertThat(cbe).query().isEqualTo("SELECT");
+    }
+
 }

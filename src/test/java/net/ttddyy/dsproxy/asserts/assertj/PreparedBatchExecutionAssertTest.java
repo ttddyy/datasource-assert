@@ -399,5 +399,12 @@ public class PreparedBatchExecutionAssertTest {
 
     }
 
+    @Test
+    public void testQuery() {
+        PreparedBatchExecution pbe = new PreparedBatchExecution();
+        pbe.setQuery("SELECT");
+
+        DataSourceProxyAssertions.assertThat(pbe).query().isEqualTo("SELECT");
+    }
 
 }

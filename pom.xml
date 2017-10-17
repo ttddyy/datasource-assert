@@ -50,7 +50,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <datasource-proxy.version>1.4.1</datasource-proxy.version>
+    <datasource-proxy.version>1.4.4</datasource-proxy.version>
     <flyway.version>3.2.1</flyway.version>
 
     <surefire.version>2.19.1</surefire.version>

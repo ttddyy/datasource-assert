@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- *
- *
  * @author Tadaya Tsuyukubo
  * @since 1.0
  */
@@ -28,7 +25,7 @@ public class ProxyTestDataSource extends ProxyDataSource {
     }
 
     private void initialize() {
-        this.getInterceptorHolder().addListener(this.queryExecutionFactoryListener);
+        this.getProxyConfig().getQueryListener().addListener(this.queryExecutionFactoryListener);
     }
 
     public void reset() {

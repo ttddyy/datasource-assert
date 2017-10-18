@@ -1,4 +1,4 @@
-package net.ttddyy.dsproxy.asserts.hamcrest;
+package net.ttddyy.dsproxy.asserts.api;
 
 import net.ttddyy.dsproxy.QueryType;
 import net.ttddyy.dsproxy.asserts.*;

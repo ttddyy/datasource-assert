@@ -61,13 +61,13 @@ assertThat((StatementExecution) statements.get(0), query(is("SELECT id FROM emp"
 ## Usage examples
 
 ### Regular assertions(assertEquals, etc)
-- [SimpleAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/SimpleAssertionApiCheck.java)
+- [SimpleAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/api/SimpleAssertionApiCheck.java)
 
 ### With AssertJ
-- [AssertJAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/assertj/AssertJAssertionApiCheck.java)
+- [AssertJAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java)
 
 ### With Hamcrest
-- [HamcrestAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/hamcrest/HamcrestAssertionApiCheck.java)
+- [HamcrestAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java)
 
 
 ## Artifacts

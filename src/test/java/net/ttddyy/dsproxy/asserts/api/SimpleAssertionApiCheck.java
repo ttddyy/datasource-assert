@@ -1,4 +1,16 @@
-package net.ttddyy.dsproxy.asserts;
+package net.ttddyy.dsproxy.asserts.api;
+
+import net.ttddyy.dsproxy.asserts.BatchExecutionEntry;
+import net.ttddyy.dsproxy.asserts.CallableBatchExecution;
+import net.ttddyy.dsproxy.asserts.CallableBatchExecutionEntry;
+import net.ttddyy.dsproxy.asserts.CallableExecution;
+import net.ttddyy.dsproxy.asserts.PreparedBatchExecution;
+import net.ttddyy.dsproxy.asserts.PreparedBatchExecutionEntry;
+import net.ttddyy.dsproxy.asserts.PreparedExecution;
+import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
+import net.ttddyy.dsproxy.asserts.QueryExecution;
+import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
+import net.ttddyy.dsproxy.asserts.StatementExecution;
 
 import javax.sql.DataSource;
 import java.sql.JDBCType;

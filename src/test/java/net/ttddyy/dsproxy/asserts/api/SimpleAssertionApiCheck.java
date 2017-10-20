@@ -18,7 +18,9 @@ import java.sql.Types;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * API compilation check with assertEquals.
@@ -30,7 +32,10 @@ public class SimpleAssertionApiCheck {
     private DataSource actualDataSource;
 
     public void dataSource() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::datasource[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
 
         // execution count
         assertEquals(3, ds.getQueryExecutions().size());
@@ -40,36 +45,49 @@ public class SimpleAssertionApiCheck {
         assertEquals(3, ds.getBatchPrepareds().size());
         assertEquals(3, ds.getCallables().size());
         assertEquals(3, ds.getBatchCallables().size());
-
+        // end::datasource[]
     }
 
     public void queryExecution() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::query[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
 
         // each execution
         QueryExecution qe = ds.getQueryExecutions().get(0);
         assertTrue(qe.isSuccess());
         assertTrue(qe.isBatch());
-        assertTrue(qe instanceof StatementExecution);
-        assertTrue(qe instanceof StatementBatchExecution);
-        assertTrue(qe instanceof PreparedExecution);
-        assertTrue(qe instanceof PreparedExecution);
-        assertTrue(qe instanceof CallableExecution);
-        assertTrue(qe instanceof CallableBatchExecution);
+        assertTrue("is statement", qe instanceof StatementExecution);
+        assertTrue("is batch statement", qe instanceof StatementBatchExecution);
+        assertTrue("is prepared", qe instanceof PreparedExecution);
+        assertTrue("is batch prepared", qe instanceof PreparedExecution);
+        assertTrue("is callable", qe instanceof CallableExecution);
+        assertTrue("is batch callable", qe instanceof CallableBatchExecution);
+        // end::query[]
     }
 
     public void statement() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::statement[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
+
         StatementExecution se = ds.getFirstStatement();
 
         assertTrue(se.isSuccess());
         assertFalse(se.isSuccess());
 
         assertEquals("FOO", se.getQuery());
+        // end::statement[]
     }
 
     public void batchStatement() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::batch-statement[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
+
         StatementBatchExecution sbe = ds.getFirstBatchStatement();
 
         assertTrue(sbe.isSuccess());
@@ -78,10 +96,15 @@ public class SimpleAssertionApiCheck {
         List<String> queries = sbe.getQueries();
         assertEquals(3, queries.size());
         assertEquals("FOO", queries.get(0));
+        // end::batch-statement[]
     }
 
     public void prepared() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::prepared[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
+
         PreparedExecution pe = ds.getFirstPrepared();
 
         assertTrue(pe.isSuccess());
@@ -104,10 +127,15 @@ public class SimpleAssertionApiCheck {
         Map<Integer, Integer> setNullByIndex = pe.getSetNullParamsByIndex();
         assertEquals(Integer.valueOf(Types.VARCHAR), setNullByIndex.get(1));
         assertTrue(setNullByIndex.containsKey(2));
+        // end::prepared[]
     }
 
     public void batchPrepared() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::batch-prepared[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
+
         PreparedBatchExecution pbe = ds.getFirstBatchPrepared();
 
         assertTrue(pbe.isSuccess());
@@ -138,10 +166,15 @@ public class SimpleAssertionApiCheck {
         Map<Integer, Integer> setNullByIndex = preparedBatchEntry.getSetNullParamsByIndex();
         assertEquals(Integer.valueOf(Types.VARCHAR), setNullByIndex.get(1));
         assertTrue(setNullByIndex.containsKey(2));
+        // end::batch-prepared[]
     }
 
     public void callable() {
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // tag::callable[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+        // ... perform application logic with database ...
+
         CallableExecution ce = ds.getFirstCallable();
 
         assertTrue(ce.isSuccess());
@@ -197,12 +230,15 @@ public class SimpleAssertionApiCheck {
 
         Map<String, Object> outParamsByName = ce.getOutParamsByName();
         assertEquals(JDBCType.INTEGER, outParamsByName.get("key"));
-
+        // end::callable[]
     }
 
     public void batchCallable() {
+        // tag::batch-callable[]
+        ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
 
-        ProxyTestDataSource ds = new ProxyTestDataSource(this.actualDataSource);
+        // ... perform application logic with database ...
+
         CallableBatchExecution cbe = ds.getFirstBatchCallable();
 
         assertTrue(cbe.isSuccess());
@@ -269,5 +305,6 @@ public class SimpleAssertionApiCheck {
         Map<Integer, Object> outParamByIndex = callableBatchEntry.getOutParamsByIndex();
         assertEquals(Types.VARCHAR, outParamByIndex.get(1));
         assertEquals(JDBCType.INTEGER, outParamByIndex.get(2));
+        // end::batch-callable[]
     }
 }

@@ -1,6 +1,7 @@
 [[assert-with-assertj]]
 == Assert with AssertJ
 
+[[assertj-datasource]]
 === DataSource
 
 [source,java,indent=0]
@@ -8,6 +9,8 @@
 include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[tags=datasource]
 ----
 
+
+[[assertj-query]]
 === Query Executions
 
 [source,java,indent=0]
@@ -16,6 +19,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-statement]]
 === Statement
 
 [source,java,indent=0]
@@ -24,6 +28,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-batch-statement]]
 === Batch Statement
 
 [source,java,indent=0]
@@ -32,6 +37,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-prepared]]
 === Prepared Statement
 
 [source,java,indent=0]
@@ -40,6 +46,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-batch-prepared]]
 === Batch Prepared Statement
 
 [source,java,indent=0]
@@ -48,6 +55,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-callable]]
 === Callable Statement
 
 [source,java,indent=0]
@@ -56,6 +64,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
+[[assertj-batch-prepared]]
 === Batch Callable Statement
 
 [source,java,indent=0]

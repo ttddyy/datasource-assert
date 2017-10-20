@@ -1,0 +1,43 @@
+[[installation]]
+== Installation
+
+=== Dependency
+
+```xml
+<dependency>
+  <groupId>net.ttddyy</groupId>
+  <artifactId>datasource-assert</artifactId>
+  <version>[LATEST_VERSION]</version>
+</dependency>
+```
+
+{datasource-proxy}[datasource-proxy] is the only transitive dependency library. +
+{assertj}[AssertJ] and {hamcrest}[Hamcrest] are optional. If you need to use their assertions, you need to explicitly specify dependency
+in your project.
+
+
+==== Snapshot
+
+Snapshot is available via {oss-snapshot-repository}[oss sonatype snapshot repository].
+
+To download snapshot jars, enable sonatype snapshot repository:
+
+```xml
+<repositories>
+  <repository>
+    <id>sonatype-snapshots-repo</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    <releases>
+      <enabled>false</enabled>
+    </releases>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>
+  </repository>
+</repositories>
+```
+
+=== Supported Java Versions
+
+`datasource-assert` works with java 1.7+.
+

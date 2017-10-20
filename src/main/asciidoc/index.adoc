@@ -4,7 +4,13 @@ Tadaya Tsuyukubo
 // ======================================================================================
 :sectnums:
 
+:oss-snapshot-repository:           https://oss.sonatype.org/content/repositories/snapshots/net/ttddyy/datasource-proxy/
+:datasource-proxy:                  https://github.com/ttddyy/datasource-proxy/
+:assertj:                           http://joel-costigliola.github.io/assertj/
+:hamcrest:                          http://hamcrest.org/JavaHamcrest/
+
 include::about.adoc[]
+include::installation.adoc[]
 include::assert-simple.adoc[]
 include::assert-assertj.adoc[]
 include::assert-hamcrest.adoc[]

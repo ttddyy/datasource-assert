@@ -36,6 +36,10 @@
       <id>bintray</id>
       <url>https://api.bintray.com/maven/ttddyy/maven/datasource-assert</url>
     </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <developers>

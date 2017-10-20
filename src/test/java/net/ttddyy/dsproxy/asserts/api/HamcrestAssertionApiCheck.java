@@ -163,7 +163,7 @@ public class HamcrestAssertionApiCheck {
     }
 
     private void queryExecution() {
-        // tag::queries[]
+        // tag::query[]
         ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
 
         // ... perform application logic with database ...
@@ -184,7 +184,7 @@ public class HamcrestAssertionApiCheck {
         assertThat(qe, callable());
         assertThat(qe, batchCallable());
         assertThat(qe, callableOrBatchCallable());
-        // end::queries[]
+        // end::query[]
     }
 
     private void statementExecution() {

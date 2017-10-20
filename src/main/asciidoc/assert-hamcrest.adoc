@@ -1,6 +1,9 @@
 [[assert-with-hamcrest]]
 == Assert with Hamcrest
 
+This section describes how to assert `ProxyTestDataSource` with Hamcrest.
+
+
 [[hamcrest-datasource]]
 === DataSource
 
@@ -15,7 +18,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 
 [source,java,indent=0]
 ----
-include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java[tags=queries]
+include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java[tags=query]
 ----
 
 

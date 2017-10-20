@@ -66,7 +66,7 @@ public class AssertJAssertionApiCheck {
     }
 
     private void queryExecution() {
-        // tag::queries[]
+        // tag::query[]
         ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
 
         // ... perform application logic with database ...
@@ -100,7 +100,7 @@ public class AssertJAssertionApiCheck {
 
         assertThat(ds.getQueryExecutions().get(0)).isStatement().asStatement().query().startsWith("SELECT");
         assertThat(qe).asPrepared().containsParam(1, "value").containsNullParam(1, Types.INTEGER);
-        // end::queries[]
+        // end::query[]
     }
 
     private void statementExecution() {

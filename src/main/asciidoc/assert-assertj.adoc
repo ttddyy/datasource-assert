@@ -1,6 +1,9 @@
 [[assert-with-assertj]]
 == Assert with AssertJ
 
+This section describes how to assert `ProxyTestDataSource` with AssertJ.
+
+
 [[assertj-datasource]]
 === DataSource
 
@@ -15,7 +18,7 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 
 [source,java,indent=0]
 ----
-include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[tags=queries]
+include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[tags=query]
 ----
 
 

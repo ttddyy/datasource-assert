@@ -5,6 +5,6 @@ Tadaya Tsuyukubo
 :sectnums:
 
 include::about.adoc[]
-include::assertion.adoc[]
-include::assertj.adoc[]
-include::hamcrest.adoc[]
+include::assert-simple.adoc[]
+include::assert-assertj.adoc[]
+include::assert-hamcrest.adoc[]

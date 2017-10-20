@@ -1,8 +1,10 @@
-= datasource-test-proxy User Guide
+= datasource-assert User Guide
 Tadaya Tsuyukubo
 
 // ======================================================================================
+:sectnums:
 
+include::about.adoc[]
+include::assertion.adoc[]
 include::assertj.adoc[]
 include::hamcrest.adoc[]
-include::assertion.adoc[]

@@ -114,6 +114,7 @@
                 <setanchors/>
                 <icons>font</icons>
                 <sectnums/>
+                <testDir>${project.build.testSourceDirectory}</testDir>
               </attributes>
             </configuration>
           </execution>

@@ -1,7 +1,7 @@
 [[assert-with-hamcrest]]
 == Assert with Hamcrest
 
-This section describes how to assert `ProxyTestDataSource` with Hamcrest.
+This section describes how to assert `ProxyTestDataSource` with {hamcrest}[Hamcrest].
 
 
 [[hamcrest-datasource]]

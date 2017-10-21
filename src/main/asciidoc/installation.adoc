@@ -11,9 +11,9 @@
 </dependency>
 ```
 
-{datasource-proxy}[datasource-proxy] is the only transitive dependency library. +
-{assertj}[AssertJ] and {hamcrest}[Hamcrest] are optional. If you need to use their assertions, you need to explicitly specify dependency
-in your project.
+{datasource-proxy}[datasource-proxy] is the only dependent library. +
+{assertj}[AssertJ] and {hamcrest}[Hamcrest] are optional.
+To use those assertion libraries, explicit dependency needs to be specified in your project.
 
 
 ==== Snapshot (via Sonatype OSSRH)

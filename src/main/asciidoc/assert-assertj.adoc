@@ -1,7 +1,7 @@
 [[assert-with-assertj]]
 == Assert with AssertJ
 
-This section describes how to assert `ProxyTestDataSource` with AssertJ.
+This section describes how to assert `ProxyTestDataSource` with {assertj}[AssertJ].
 
 
 [[assertj-datasource]]

@@ -50,7 +50,7 @@ assertThat(ds.getQueryExecutions().get(0)).isStatement().asStatement().query().i
 
 ### Hamcrest
 
-Use matchers from `DataSourceProxyMatchers`.
+Use matchers from `DataSourceAssertMatchers`.
 
 ```java
 assertThat(ds, statementCount(3));

@@ -5,7 +5,7 @@ import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.createSetParam;
-import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceProxyMatchers.*;
+import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceAssertMatchers.*;
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;

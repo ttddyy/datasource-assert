@@ -37,7 +37,7 @@ import java.util.Map;
  * @see OutParameterHolderAssertions
  * @since 1.0
  */
-public class DataSourceProxyMatchers {
+public class DataSourceAssertMatchers {
 
     /////////////////////////////////////////////////////////////////////////////
     // Matchers from ProxyTestDataSourceAssertions

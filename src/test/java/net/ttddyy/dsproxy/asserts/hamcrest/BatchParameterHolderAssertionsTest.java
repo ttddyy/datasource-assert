@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceProxyMatchers.paramIndexes;
+import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceAssertMatchers.paramIndexes;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.fail;

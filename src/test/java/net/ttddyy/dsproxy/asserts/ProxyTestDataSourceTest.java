@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.Arrays;
 import java.util.List;
 
-import static net.ttddyy.dsproxy.asserts.assertj.DataSourceProxyAssertions.assertThat;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
 import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceProxyMatchers.batchCallableCount;
 import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceProxyMatchers.batchPreparedCount;
 import static net.ttddyy.dsproxy.asserts.hamcrest.DataSourceProxyMatchers.batchStatementCount;

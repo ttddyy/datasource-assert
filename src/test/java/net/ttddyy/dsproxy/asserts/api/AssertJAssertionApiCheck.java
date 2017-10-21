@@ -13,7 +13,7 @@ import net.ttddyy.dsproxy.asserts.StatementExecution;
 import javax.sql.DataSource;
 import java.sql.Types;
 
-import static net.ttddyy.dsproxy.asserts.assertj.DataSourceProxyAssertions.assertThat;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
 import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.nullParam;
 import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.outParam;
 import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.param;

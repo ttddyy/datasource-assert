@@ -80,10 +80,10 @@ public class CallableBatchExecutionAssertTest {
         BatchExecutionEntry entry = mock(BatchExecutionEntry.class);
         cbe.getBatchExecutionEntries().addAll(Arrays.asList(entry, entry, entry));
 
-        DataSourceProxyAssertions.assertThat(cbe).hasBatchSize(3);
+        DataSourceAssertAssertions.assertThat(cbe).hasBatchSize(3);
 
         try {
-            DataSourceProxyAssertions.assertThat(cbe).hasBatchSize(1);
+            DataSourceAssertAssertions.assertThat(cbe).hasBatchSize(1);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected batch size:<1> but was:<3> in batch callable executions\n");
@@ -101,11 +101,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful call
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("bar", "BAR")));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("bar", "BAR")));
 
         // index is too small
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(-1, containsParams(param(1, "foo")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(-1, containsParams(param(1, "foo")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: batch index <-1> should be greater than equal to <0>");
@@ -113,7 +113,7 @@ public class CallableBatchExecutionAssertTest {
 
         // index is too big
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(1, containsParams(param(1, "foo")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(1, containsParams(param(1, "foo")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: batch index <1> is too big for the batch size <1>");
@@ -121,7 +121,7 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for index
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "fooABC")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, "fooABC")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, bar=BAR}>\nto contain:\n<[1=fooABC]>\nbut could not find:\n<[1=fooABC]>");
@@ -129,7 +129,7 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for name
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param("bar", "BARABC")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param("bar", "BARABC")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, bar=BAR}>\nto contain:\n<[bar=BARABC]>\nbut could not find:\n<[bar=BARABC]>");
@@ -137,7 +137,7 @@ public class CallableBatchExecutionAssertTest {
 
         // no param index key
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(2, "bar")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(2, "bar")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -152,7 +152,7 @@ public class CallableBatchExecutionAssertTest {
 
         // no param name key
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param("foo", "FOO")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param("foo", "FOO")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -177,11 +177,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful call
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
 
         // value is wrong for index
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=NULL(VARCHAR), bar=NULL(DATE)}>\nto contain:\n<[1=NULL(ARRAY)]>\nbut could not find:\n<[1=NULL(ARRAY)]>");
@@ -189,14 +189,14 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for name
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam("bar", Types.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam("bar", Types.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=NULL(VARCHAR), bar=NULL(DATE)}>\nto contain:\n<[bar=NULL(ARRAY)]>\nbut could not find:\n<[bar=NULL(ARRAY)]>");
         }
 
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, 12))); // Types.VARCHAR == 12
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, 12))); // Types.VARCHAR == 12
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -220,11 +220,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful call
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1), nullParam("bar")));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1), nullParam("bar")));
 
         // index key doesn't exist
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(100)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam(100)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -239,7 +239,7 @@ public class CallableBatchExecutionAssertTest {
 
         // name key doesn't exist
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam("BAR")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam("BAR")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -266,16 +266,16 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful call
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(2, JDBCType.VARCHAR), outParam("foo", JDBCType.BIGINT)));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam(2, JDBCType.VARCHAR)));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", Types.DOUBLE), outParam("foo", JDBCType.BIGINT)));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE), outParam(2, JDBCType.VARCHAR), outParam("foo", JDBCType.BIGINT)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(2, JDBCType.VARCHAR), outParam("foo", JDBCType.BIGINT)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam(2, JDBCType.VARCHAR)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", Types.DOUBLE), outParam("foo", JDBCType.BIGINT)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE), outParam(2, JDBCType.VARCHAR), outParam("foo", JDBCType.BIGINT)));
 
 
         // value is wrong for index with int type
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, Types.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=OUTPUT(BOOLEAN[16]), 2=OUTPUT(VARCHAR), bar=OUTPUT(DOUBLE[8]), foo=OUTPUT(BIGINT)}>\nto contain:\n<[1=OUTPUT(ARRAY[2003])]>\nbut could not find:\n<[1=OUTPUT(ARRAY[2003])]>");
@@ -283,7 +283,7 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for name with int type
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", Types.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", Types.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=OUTPUT(BOOLEAN[16]), 2=OUTPUT(VARCHAR), bar=OUTPUT(DOUBLE[8]), foo=OUTPUT(BIGINT)}>\nto contain:\n<[bar=OUTPUT(ARRAY[2003])]>\nbut could not find:\n<[bar=OUTPUT(ARRAY[2003])]>");
@@ -291,7 +291,7 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for index with SQLType
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, JDBCType.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam(1, JDBCType.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=OUTPUT(BOOLEAN[16]), 2=OUTPUT(VARCHAR), bar=OUTPUT(DOUBLE[8]), foo=OUTPUT(BIGINT)}>\nto contain:\n<[1=OUTPUT(ARRAY)]>\nbut could not find:\n<[1=OUTPUT(ARRAY)]>");
@@ -299,7 +299,7 @@ public class CallableBatchExecutionAssertTest {
 
         // value is wrong for name with SQLType
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", JDBCType.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(outParam("bar", JDBCType.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=OUTPUT(BOOLEAN[16]), 2=OUTPUT(VARCHAR), bar=OUTPUT(DOUBLE[8]), foo=OUTPUT(BIGINT)}>\nto contain:\n<[bar=OUTPUT(ARRAY)]>\nbut could not find:\n<[bar=OUTPUT(ARRAY)]>");
@@ -307,7 +307,7 @@ public class CallableBatchExecutionAssertTest {
 
         // specifing index which is not in register-out
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, 16))); // Types.BOOLEAN == 16
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, 16))); // Types.BOOLEAN == 16
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -335,13 +335,13 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful call
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("foo", "FOO"),
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo"), param("foo", "FOO"),
                 nullParam(2, Types.VARCHAR), nullParam("bar", Types.DATE),
                 outParam(3, Types.BOOLEAN), outParam("baz", Types.BIGINT)));
 
         // specifying index not in null params
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.ARRAY)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(nullParam(1, Types.ARRAY)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -366,11 +366,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(param(1, "foo"), param("bar", "BAR")));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(param(1, "foo"), param("bar", "BAR")));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(param(1, "foo")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(param(1, "foo")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -388,7 +388,7 @@ public class CallableBatchExecutionAssertTest {
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(param("bar", "BAR")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(param("bar", "BAR")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -416,11 +416,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE)));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam(1, Types.VARCHAR)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam(1, Types.VARCHAR)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -438,7 +438,7 @@ public class CallableBatchExecutionAssertTest {
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam("bar", Types.DATE)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(nullParam("bar", Types.DATE)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -466,11 +466,11 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE)));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam(1, Types.BOOLEAN)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam(1, Types.BOOLEAN)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -488,7 +488,7 @@ public class CallableBatchExecutionAssertTest {
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam("bar", Types.DOUBLE)));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamsExactly(outParam("bar", Types.DOUBLE)));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -521,12 +521,12 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamNames("foo", "bar", "baz"));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamNames("bar"));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamNames("foo", "bar", "baz"));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamNames("bar"));
 
         // missing param key
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamNames("zzz", "bar"));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamNames("zzz", "bar"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[bar, zzz]>\nbut could not find:\n<[zzz]>");
@@ -549,13 +549,13 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamIndexes(1, 2, 3));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamIndexes(2, 3, 1));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamIndexes(2, 3));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamIndexes(1, 2, 3));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamIndexes(2, 3, 1));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamIndexes(2, 3));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamIndexes(1, 2, 100));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamIndexes(1, 2, 100));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[1, 2, 100]>\nbut could not find:\n<[100]>");
@@ -577,14 +577,14 @@ public class CallableBatchExecutionAssertTest {
         cbe.addBatchExecutionEntry(entry);
 
         // successful case
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys(1));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys("bar"));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys(1, "bar"));
-        DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys(1, 2, 3, "foo", "bar", "baz"));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys(1));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys("bar"));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys(1, "bar"));
+        DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys(1, 2, 3, "foo", "bar", "baz"));
 
         // missing keys
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys(1, 2, 100, "zzz", "bar"));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys(1, 2, 100, "zzz", "bar"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[1, 2, 100, bar, zzz]>\nbut could not find:\n<[100, zzz]>");
@@ -592,7 +592,7 @@ public class CallableBatchExecutionAssertTest {
 
         // wrong key type
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParamKeys((double) 10.01));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParamKeys((double) 10.01));
             fail("exception should be thrown");
         } catch (IllegalArgumentException e) {
             assertThat(e).hasMessage("param key should be int or String");
@@ -609,7 +609,7 @@ public class CallableBatchExecutionAssertTest {
         cbe.getBatchExecutionEntries().add(entry);  // setting wrong type
 
         try {
-            DataSourceProxyAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo")));
+            DataSourceAssertAssertions.assertThat(cbe).batch(0, containsParams(param(1, "foo")));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: batch entry\n<CallableBatchExecutionEntry>\nbut was\n<PreparedBatchExecutionEntry>");
@@ -622,7 +622,7 @@ public class CallableBatchExecutionAssertTest {
         CallableBatchExecution cbe = new CallableBatchExecution();
         cbe.setQuery("SELECT");
 
-        DataSourceProxyAssertions.assertThat(cbe).query().isEqualTo("SELECT");
+        DataSourceAssertAssertions.assertThat(cbe).query().isEqualTo("SELECT");
     }
 
 }

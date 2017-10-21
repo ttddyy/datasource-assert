@@ -69,10 +69,10 @@ public class StatementBatchExecutionAssertTest {
         StatementBatchExecution sbe = mock(StatementBatchExecution.class);
         given(sbe.getQueries()).willReturn(entries);
 
-        DataSourceProxyAssertions.assertThat(sbe).hasBatchSize(3);
+        DataSourceAssertAssertions.assertThat(sbe).hasBatchSize(3);
 
         try {
-            DataSourceProxyAssertions.assertThat(sbe).hasBatchSize(1);
+            DataSourceAssertAssertions.assertThat(sbe).hasBatchSize(1);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected batch size:<1> but was:<3> in batch statement executions\n");
@@ -86,10 +86,10 @@ public class StatementBatchExecutionAssertTest {
         sbe.getQueries().add("bar");
         sbe.getQueries().add("baz");
 
-        DataSourceProxyAssertions.assertThat(sbe).queries().contains("bar");
+        DataSourceAssertAssertions.assertThat(sbe).queries().contains("bar");
 
         try {
-            DataSourceProxyAssertions.assertThat(sbe).queries().contains("WRONG");
+            DataSourceAssertAssertions.assertThat(sbe).queries().contains("WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
         }
@@ -102,10 +102,10 @@ public class StatementBatchExecutionAssertTest {
         sbe.getQueries().add("bar");
         sbe.getQueries().add("baz");
 
-        DataSourceProxyAssertions.assertThat(sbe).query(1).isEqualTo("bar");
+        DataSourceAssertAssertions.assertThat(sbe).query(1).isEqualTo("bar");
 
         try {
-            DataSourceProxyAssertions.assertThat(sbe).query(3);
+            DataSourceAssertAssertions.assertThat(sbe).query(3);
             fail("exception should be thrown");
         } catch (Throwable e) {
             assertThat(e).isInstanceOf(IndexOutOfBoundsException.class);
@@ -119,13 +119,13 @@ public class StatementBatchExecutionAssertTest {
         sbe.getQueries().add("INSERT");
         sbe.getQueries().add("SELECT");
 
-        DataSourceProxyAssertions.assertThat(sbe).contains(QueryType.SELECT, 0);
-        DataSourceProxyAssertions.assertThat(sbe).contains(QueryType.INSERT, 1);
-        DataSourceProxyAssertions.assertThat(sbe).contains(QueryType.SELECT, atIndex(2));
+        DataSourceAssertAssertions.assertThat(sbe).contains(QueryType.SELECT, 0);
+        DataSourceAssertAssertions.assertThat(sbe).contains(QueryType.INSERT, 1);
+        DataSourceAssertAssertions.assertThat(sbe).contains(QueryType.SELECT, atIndex(2));
 
         // wrong type
         try {
-            DataSourceProxyAssertions.assertThat(sbe).contains(QueryType.DELETE, 0);
+            DataSourceAssertAssertions.assertThat(sbe).contains(QueryType.DELETE, 0);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected query type:<DELETE> but was:<SELECT> at index:<0>\n");
@@ -133,7 +133,7 @@ public class StatementBatchExecutionAssertTest {
 
         // out of index
         try {
-            DataSourceProxyAssertions.assertThat(sbe).contains(QueryType.DELETE, 4);
+            DataSourceAssertAssertions.assertThat(sbe).contains(QueryType.DELETE, 4);
             fail("exception should be thrown");
         } catch (Throwable e) {
             assertThat(e).isInstanceOf(IndexOutOfBoundsException.class);
@@ -151,16 +151,16 @@ public class StatementBatchExecutionAssertTest {
         sbe.getQueries().add("UPDATE");
         sbe.getQueries().add("OTHER");
 
-        DataSourceProxyAssertions.assertThat(sbe).hasSelectCount(3);
-        DataSourceProxyAssertions.assertThat(sbe).hasInsertCount(2);
-        DataSourceProxyAssertions.assertThat(sbe).hasUpdateCount(1);
-        DataSourceProxyAssertions.assertThat(sbe).hasDeleteCount(0);
-        DataSourceProxyAssertions.assertThat(sbe).hasOtherCount(1);
-        DataSourceProxyAssertions.assertThat(sbe).hasQueryCount(QueryType.INSERT, 2);
+        DataSourceAssertAssertions.assertThat(sbe).hasSelectCount(3);
+        DataSourceAssertAssertions.assertThat(sbe).hasInsertCount(2);
+        DataSourceAssertAssertions.assertThat(sbe).hasUpdateCount(1);
+        DataSourceAssertAssertions.assertThat(sbe).hasDeleteCount(0);
+        DataSourceAssertAssertions.assertThat(sbe).hasOtherCount(1);
+        DataSourceAssertAssertions.assertThat(sbe).hasQueryCount(QueryType.INSERT, 2);
 
         // wrong type
         try {
-            DataSourceProxyAssertions.assertThat(sbe).hasSelectCount(10);
+            DataSourceAssertAssertions.assertThat(sbe).hasSelectCount(10);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +

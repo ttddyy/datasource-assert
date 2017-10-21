@@ -74,13 +74,13 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createSetParam("bar", "BAR"));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(ce).containsParams(param(1, "foo"), param("bar", "BAR"));
-        DataSourceProxyAssertions.assertThat(ce).containsParams(param(1, "foo"));
-        DataSourceProxyAssertions.assertThat(ce).containsParams(param("bar", "BAR"));
+        DataSourceAssertAssertions.assertThat(ce).containsParams(param(1, "foo"), param("bar", "BAR"));
+        DataSourceAssertAssertions.assertThat(ce).containsParams(param(1, "foo"));
+        DataSourceAssertAssertions.assertThat(ce).containsParams(param("bar", "BAR"));
 
         // value is wrong for index
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParams(param(1, "fooABC"));
+            DataSourceAssertAssertions.assertThat(ce).containsParams(param(1, "fooABC"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, bar=BAR}>\nto contain:\n<[1=fooABC]>\nbut could not find:\n<[1=fooABC]>");
@@ -88,7 +88,7 @@ public class CallableExecutionAssertTest {
 
         // value is wrong for name
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParams(param("bar", "BARABC"));
+            DataSourceAssertAssertions.assertThat(ce).containsParams(param("bar", "BARABC"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, bar=BAR}>\nto contain:\n<[bar=BARABC]>\nbut could not find:\n<[bar=BARABC]>");
@@ -96,7 +96,7 @@ public class CallableExecutionAssertTest {
 
         // no param index key
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParams(param(2, "bar"));
+            DataSourceAssertAssertions.assertThat(ce).containsParams(param(2, "bar"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, bar]>\n(params=[1, bar], set-null=[], register-out=[])\nto contain:\n<params=[2]>\nbut could not find:\n<params=[2]>");
@@ -104,7 +104,7 @@ public class CallableExecutionAssertTest {
 
         // no param name key
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParams(param("foo", "FOO"));
+            DataSourceAssertAssertions.assertThat(ce).containsParams(param("foo", "FOO"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, bar]>\n(params=[1, bar], set-null=[], register-out=[])\nto contain:\n<params=[foo]>\nbut could not find:\n<params=[foo]>");
@@ -123,12 +123,12 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(ce).containsParams(param(1, "foo"), param("foo", "FOO"),
+        DataSourceAssertAssertions.assertThat(ce).containsParams(param(1, "foo"), param("foo", "FOO"),
                 nullParam(2, Types.VARCHAR), nullParam("bar", Types.DATE),
                 outParam(3, Types.BOOLEAN), outParam("baz", Types.BIGINT));
 
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParams(nullParam(1, Types.ARRAY));
+            DataSourceAssertAssertions.assertThat(ce).containsParams(nullParam(1, Types.ARRAY));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n" +
@@ -148,11 +148,11 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createSetParam("bar", "BAR"));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(param(1, "foo"), param("bar", "BAR"));
+        DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(param(1, "foo"), param("bar", "BAR"));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(param(1, "foo"));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(param(1, "foo"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -170,7 +170,7 @@ public class CallableExecutionAssertTest {
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(param("bar", "BAR"));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(param("bar", "BAR"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -195,11 +195,11 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createSetNull("bar", Types.DATE));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE));
+        DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(nullParam(1, Types.VARCHAR), nullParam("bar", Types.DATE));
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(nullParam(1, Types.VARCHAR));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(nullParam(1, Types.VARCHAR));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -217,7 +217,7 @@ public class CallableExecutionAssertTest {
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(nullParam("bar", Types.DATE));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(nullParam("bar", Types.DATE));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -241,11 +241,11 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("bar", Types.DOUBLE));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE));
+        DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(outParam(1, Types.BOOLEAN), outParam("bar", Types.DOUBLE));
 
         // missing one param key (name)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(outParam(1, Types.BOOLEAN));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(outParam(1, Types.BOOLEAN));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, bar]>\n(params=[], set-null=[], register-out=[1, bar])\nto be exactly:\n<[1]>\n(params=[], set-null=[], register-out=[1])\nbut missing keys:\n<>\nextra keys:\n<register-out=[bar]>");
@@ -253,7 +253,7 @@ public class CallableExecutionAssertTest {
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamsExactly(outParam("bar", Types.DOUBLE));
+            DataSourceAssertAssertions.assertThat(ce).containsParamsExactly(outParam("bar", Types.DOUBLE));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, bar]>\n(params=[], set-null=[], register-out=[1, bar])\nto be exactly:\n<[bar]>\n(params=[], set-null=[], register-out=[bar])\nbut missing keys:\n<>\nextra keys:\n<register-out=[1]>");
@@ -272,12 +272,12 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamNames("foo", "bar", "baz");
-        DataSourceProxyAssertions.assertThat(ce).containsParamNames("bar");
+        DataSourceAssertAssertions.assertThat(ce).containsParamNames("foo", "bar", "baz");
+        DataSourceAssertAssertions.assertThat(ce).containsParamNames("bar");
 
         // missing param key
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamNames("zzz", "bar");
+            DataSourceAssertAssertions.assertThat(ce).containsParamNames("zzz", "bar");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[bar, zzz]>\nbut could not find:\n<[zzz]>");
@@ -295,12 +295,12 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamName("foo");
-        DataSourceProxyAssertions.assertThat(ce).containsParamName("bar");
+        DataSourceAssertAssertions.assertThat(ce).containsParamName("foo");
+        DataSourceAssertAssertions.assertThat(ce).containsParamName("bar");
 
         // missing param key
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamName("zzz");
+            DataSourceAssertAssertions.assertThat(ce).containsParamName("zzz");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[zzz]>\nbut could not find:\n<[zzz]>");
@@ -319,13 +319,13 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndexes(1, 2, 3);
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndexes(2, 3, 1);
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndexes(2, 3);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndexes(1, 2, 3);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndexes(2, 3, 1);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndexes(2, 3);
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamIndexes(1, 2, 100);
+            DataSourceAssertAssertions.assertThat(ce).containsParamIndexes(1, 2, 100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[1, 2, 100]>\nbut could not find:\n<[100]>");
@@ -344,13 +344,13 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndex(1);
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndex(2);
-        DataSourceProxyAssertions.assertThat(ce).containsParamIndex(3);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndex(1);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndex(2);
+        DataSourceAssertAssertions.assertThat(ce).containsParamIndex(3);
 
         // missing param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamIndex(100);
+            DataSourceAssertAssertions.assertThat(ce).containsParamIndex(100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[100]>\nbut could not find:\n<[100]>");
@@ -369,14 +369,14 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamKeys(1);
-        DataSourceProxyAssertions.assertThat(ce).containsParamKeys("bar");
-        DataSourceProxyAssertions.assertThat(ce).containsParamKeys(1, "bar");
-        DataSourceProxyAssertions.assertThat(ce).containsParamKeys(1, 2, 3, "foo", "bar", "baz");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKeys(1);
+        DataSourceAssertAssertions.assertThat(ce).containsParamKeys("bar");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKeys(1, "bar");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKeys(1, 2, 3, "foo", "bar", "baz");
 
         // missing keys
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKeys(1, 2, 100, "zzz", "bar");
+            DataSourceAssertAssertions.assertThat(ce).containsParamKeys(1, 2, 100, "zzz", "bar");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[1, 2, 100, bar, zzz]>\nbut could not find:\n<[100, zzz]>");
@@ -384,7 +384,7 @@ public class CallableExecutionAssertTest {
 
         // wrong key type
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKeys((double) 10.01);
+            DataSourceAssertAssertions.assertThat(ce).containsParamKeys((double) 10.01);
             fail("exception should be thrown");
         } catch (IllegalArgumentException e) {
             assertThat(e).hasMessage("param key should be int or String");
@@ -403,22 +403,22 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey(1);
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey(2);
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey(3);
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey("foo");
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey("bar");
-        DataSourceProxyAssertions.assertThat(ce).containsParamKey("baz");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey(1);
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey(2);
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey(3);
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey("foo");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey("bar");
+        DataSourceAssertAssertions.assertThat(ce).containsParamKey("baz");
 
         // missing keys
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKey(100);
+            DataSourceAssertAssertions.assertThat(ce).containsParamKey(100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[100]>\nbut could not find:\n<[100]>");
         }
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKey("zzz");
+            DataSourceAssertAssertions.assertThat(ce).containsParamKey("zzz");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\nto contain:\n<[zzz]>\nbut could not find:\n<[zzz]>");
@@ -426,7 +426,7 @@ public class CallableExecutionAssertTest {
 
         // wrong key type
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParamKey(10.01);
+            DataSourceAssertAssertions.assertThat(ce).containsParamKey(10.01);
             fail("exception should be thrown");
         } catch (IllegalArgumentException e) {
             assertThat(e).hasMessage("param key should be int or String");
@@ -445,11 +445,11 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(ce).containsParam(1, "foo").containsParam("foo", "FOO");
+        DataSourceAssertAssertions.assertThat(ce).containsParam(1, "foo").containsParam("foo", "FOO");
 
         // index with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam(1, "WRONG");
+            DataSourceAssertAssertions.assertThat(ce).containsParam(1, "WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, 2=NULL(VARCHAR), 3=OUTPUT(BOOLEAN[16]), bar=NULL(DATE), baz=OUTPUT(BIGINT[-5]), foo=FOO}>\nto contain:\n<[1=WRONG]>\nbut could not find:\n<[1=WRONG]>");
@@ -457,7 +457,7 @@ public class CallableExecutionAssertTest {
 
         // name with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam("foo", "WRONG");
+            DataSourceAssertAssertions.assertThat(ce).containsParam("foo", "WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, 2=NULL(VARCHAR), 3=OUTPUT(BOOLEAN[16]), bar=NULL(DATE), baz=OUTPUT(BIGINT[-5]), foo=FOO}>\nto contain:\n<[foo=WRONG]>\nbut could not find:\n<[foo=WRONG]>");
@@ -465,7 +465,7 @@ public class CallableExecutionAssertTest {
 
         // no index and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam(100, "WRONG");
+            DataSourceAssertAssertions.assertThat(ce).containsParam(100, "WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<params=[100]>\nbut could not find:\n<params=[100]>");
@@ -473,7 +473,7 @@ public class CallableExecutionAssertTest {
 
         // no name and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam("WRONG", "WRONG");
+            DataSourceAssertAssertions.assertThat(ce).containsParam("WRONG", "WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<params=[WRONG]>\nbut could not find:\n<params=[WRONG]>");
@@ -481,7 +481,7 @@ public class CallableExecutionAssertTest {
 
         // index null param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam(2, Types.VARCHAR);
+            DataSourceAssertAssertions.assertThat(ce).containsParam(2, Types.VARCHAR);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -496,7 +496,7 @@ public class CallableExecutionAssertTest {
 
         // name null param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam("bar", Types.DATE);
+            DataSourceAssertAssertions.assertThat(ce).containsParam("bar", Types.DATE);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -511,7 +511,7 @@ public class CallableExecutionAssertTest {
 
         // index out param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam(3, Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(ce).containsParam(3, Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -526,7 +526,7 @@ public class CallableExecutionAssertTest {
 
         // name out param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsParam("baz", Types.BIGINT);
+            DataSourceAssertAssertions.assertThat(ce).containsParam("baz", Types.BIGINT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -552,7 +552,7 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("baz", Types.BIGINT));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(ce)
+        DataSourceAssertAssertions.assertThat(ce)
                 .containsNullParam(2)
                 .containsNullParam(2, Types.VARCHAR)
                 .containsNullParam("bar")
@@ -561,7 +561,7 @@ public class CallableExecutionAssertTest {
 
         // index with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam(2, Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam(2, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, 2=NULL(VARCHAR), 3=OUTPUT(BOOLEAN[16]), bar=NULL(DATE), baz=OUTPUT(BIGINT[-5]), foo=FOO}>\nto contain:\n<[2=NULL(BIT)]>\nbut could not find:\n<[2=NULL(BIT)]>");
@@ -569,7 +569,7 @@ public class CallableExecutionAssertTest {
 
         // name with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam("bar", Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam("bar", Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: parameters \n<{1=foo, 2=NULL(VARCHAR), 3=OUTPUT(BOOLEAN[16]), bar=NULL(DATE), baz=OUTPUT(BIGINT[-5]), foo=FOO}>\nto contain:\n<[bar=NULL(BIT)]>\nbut could not find:\n<[bar=NULL(BIT)]>");
@@ -577,7 +577,7 @@ public class CallableExecutionAssertTest {
 
         // no index and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam(100, Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam(100, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[100]>\nbut could not find:\n<set-null=[100]>");
@@ -585,7 +585,7 @@ public class CallableExecutionAssertTest {
 
         // no index with no value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam(100);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam(100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[100]>\nbut could not find:\n<set-null=[100]>");
@@ -593,14 +593,14 @@ public class CallableExecutionAssertTest {
 
         // no name and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam("WRONG", Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam("WRONG", Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[WRONG]>\nbut could not find:\n<set-null=[WRONG]>");
         }
         // no name with no value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam("WRONG");
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam("WRONG");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[WRONG]>\nbut could not find:\n<set-null=[WRONG]>");
@@ -608,7 +608,7 @@ public class CallableExecutionAssertTest {
 
         // specifying index for param (not for set-null)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam(1);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam(1);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[1]>\nbut could not find:\n<set-null=[1]>");
@@ -616,7 +616,7 @@ public class CallableExecutionAssertTest {
 
         // specifying name in param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam("foo");
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam("foo");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[foo]>\nbut could not find:\n<set-null=[foo]>");
@@ -624,7 +624,7 @@ public class CallableExecutionAssertTest {
 
         // specifying index in out-param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam(3, Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam(3, Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[3]>\nbut could not find:\n<set-null=[3]>");
@@ -632,7 +632,7 @@ public class CallableExecutionAssertTest {
 
         // specifying name in out-param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsNullParam("baz", Types.BIGINT);
+            DataSourceAssertAssertions.assertThat(ce).containsNullParam("baz", Types.BIGINT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: callable parameter keys\n<[1, 2, 3, bar, baz, foo]>\n(params=[1, foo], set-null=[2, bar], register-out=[3, baz])\nto contain:\n<set-null=[baz]>\nbut could not find:\n<set-null=[baz]>");
@@ -653,7 +653,7 @@ public class CallableExecutionAssertTest {
         ce.getAllParameters().add(createRegisterOut("qux", JDBCType.VARCHAR));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(ce)
+        DataSourceAssertAssertions.assertThat(ce)
                 .containsOutParam(3, Types.BOOLEAN)
                 .containsOutParam(4, JDBCType.BIGINT)
                 .containsOutParam("baz", Types.DATE)
@@ -662,7 +662,7 @@ public class CallableExecutionAssertTest {
 
         // correct index with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam(3, Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam(3, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -676,7 +676,7 @@ public class CallableExecutionAssertTest {
 
         // correct name with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam("baz", Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam("baz", Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -690,7 +690,7 @@ public class CallableExecutionAssertTest {
 
         // no index and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam(100, Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam(100, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -705,7 +705,7 @@ public class CallableExecutionAssertTest {
 
         // no name and value
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam("WRONG", Types.BIT);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam("WRONG", Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -720,7 +720,7 @@ public class CallableExecutionAssertTest {
 
         // specifying index for param (not for set-null)
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam(1, Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam(1, Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -735,7 +735,7 @@ public class CallableExecutionAssertTest {
 
         // specifying name in param
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam("foo", Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam("foo", Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -750,7 +750,7 @@ public class CallableExecutionAssertTest {
 
         // specifying index in set-null
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam(2, Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam(2, Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -765,7 +765,7 @@ public class CallableExecutionAssertTest {
 
         // specifying name in set-null
         try {
-            DataSourceProxyAssertions.assertThat(ce).containsOutParam("bar", Types.BIGINT);
+            DataSourceAssertAssertions.assertThat(ce).containsOutParam("bar", Types.BIGINT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -785,7 +785,7 @@ public class CallableExecutionAssertTest {
         CallableExecution ce = new CallableExecution();
         ce.setQuery("SELECT");
 
-        DataSourceProxyAssertions.assertThat(ce).query().isEqualTo("SELECT");
+        DataSourceAssertAssertions.assertThat(ce).query().isEqualTo("SELECT");
     }
 
 }

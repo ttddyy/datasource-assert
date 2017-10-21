@@ -63,7 +63,7 @@ public class StatementExecutionAssertTest {
         StatementExecution se = new StatementExecution();
         se.setQuery("SELECT");
 
-        DataSourceProxyAssertions.assertThat(se).query().isEqualTo("SELECT");
+        DataSourceAssertAssertions.assertThat(se).query().isEqualTo("SELECT");
     }
 
     @Test
@@ -79,20 +79,20 @@ public class StatementExecutionAssertTest {
         seDelete.setQuery("DELETE");
         seOther.setQuery("OTHER");
 
-        DataSourceProxyAssertions.assertThat(seSelect).hasQueryType(QueryType.SELECT);
-        DataSourceProxyAssertions.assertThat(seInsert).hasQueryType(QueryType.INSERT);
-        DataSourceProxyAssertions.assertThat(seUpdate).hasQueryType(QueryType.UPDATE);
-        DataSourceProxyAssertions.assertThat(seDelete).hasQueryType(QueryType.DELETE);
-        DataSourceProxyAssertions.assertThat(seOther).hasQueryType(QueryType.OTHER);
-        DataSourceProxyAssertions.assertThat(seSelect).isSelect();
-        DataSourceProxyAssertions.assertThat(seInsert).isInsert();
-        DataSourceProxyAssertions.assertThat(seUpdate).isUpdate();
-        DataSourceProxyAssertions.assertThat(seDelete).isDelete();
-        DataSourceProxyAssertions.assertThat(seOther).isOther();
+        DataSourceAssertAssertions.assertThat(seSelect).hasQueryType(QueryType.SELECT);
+        DataSourceAssertAssertions.assertThat(seInsert).hasQueryType(QueryType.INSERT);
+        DataSourceAssertAssertions.assertThat(seUpdate).hasQueryType(QueryType.UPDATE);
+        DataSourceAssertAssertions.assertThat(seDelete).hasQueryType(QueryType.DELETE);
+        DataSourceAssertAssertions.assertThat(seOther).hasQueryType(QueryType.OTHER);
+        DataSourceAssertAssertions.assertThat(seSelect).isSelect();
+        DataSourceAssertAssertions.assertThat(seInsert).isInsert();
+        DataSourceAssertAssertions.assertThat(seUpdate).isUpdate();
+        DataSourceAssertAssertions.assertThat(seDelete).isDelete();
+        DataSourceAssertAssertions.assertThat(seOther).isOther();
 
         // wrong type
         try {
-            DataSourceProxyAssertions.assertThat(seSelect).isDelete();
+            DataSourceAssertAssertions.assertThat(seSelect).isDelete();
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpected query type:<DELETE> but was:<SELECT>\n");

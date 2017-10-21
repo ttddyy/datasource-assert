@@ -24,10 +24,10 @@ public class QueryExecutionAssertTest {
         QueryExecution qe = mock(QueryExecution.class);
         given(qe.isSuccess()).willReturn(true);
 
-        DataSourceProxyAssertions.assertThat(qe).isSuccess();
+        DataSourceAssertAssertions.assertThat(qe).isSuccess();
 
         try {
-            DataSourceProxyAssertions.assertThat(qe).isFailure();
+            DataSourceAssertAssertions.assertThat(qe).isFailure();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <Failure execution> but was: <Successful execution>\n");
@@ -40,10 +40,10 @@ public class QueryExecutionAssertTest {
         QueryExecution qe = mock(QueryExecution.class);
         given(qe.isSuccess()).willReturn(false);
 
-        DataSourceProxyAssertions.assertThat(qe).isFailure();
+        DataSourceAssertAssertions.assertThat(qe).isFailure();
 
         try {
-            DataSourceProxyAssertions.assertThat(qe).isSuccess();
+            DataSourceAssertAssertions.assertThat(qe).isSuccess();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <Successful execution> but was: <Failure execution>\n");
@@ -56,13 +56,13 @@ public class QueryExecutionAssertTest {
         QueryExecution qe = mock(QueryExecution.class);
         given(qe.isBatch()).willReturn(true);
 
-        DataSourceProxyAssertions.assertThat(qe).isBatch();
+        DataSourceAssertAssertions.assertThat(qe).isBatch();
 
         // batch=false
         qe = mock(QueryExecution.class);
         given(qe.isBatch()).willReturn(false);
         try {
-            DataSourceProxyAssertions.assertThat(qe).isBatch();
+            DataSourceAssertAssertions.assertThat(qe).isBatch();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <Batch Execution> but was: <Not Batch Execution>\n");
@@ -75,25 +75,25 @@ public class QueryExecutionAssertTest {
         QueryExecution sbe = new StatementBatchExecution();
         QueryExecution pe = new PreparedExecution();
 
-        DataSourceProxyAssertions.assertThat(se).isStatement();
-        DataSourceProxyAssertions.assertThat(sbe).isBatchStatement();
-        DataSourceProxyAssertions.assertThat(se).isStatementOrBatchStatement();
-        DataSourceProxyAssertions.assertThat(sbe).isStatementOrBatchStatement();
+        DataSourceAssertAssertions.assertThat(se).isStatement();
+        DataSourceAssertAssertions.assertThat(sbe).isBatchStatement();
+        DataSourceAssertAssertions.assertThat(se).isStatementOrBatchStatement();
+        DataSourceAssertAssertions.assertThat(sbe).isStatementOrBatchStatement();
 
         try {
-            DataSourceProxyAssertions.assertThat(pe).isStatement();
+            DataSourceAssertAssertions.assertThat(pe).isStatement();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <STATEMENT> but was: <PREPARED>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(pe).isBatchStatement();
+            DataSourceAssertAssertions.assertThat(pe).isBatchStatement();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <BATCH STATEMENT> but was: <PREPARED>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(pe).isStatementOrBatchStatement();
+            DataSourceAssertAssertions.assertThat(pe).isStatementOrBatchStatement();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <STATEMENT or BATCH STATEMENT> but was: <PREPARED>\n");
@@ -106,25 +106,25 @@ public class QueryExecutionAssertTest {
         QueryExecution pbe = new PreparedBatchExecution();
         QueryExecution se = new StatementExecution();
 
-        DataSourceProxyAssertions.assertThat(pe).isPrepared();
-        DataSourceProxyAssertions.assertThat(pbe).isBatchPrepared();
-        DataSourceProxyAssertions.assertThat(pe).isPreparedOrBatchPrepared();
-        DataSourceProxyAssertions.assertThat(pbe).isPreparedOrBatchPrepared();
+        DataSourceAssertAssertions.assertThat(pe).isPrepared();
+        DataSourceAssertAssertions.assertThat(pbe).isBatchPrepared();
+        DataSourceAssertAssertions.assertThat(pe).isPreparedOrBatchPrepared();
+        DataSourceAssertAssertions.assertThat(pbe).isPreparedOrBatchPrepared();
 
         try {
-            DataSourceProxyAssertions.assertThat(se).isPrepared();
+            DataSourceAssertAssertions.assertThat(se).isPrepared();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <PREPARED> but was: <STATEMENT>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(se).isBatchPrepared();
+            DataSourceAssertAssertions.assertThat(se).isBatchPrepared();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <BATCH PREPARED> but was: <STATEMENT>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(se).isPreparedOrBatchPrepared();
+            DataSourceAssertAssertions.assertThat(se).isPreparedOrBatchPrepared();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <PREPARED or BATCH PREPARED> but was: <STATEMENT>\n");
@@ -137,25 +137,25 @@ public class QueryExecutionAssertTest {
         QueryExecution cbe = new CallableBatchExecution();
         QueryExecution se = new StatementExecution();
 
-        DataSourceProxyAssertions.assertThat(ce).isCallable();
-        DataSourceProxyAssertions.assertThat(cbe).isBatchCallable();
-        DataSourceProxyAssertions.assertThat(ce).isCallableOrBatchCallable();
-        DataSourceProxyAssertions.assertThat(cbe).isCallableOrBatchCallable();
+        DataSourceAssertAssertions.assertThat(ce).isCallable();
+        DataSourceAssertAssertions.assertThat(cbe).isBatchCallable();
+        DataSourceAssertAssertions.assertThat(ce).isCallableOrBatchCallable();
+        DataSourceAssertAssertions.assertThat(cbe).isCallableOrBatchCallable();
 
         try {
-            DataSourceProxyAssertions.assertThat(se).isCallable();
+            DataSourceAssertAssertions.assertThat(se).isCallable();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <CALLABLE> but was: <STATEMENT>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(se).isBatchCallable();
+            DataSourceAssertAssertions.assertThat(se).isBatchCallable();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <BATCH CALLABLE> but was: <STATEMENT>\n");
         }
         try {
-            DataSourceProxyAssertions.assertThat(se).isCallableOrBatchCallable();
+            DataSourceAssertAssertions.assertThat(se).isCallableOrBatchCallable();
             fail("asserts should fail");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\nExpecting: <CALLABLE or BATCH CALLABLE> but was: <STATEMENT>\n");

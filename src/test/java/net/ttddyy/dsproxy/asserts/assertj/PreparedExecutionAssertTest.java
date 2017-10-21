@@ -69,14 +69,14 @@ public class PreparedExecutionAssertTest {
         pe.getAllParameters().add(createSetNull(3, Types.BIT));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(pe).containsParams(param(1, "foo"), param(2, "bar"), nullParam(3, Types.BIT));
-        DataSourceProxyAssertions.assertThat(pe).containsParams(param(1, "foo"));
-        DataSourceProxyAssertions.assertThat(pe).containsParams(nullParam(3));
-        DataSourceProxyAssertions.assertThat(pe).containsParams(nullParam(3, Types.BIT));
+        DataSourceAssertAssertions.assertThat(pe).containsParams(param(1, "foo"), param(2, "bar"), nullParam(3, Types.BIT));
+        DataSourceAssertAssertions.assertThat(pe).containsParams(param(1, "foo"));
+        DataSourceAssertAssertions.assertThat(pe).containsParams(nullParam(3));
+        DataSourceAssertAssertions.assertThat(pe).containsParams(nullParam(3, Types.BIT));
 
         // value is wrong for param index
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParams(param(1, "WRONG"));
+            DataSourceAssertAssertions.assertThat(pe).containsParams(param(1, "WRONG"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -90,7 +90,7 @@ public class PreparedExecutionAssertTest {
 
         // value is wrong for set-null-param index
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParams(nullParam(3, Types.BOOLEAN));
+            DataSourceAssertAssertions.assertThat(pe).containsParams(nullParam(3, Types.BOOLEAN));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -104,7 +104,7 @@ public class PreparedExecutionAssertTest {
 
         // specifying set-null for normal params
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParams(nullParam(2));
+            DataSourceAssertAssertions.assertThat(pe).containsParams(nullParam(2));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -119,7 +119,7 @@ public class PreparedExecutionAssertTest {
 
         // no param index key
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParams(param(100, "bar"));
+            DataSourceAssertAssertions.assertThat(pe).containsParams(param(100, "bar"));
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -142,14 +142,14 @@ public class PreparedExecutionAssertTest {
         pe.getAllParameters().add(createSetNull(2, Types.VARCHAR));
 
         // successful call
-        DataSourceProxyAssertions.assertThat(pe)
+        DataSourceAssertAssertions.assertThat(pe)
                 .containsNullParam(2)
                 .containsNullParam(2, Types.VARCHAR)
         ;
 
         // index with wrong value
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsNullParam(2, Types.BIT);
+            DataSourceAssertAssertions.assertThat(pe).containsNullParam(2, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -163,7 +163,7 @@ public class PreparedExecutionAssertTest {
 
         // no index and value
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsNullParam(100, Types.BIT);
+            DataSourceAssertAssertions.assertThat(pe).containsNullParam(100, Types.BIT);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -178,7 +178,7 @@ public class PreparedExecutionAssertTest {
 
         // no index with no value
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsNullParam(100);
+            DataSourceAssertAssertions.assertThat(pe).containsNullParam(100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -193,7 +193,7 @@ public class PreparedExecutionAssertTest {
 
         // specifying index for param (not for set-null)
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsNullParam(1);
+            DataSourceAssertAssertions.assertThat(pe).containsNullParam(1);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -208,7 +208,7 @@ public class PreparedExecutionAssertTest {
 
         // specifying index in out-param
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsNullParam(3, Types.BOOLEAN);
+            DataSourceAssertAssertions.assertThat(pe).containsNullParam(3, Types.BOOLEAN);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -230,12 +230,12 @@ public class PreparedExecutionAssertTest {
         pe.getAllParameters().add(createSetNull(2, Types.VARCHAR));
 
         // successful case
-        DataSourceProxyAssertions.assertThat(pe).containsParamIndex(1);
-        DataSourceProxyAssertions.assertThat(pe).containsParamIndex(2);
+        DataSourceAssertAssertions.assertThat(pe).containsParamIndex(1);
+        DataSourceAssertAssertions.assertThat(pe).containsParamIndex(2);
 
         // missing param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamIndex(100);
+            DataSourceAssertAssertions.assertThat(pe).containsParamIndex(100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -257,12 +257,12 @@ public class PreparedExecutionAssertTest {
 
 
         // successful case
-        DataSourceProxyAssertions.assertThat(pe).containsParamIndexes(1);
-        DataSourceProxyAssertions.assertThat(pe).containsParamIndexes(1, 2);
+        DataSourceAssertAssertions.assertThat(pe).containsParamIndexes(1);
+        DataSourceAssertAssertions.assertThat(pe).containsParamIndexes(1, 2);
 
         // missing one param key (index)
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamIndexes(1, 2, 100);
+            DataSourceAssertAssertions.assertThat(pe).containsParamIndexes(1, 2, 100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -285,11 +285,11 @@ public class PreparedExecutionAssertTest {
 
 
         // successful case
-        DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, null);
+        DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, null);
 
         // extra values
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", 100);
+            DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", 100);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -305,7 +305,7 @@ public class PreparedExecutionAssertTest {
 
         // missing values
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, null, "bar", "baz");
+            DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, null, "bar", "baz");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -321,7 +321,7 @@ public class PreparedExecutionAssertTest {
 
         // missing and extra values
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, "baz");
+            DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, "baz");
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -338,7 +338,7 @@ public class PreparedExecutionAssertTest {
 
         // expecting not-null but null
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", null, null);
+            DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", null, null);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -353,7 +353,7 @@ public class PreparedExecutionAssertTest {
         }
         // expecting null but not-null
         try {
-            DataSourceProxyAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, 200);
+            DataSourceAssertAssertions.assertThat(pe).containsParamValuesExactly("foo", 100, 200);
             fail("exception should be thrown");
         } catch (AssertionError e) {
             assertThat(e).hasMessage("\n" +
@@ -374,7 +374,7 @@ public class PreparedExecutionAssertTest {
         PreparedExecution pe = new PreparedExecution();
         pe.setQuery("SELECT");
 
-        DataSourceProxyAssertions.assertThat(pe).query().isEqualTo("SELECT");
+        DataSourceAssertAssertions.assertThat(pe).query().isEqualTo("SELECT");
     }
 
 }

@@ -17,7 +17,7 @@ import net.ttddyy.dsproxy.asserts.StatementExecution;
  * @see StatementExecutionAssert
  * @since 1.0
  */
-public class DataSourceProxyAssertions {
+public class DataSourceAssertAssertions {
 
     public static ProxyTestDataSourceAssert assertThat(ProxyTestDataSource actual) {
         return new ProxyTestDataSourceAssert(actual);

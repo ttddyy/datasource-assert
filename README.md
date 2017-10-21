@@ -37,10 +37,10 @@ assertTrue(pe.isSuccess());
 
 ### AssertJ
 
-Static import `assertThat` from `DataSourceProxyAssertions`.
+Static import `assertThat` from `DataSourceAssertAssertions`.
 
 ```java
-import static net.ttddyy.dsproxy.asserts.assertj.DataSourceProxyAssertions.assertThat;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
 ```
 
 ```java

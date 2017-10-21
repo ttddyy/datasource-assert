@@ -141,27 +141,27 @@ public class QueryExecutionAssert extends AbstractExecutionAssert<QueryExecution
     }
 
     public StatementExecutionAssert asStatement() {
-        return DataSourceProxyAssertions.assertThat((StatementExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((StatementExecution) this.actual);
     }
 
     public StatementBatchExecutionAssert asBatchStatement() {
-        return DataSourceProxyAssertions.assertThat((StatementBatchExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((StatementBatchExecution) this.actual);
     }
 
     public PreparedExecutionAssert asPrepared() {
-        return DataSourceProxyAssertions.assertThat((PreparedExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((PreparedExecution) this.actual);
     }
 
     public PreparedBatchExecutionAssert asBatchPrepared() {
-        return DataSourceProxyAssertions.assertThat((PreparedBatchExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((PreparedBatchExecution) this.actual);
     }
 
     public CallableExecutionAssert asCallable() {
-        return DataSourceProxyAssertions.assertThat((CallableExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((CallableExecution) this.actual);
     }
 
     public CallableBatchExecutionAssert asBatchCallable() {
-        return DataSourceProxyAssertions.assertThat((CallableBatchExecution) this.actual);
+        return DataSourceAssertAssertions.assertThat((CallableBatchExecution) this.actual);
     }
 
 

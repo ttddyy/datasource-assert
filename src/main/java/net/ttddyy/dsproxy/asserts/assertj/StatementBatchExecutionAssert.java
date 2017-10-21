@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 // TODO: should this extend AbstractAssert??
 public class StatementBatchExecutionAssert extends AbstractExecutionAssert<StatementBatchExecutionAssert, StatementBatchExecution> {

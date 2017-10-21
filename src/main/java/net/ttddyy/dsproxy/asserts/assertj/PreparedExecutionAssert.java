@@ -18,6 +18,7 @@ import static net.ttddyy.dsproxy.asserts.ParameterKeyValueUtils.toParamKeyMap;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExecutionAssert, PreparedExecution> {
 

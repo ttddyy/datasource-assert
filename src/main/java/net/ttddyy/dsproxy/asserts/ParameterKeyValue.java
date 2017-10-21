@@ -4,6 +4,7 @@ import net.ttddyy.dsproxy.proxy.ParameterKey;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class ParameterKeyValue implements Comparable<ParameterKeyValue> {
 

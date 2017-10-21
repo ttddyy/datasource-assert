@@ -11,6 +11,7 @@ import net.ttddyy.dsproxy.asserts.StatementExecution;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class QueryExecutionAssert extends AbstractExecutionAssert<QueryExecutionAssert, QueryExecution> {
 

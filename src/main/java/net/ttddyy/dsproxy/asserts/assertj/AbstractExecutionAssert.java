@@ -14,6 +14,7 @@ import org.assertj.core.api.AbstractAssert;
  * @see PreparedBatchExecutionAssert
  * @see CallableExecutionAssert
  * @see CallableBatchExecutionAssert
+ * @since 1.0
  */
 public abstract class AbstractExecutionAssert<S extends AbstractAssert<S, A>, A extends QueryExecution> extends AbstractAssert<S, A> {
     public AbstractExecutionAssert(A actual, Class<?> selfType) {

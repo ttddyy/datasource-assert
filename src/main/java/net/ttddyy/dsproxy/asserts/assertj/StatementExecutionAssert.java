@@ -8,6 +8,7 @@ import org.assertj.core.api.Assertions;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class StatementExecutionAssert extends AbstractExecutionAssert<StatementExecutionAssert, StatementExecution> {
 

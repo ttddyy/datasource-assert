@@ -4,6 +4,7 @@ package net.ttddyy.dsproxy.asserts;
  * Represent single execution of {@link java.sql.Statement}.
  *
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class StatementExecution extends BaseQueryExecution implements QueryHolder {
 

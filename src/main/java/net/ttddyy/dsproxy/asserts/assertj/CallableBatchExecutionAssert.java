@@ -10,6 +10,7 @@ import org.assertj.core.api.Assertions;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 // TODO: should this extend AbstractAssert??
 public class CallableBatchExecutionAssert extends AbstractExecutionAssert<CallableBatchExecutionAssert, CallableBatchExecution> {

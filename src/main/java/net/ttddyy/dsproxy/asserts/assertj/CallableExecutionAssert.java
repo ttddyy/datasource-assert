@@ -11,6 +11,7 @@ import java.sql.SQLType;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class CallableExecutionAssert extends AbstractExecutionAssert<CallableExecutionAssert, CallableExecution> {
 

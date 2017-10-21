@@ -4,6 +4,7 @@ package net.ttddyy.dsproxy.asserts;
  * Framework exception from datasource-assert.
  *
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class DataSourceAssertException extends RuntimeException {
 

@@ -10,6 +10,7 @@ import org.assertj.core.api.Assertions;
 
 /**
  * @author Tadaya Tsuyukubo
+ * @since 1.0
  */
 public class PreparedBatchExecutionAssert extends AbstractExecutionAssert<PreparedBatchExecutionAssert, PreparedBatchExecution> {
 

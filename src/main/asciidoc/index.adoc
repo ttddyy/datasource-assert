@@ -11,6 +11,7 @@ Tadaya Tsuyukubo
 
 include::about.adoc[]
 include::installation.adoc[]
+include::how-to-use.adoc[]
 include::assert-simple.adoc[]
 include::assert-assertj.adoc[]
 include::assert-hamcrest.adoc[]

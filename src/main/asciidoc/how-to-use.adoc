@@ -1,0 +1,18 @@
+[[how-to-use]]
+== How to use
+
+`datasource-assert` provides `ProxyTestDataSource` class that wraps your actual `DataSource` and provides
+assertion APIs.
+
+```java
+// Create a DataSource for test
+ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
+
+// perform application logic using above "ds" as its DataSource
+
+// verify query interaction with assertEquals, AssertJ, Hamcrest
+assertEquals("num of executed queries", 3, ds.getQueryExecutions().size());
+assertThat(ds.getFirstStatement(), query(startsWith("SELECT * FROM")));  // with Hamcrest
+assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with AssertJ
+```
+

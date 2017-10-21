@@ -8,6 +8,10 @@ import net.ttddyy.dsproxy.asserts.ProxyTestDataSource;
 import net.ttddyy.dsproxy.asserts.QueryExecution;
 import net.ttddyy.dsproxy.asserts.StatementBatchExecution;
 import net.ttddyy.dsproxy.asserts.StatementExecution;
+import net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter;
+import net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters;
+
+import java.sql.SQLType;
 
 /**
  * Aggregated assertj assertions.
@@ -51,4 +55,67 @@ public class DataSourceAssertAssertions {
         return new CallableBatchExecutionAssert(actual);
     }
 
+    // from ExecutionParameter
+
+    public static ExecutionParameter param(int paramIndex, Object value) {
+        return ExecutionParameter.param(paramIndex, value);
+    }
+
+    public static ExecutionParameter param(String paramName, Object value) {
+        return ExecutionParameter.param(paramName, value);
+    }
+
+    public static ExecutionParameter nullParam(int index, int sqlType) {
+        return ExecutionParameter.nullParam(index, sqlType);
+    }
+
+    public static ExecutionParameter nullParam(int index) {
+        return ExecutionParameter.nullParam(index);
+    }
+
+    public static ExecutionParameter nullParam(String name, int sqlType) {
+        return ExecutionParameter.nullParam(name, sqlType);
+    }
+
+    public static ExecutionParameter nullParam(String name) {
+        return ExecutionParameter.nullParam(name);
+    }
+
+    public static ExecutionParameter outParam(int paramIndex, int sqlType) {
+        return ExecutionParameter.outParam(paramIndex, sqlType);
+    }
+
+    public static ExecutionParameter outParam(int paramIndex, SQLType sqlType) {
+        return ExecutionParameter.outParam(paramIndex, sqlType);
+    }
+
+    public static ExecutionParameter outParam(String paramName, int sqlType) {
+        return ExecutionParameter.outParam(paramName, sqlType);
+    }
+
+    public static ExecutionParameter outParam(String paramName, SQLType sqlType) {
+        return ExecutionParameter.outParam(paramName, sqlType);
+    }
+
+    // from ExecutionParameters
+
+    public static ExecutionParameters containsParams(ExecutionParameter... params) {
+        return ExecutionParameters.containsParams(params);
+    }
+
+    public static ExecutionParameters containsParamsExactly(ExecutionParameter... params) {
+        return ExecutionParameters.containsParamsExactly(params);
+    }
+
+    public static ExecutionParameters containsParamKeys(Object... paramKeys) {
+        return ExecutionParameters.containsParamKeys(paramKeys);
+    }
+
+    public static ExecutionParameters containsParamIndexes(int... paramIndexes) {
+        return ExecutionParameters.containsParamIndexes(paramIndexes);
+    }
+
+    public static ExecutionParameters containsParamNames(String... paramNames) {
+        return ExecutionParameters.containsParamNames(paramNames);
+    }
 }

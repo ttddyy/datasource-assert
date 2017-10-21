@@ -14,14 +14,14 @@ import javax.sql.DataSource;
 import java.sql.Types;
 
 import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.nullParam;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.outParam;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameter.param;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters.containsParamIndexes;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters.containsParamKeys;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters.containsParamNames;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters.containsParams;
-import static net.ttddyy.dsproxy.asserts.assertj.data.ExecutionParameters.containsParamsExactly;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.containsParamIndexes;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.containsParamKeys;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.containsParamNames;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.containsParams;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.containsParamsExactly;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.nullParam;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.outParam;
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.param;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.atIndex;
 

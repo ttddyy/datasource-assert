@@ -16,7 +16,7 @@
 in your project.
 
 
-==== Snapshot
+==== Snapshot (via Sonatype OSSRH)
 
 Snapshot is available via {oss-snapshot-repository}[oss sonatype snapshot repository].
 
@@ -35,6 +35,25 @@ To download snapshot jars, enable sonatype snapshot repository:
     </snapshots>
   </repository>
 </repositories>
+```
+
+==== Snapshot (via JitPack)
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+```xml
+<dependency>
+    <groupId>om.github.ttddyy</groupId>
+    <artifactId>datasource-assert</artifactId>
+    <version>master-SNAPSHOT</version>
+</dependency>
 ```
 
 === Supported Java Versions

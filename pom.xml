@@ -170,10 +170,11 @@
               <attributes>
                 <toc>left</toc>
                 <highlightjs-theme>github</highlightjs-theme>
-                <setanchors/>
+                <sectanchors/>
                 <icons>font</icons>
                 <sectnums/>
                 <testDir>${project.build.testSourceDirectory}</testDir>
+                <revnumber>${project.version}</revnumber>
               </attributes>
             </configuration>
           </execution>

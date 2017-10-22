@@ -1,8 +1,13 @@
 = datasource-assert User Guide
 Tadaya Tsuyukubo
-
 // ======================================================================================
 :sectnums:
+:docinfodir: docinfos
+//
+// add analytics only when publishing docs to github
+ifdef::insert-analytics[]
+:docinfo: private-head
+endif::[]
 
 :oss-snapshot-repository:           https://oss.sonatype.org/content/repositories/snapshots/net/ttddyy/datasource-assert/
 :datasource-proxy:                  https://github.com/ttddyy/datasource-proxy/

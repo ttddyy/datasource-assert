@@ -128,6 +128,18 @@
               </attributes>
             </configuration>
           </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <additionalparam>--allow-script-in-comments</additionalparam>
+              <footer>
+                <![CDATA[
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+                ]]>]
+              </footer>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
     </profile>

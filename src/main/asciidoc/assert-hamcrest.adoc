@@ -3,6 +3,7 @@
 
 This section describes how to assert `ProxyTestDataSource` with {hamcrest}[Hamcrest].
 
+All matchers are defined in `DataSourceAssertMatchers` class.
 
 [[hamcrest-datasource]]
 === DataSource

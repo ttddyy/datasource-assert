@@ -1,0 +1,9 @@
+[[assert-query-executions]]
+== Assert Query Executions
+
+include::assert-query-simple.adoc[]
+
+include::assert-query-assertj.adoc[]
+
+include::assert-query-hamcrest.adoc[]
+

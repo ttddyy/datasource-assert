@@ -1,5 +1,5 @@
-[[assert-with-assertj]]
-== Assert with AssertJ
+[[assert-query-with-assertj]]
+=== AssertJ
 
 This section describes how to assert `ProxyTestDataSource` with {assertj}[AssertJ].
 
@@ -11,8 +11,8 @@ import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.asse
 ```
 
 
-[[assertj-datasource]]
-=== DataSource
+[[assert-query-assertj-datasource]]
+==== DataSource
 
 [source,java,indent=0]
 ----
@@ -20,8 +20,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-query]]
-=== Query Executions
+[[assert-query-assertj-query]]
+==== Query Executions
 
 [source,java,indent=0]
 ----
@@ -29,8 +29,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-statement]]
-=== Statement
+[[assert-query-assertj-statement]]
+==== Statement
 
 [source,java,indent=0]
 ----
@@ -38,8 +38,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-batch-statement]]
-=== Batch Statement
+[[assert-query-assertj-batch-statement]]
+==== Batch Statement
 
 [source,java,indent=0]
 ----
@@ -47,8 +47,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-prepared]]
-=== Prepared Statement
+[[assert-query-assertj-prepared]]
+==== Prepared Statement
 
 [source,java,indent=0]
 ----
@@ -56,8 +56,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-batch-prepared]]
-=== Batch Prepared Statement
+[[assert-query-assertj-batch-prepared]]
+==== Batch Prepared Statement
 
 [source,java,indent=0]
 ----
@@ -65,8 +65,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-callable]]
-=== Callable Statement
+[[assert-query-assertj-callable]]
+==== Callable Statement
 
 [source,java,indent=0]
 ----
@@ -74,8 +74,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/AssertJAssertionApiCheck.java[
 ----
 
 
-[[assertj-batch-prepared]]
-=== Batch Callable Statement
+[[assert-query-assertj-batch-prepared]]
+==== Batch Callable Statement
 
 [source,java,indent=0]
 ----

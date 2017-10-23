@@ -3,6 +3,7 @@ Tadaya Tsuyukubo
 // ======================================================================================
 :sectnums:
 :docinfodir: docinfos
+:toclevels: 3
 //
 // add analytics only when publishing docs to github
 ifdef::insert-analytics[]
@@ -17,6 +18,4 @@ endif::[]
 include::about.adoc[]
 include::installation.adoc[]
 include::how-to-use.adoc[]
-include::assert-simple.adoc[]
-include::assert-assertj.adoc[]
-include::assert-hamcrest.adoc[]
+include::assert-query.adoc[]

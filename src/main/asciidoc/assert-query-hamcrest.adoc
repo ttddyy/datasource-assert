@@ -1,12 +1,12 @@
-[[assert-with-hamcrest]]
-== Assert with Hamcrest
+[[assert-query-with-hamcrest]]
+=== Hamcrest
 
 This section describes how to assert `ProxyTestDataSource` with {hamcrest}[Hamcrest].
 
 All matchers are defined in `DataSourceAssertMatchers` class.
 
-[[hamcrest-datasource]]
-=== DataSource
+[[assert-query-hamcrest-datasource]]
+==== DataSource
 
 [source,java,indent=0]
 ----
@@ -14,8 +14,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-query]]
-=== Query Executions
+[[assert-query-hamcrest-query]]
+==== Query Executions
 
 [source,java,indent=0]
 ----
@@ -23,8 +23,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-statement]]
-=== Statement
+[[assert-query-hamcrest-statement]]
+==== Statement
 
 [source,java,indent=0]
 ----
@@ -32,8 +32,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-batch-statement]]
-=== Batch Statement
+[[assert-query-hamcrest-batch-statement]]
+==== Batch Statement
 
 [source,java,indent=0]
 ----
@@ -41,8 +41,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-prepared]]
-=== Prepared Statement
+[[assert-query-hamcrest-prepared]]
+==== Prepared Statement
 
 [source,java,indent=0]
 ----
@@ -50,8 +50,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-batch-prepared]]
-=== Batch Prepared Statement
+[[assert-query-hamcrest-batch-prepared]]
+==== Batch Prepared Statement
 
 [source,java,indent=0]
 ----
@@ -59,8 +59,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-callable]]
-=== Callable Statement
+[[assert-query-hamcrest-callable]]
+==== Callable Statement
 
 [source,java,indent=0]
 ----
@@ -68,8 +68,8 @@ include::{testDir}/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java
 ----
 
 
-[[hamcrest-batch-callable]]
-=== Batch Callable Statement
+[[assert-query-hamcrest-batch-callable]]
+==== Batch Callable Statement
 
 [source,java,indent=0]
 ----

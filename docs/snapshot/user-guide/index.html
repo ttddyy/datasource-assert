@@ -413,6 +413,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad()</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -426,45 +427,54 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#installation">1. Installation</a>
 <ul class="sectlevel2">
-<li><a href="#_dependency">1.1. Dependency</a></li>
+<li><a href="#_dependency">1.1. Dependency</a>
+<ul class="sectlevel3">
+<li><a href="#_snapshot_via_sonatype_ossrh">1.1.1. Snapshot (via Sonatype OSSRH)</a></li>
+<li><a href="#_snapshot_via_jitpack">1.1.2. Snapshot (via JitPack)</a></li>
+</ul>
+</li>
 <li><a href="#_supported_java_versions">1.2. Supported Java Versions</a></li>
 </ul>
 </li>
 <li><a href="#how-to-use">2. How to use</a></li>
-<li><a href="#assert-with-assertequals">3. Assert with assertEquals</a>
+<li><a href="#assert-query-executions">3. Assert Query Executions</a>
 <ul class="sectlevel2">
-<li><a href="#simple-datasource">3.1. DataSource</a></li>
-<li><a href="#simple-query">3.2. Query Executions</a></li>
-<li><a href="#simple-statement">3.3. Statement</a></li>
-<li><a href="#simple-batch-statement">3.4. Batch Statement</a></li>
-<li><a href="#simple-prepared">3.5. Prepared Statement</a></li>
-<li><a href="#simple-batch-prepared">3.6. Batch Prepared Statement</a></li>
-<li><a href="#simple-callable">3.7. Callable Statement</a></li>
-<li><a href="#simple-batch-callable">3.8. Batch Callable Statement</a></li>
+<li><a href="#assert-query-with-assertequals">3.1. assertEquals</a>
+<ul class="sectlevel3">
+<li><a href="#assert-query-simple-datasource">3.1.1. DataSource</a></li>
+<li><a href="#assert-query-simple-query">3.1.2. Query Executions</a></li>
+<li><a href="#assert-query-simple-statement">3.1.3. Statement</a></li>
+<li><a href="#assert-query-simple-batch-statement">3.1.4. Batch Statement</a></li>
+<li><a href="#assert-query-simple-prepared">3.1.5. Prepared Statement</a></li>
+<li><a href="#assert-query-simple-batch-prepared">3.1.6. Batch Prepared Statement</a></li>
+<li><a href="#assert-query-simple-callable">3.1.7. Callable Statement</a></li>
+<li><a href="#assert-query-simple-batch-callable">3.1.8. Batch Callable Statement</a></li>
 </ul>
 </li>
-<li><a href="#assert-with-assertj">4. Assert with AssertJ</a>
-<ul class="sectlevel2">
-<li><a href="#assertj-datasource">4.1. DataSource</a></li>
-<li><a href="#assertj-query">4.2. Query Executions</a></li>
-<li><a href="#assertj-statement">4.3. Statement</a></li>
-<li><a href="#assertj-batch-statement">4.4. Batch Statement</a></li>
-<li><a href="#assertj-prepared">4.5. Prepared Statement</a></li>
-<li><a href="#assertj-batch-prepared">4.6. Batch Prepared Statement</a></li>
-<li><a href="#assertj-callable">4.7. Callable Statement</a></li>
-<li><a href="#assertj-batch-prepared">4.8. Batch Callable Statement</a></li>
+<li><a href="#assert-query-with-assertj">3.2. AssertJ</a>
+<ul class="sectlevel3">
+<li><a href="#assert-query-assertj-datasource">3.2.1. DataSource</a></li>
+<li><a href="#assert-query-assertj-query">3.2.2. Query Executions</a></li>
+<li><a href="#assert-query-assertj-statement">3.2.3. Statement</a></li>
+<li><a href="#assert-query-assertj-batch-statement">3.2.4. Batch Statement</a></li>
+<li><a href="#assert-query-assertj-prepared">3.2.5. Prepared Statement</a></li>
+<li><a href="#assert-query-assertj-batch-prepared">3.2.6. Batch Prepared Statement</a></li>
+<li><a href="#assert-query-assertj-callable">3.2.7. Callable Statement</a></li>
+<li><a href="#assert-query-assertj-batch-prepared">3.2.8. Batch Callable Statement</a></li>
 </ul>
 </li>
-<li><a href="#assert-with-hamcrest">5. Assert with Hamcrest</a>
-<ul class="sectlevel2">
-<li><a href="#hamcrest-datasource">5.1. DataSource</a></li>
-<li><a href="#hamcrest-query">5.2. Query Executions</a></li>
-<li><a href="#hamcrest-statement">5.3. Statement</a></li>
-<li><a href="#hamcrest-batch-statement">5.4. Batch Statement</a></li>
-<li><a href="#hamcrest-prepared">5.5. Prepared Statement</a></li>
-<li><a href="#hamcrest-batch-prepared">5.6. Batch Prepared Statement</a></li>
-<li><a href="#hamcrest-callable">5.7. Callable Statement</a></li>
-<li><a href="#hamcrest-batch-callable">5.8. Batch Callable Statement</a></li>
+<li><a href="#assert-query-with-hamcrest">3.3. Hamcrest</a>
+<ul class="sectlevel3">
+<li><a href="#assert-query-hamcrest-datasource">3.3.1. DataSource</a></li>
+<li><a href="#assert-query-hamcrest-query">3.3.2. Query Executions</a></li>
+<li><a href="#assert-query-hamcrest-statement">3.3.3. Statement</a></li>
+<li><a href="#assert-query-hamcrest-batch-statement">3.3.4. Batch Statement</a></li>
+<li><a href="#assert-query-hamcrest-prepared">3.3.5. Prepared Statement</a></li>
+<li><a href="#assert-query-hamcrest-batch-prepared">3.3.6. Batch Prepared Statement</a></li>
+<li><a href="#assert-query-hamcrest-callable">3.3.7. Callable Statement</a></li>
+<li><a href="#assert-query-hamcrest-batch-callable">3.3.8. Batch Callable Statement</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -569,16 +579,18 @@ assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with Asse
 </div>
 </div>
 <div class="sect1">
-<h2 id="assert-with-assertequals"><a class="anchor" href="#assert-with-assertequals"></a>3. Assert with assertEquals</h2>
+<h2 id="assert-query-executions"><a class="anchor" href="#assert-query-executions"></a>3. Assert Query Executions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="assert-query-with-assertequals"><a class="anchor" href="#assert-query-with-assertequals"></a>3.1. assertEquals</h3>
 <div class="paragraph">
 <p>This section describes how to assert <code>ProxyTestDataSource</code> with simple <code>assertEquals</code> from JUnit or TestNG.</p>
 </div>
 <div class="paragraph">
 <p>All assertion examples below use JUnit4 <code>assertEquals</code>.</p>
 </div>
-<div class="sect2">
-<h3 id="simple-datasource"><a class="anchor" href="#simple-datasource"></a>3.1. DataSource</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-datasource"><a class="anchor" href="#assert-query-simple-datasource"></a>3.1.1. DataSource</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -596,8 +608,8 @@ assertEquals(3, ds.getBatchCallables().size());</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-query"><a class="anchor" href="#simple-query"></a>3.2. Query Executions</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-query"><a class="anchor" href="#assert-query-simple-query"></a>3.1.2. Query Executions</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -617,8 +629,8 @@ assertTrue("is batch callable", qe instanceof CallableBatchExecution);</code></p
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-statement"><a class="anchor" href="#simple-statement"></a>3.3. Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-statement"><a class="anchor" href="#assert-query-simple-statement"></a>3.1.3. Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -634,8 +646,8 @@ assertEquals("FOO", se.getQuery());</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-batch-statement"><a class="anchor" href="#simple-batch-statement"></a>3.4. Batch Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-batch-statement"><a class="anchor" href="#assert-query-simple-batch-statement"></a>3.1.4. Batch Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -653,8 +665,8 @@ assertEquals("FOO", queries.get(0));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-prepared"><a class="anchor" href="#simple-prepared"></a>3.5. Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-prepared"><a class="anchor" href="#assert-query-simple-prepared"></a>3.1.5. Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -686,8 +698,8 @@ assertTrue(setNullByIndex.containsKey(2));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-batch-prepared"><a class="anchor" href="#simple-batch-prepared"></a>3.6. Batch Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-batch-prepared"><a class="anchor" href="#assert-query-simple-batch-prepared"></a>3.1.6. Batch Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -727,8 +739,8 @@ assertTrue(setNullByIndex.containsKey(2));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-callable"><a class="anchor" href="#simple-callable"></a>3.7. Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-callable"><a class="anchor" href="#assert-query-simple-callable"></a>3.1.7. Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -793,8 +805,8 @@ assertEquals(JDBCType.INTEGER, outParamsByName.get("key"));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="simple-batch-callable"><a class="anchor" href="#simple-batch-callable"></a>3.8. Batch Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-simple-batch-callable"><a class="anchor" href="#assert-query-simple-batch-callable"></a>3.1.8. Batch Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -871,15 +883,22 @@ assertEquals(JDBCType.INTEGER, outParamByIndex.get(2));</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="assert-with-assertj"><a class="anchor" href="#assert-with-assertj"></a>4. Assert with AssertJ</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="assert-query-with-assertj"><a class="anchor" href="#assert-query-with-assertj"></a>3.2. AssertJ</h3>
 <div class="paragraph">
 <p>This section describes how to assert <code>ProxyTestDataSource</code> with <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a>.</p>
 </div>
-<div class="sect2">
-<h3 id="assertj-datasource"><a class="anchor" href="#assertj-datasource"></a>4.1. DataSource</h3>
+<div class="paragraph">
+<p><code>DataSourceAssertAssertions</code> defines all <code>assertThat</code> methods and entry point methods.<br>
+To use them, static import those methods.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="assert-query-assertj-datasource"><a class="anchor" href="#assert-query-assertj-datasource"></a>3.2.1. DataSource</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -911,8 +930,8 @@ ds.reset();</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-query"><a class="anchor" href="#assertj-query"></a>4.2. Query Executions</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-query"><a class="anchor" href="#assert-query-assertj-query"></a>3.2.2. Query Executions</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -951,8 +970,8 @@ assertThat(qe).asPrepared().containsParam(1, "value").containsNullParam(1, Types
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-statement"><a class="anchor" href="#assertj-statement"></a>4.3. Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-statement"><a class="anchor" href="#assert-query-assertj-statement"></a>3.2.3. Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -971,8 +990,8 @@ assertThat(ds.getQueryExecutions().get(0)).isStatement().asStatement().query().s
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-batch-statement"><a class="anchor" href="#assertj-batch-statement"></a>4.4. Batch Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-batch-statement"><a class="anchor" href="#assert-query-assertj-batch-statement"></a>3.2.4. Batch Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -999,8 +1018,8 @@ assertThat(ds.getQueryExecutions().get(0)).isBatchStatement().asBatchStatement()
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-prepared"><a class="anchor" href="#assertj-prepared"></a>4.5. Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-prepared"><a class="anchor" href="#assert-query-assertj-prepared"></a>3.2.5. Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1025,8 +1044,8 @@ assertThat(ds.getQueryExecutions().get(0)).isPrepared().asPrepared().query().sta
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-batch-prepared"><a class="anchor" href="#assertj-batch-prepared"></a>4.6. Batch Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-batch-prepared"><a class="anchor" href="#assert-query-assertj-batch-prepared"></a>3.2.6. Batch Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1059,8 +1078,8 @@ assertThat(ds.getQueryExecutions().get(0)).isBatchPrepared().asBatchPrepared().q
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-callable"><a class="anchor" href="#assertj-callable"></a>4.7. Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-callable"><a class="anchor" href="#assert-query-assertj-callable"></a>3.2.7. Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1120,8 +1139,8 @@ assertThat(ds.getQueryExecutions().get(0)).asCallable().query().startsWith("SELE
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="assertj-batch-prepared"><a class="anchor" href="#assertj-batch-prepared"></a>4.8. Batch Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-assertj-batch-prepared"><a class="anchor" href="#assert-query-assertj-batch-prepared"></a>3.2.8. Batch Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1169,15 +1188,16 @@ assertThat(ds.getQueryExecutions().get(0)).isBatchCallable().asBatchCallable().q
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="assert-with-hamcrest"><a class="anchor" href="#assert-with-hamcrest"></a>5. Assert with Hamcrest</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="assert-query-with-hamcrest"><a class="anchor" href="#assert-query-with-hamcrest"></a>3.3. Hamcrest</h3>
 <div class="paragraph">
 <p>This section describes how to assert <code>ProxyTestDataSource</code> with <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>.</p>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-datasource"><a class="anchor" href="#hamcrest-datasource"></a>5.1. DataSource</h3>
+<div class="paragraph">
+<p>All matchers are defined in <code>DataSourceAssertMatchers</code> class.</p>
+</div>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-datasource"><a class="anchor" href="#assert-query-hamcrest-datasource"></a>3.3.1. DataSource</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1234,8 +1254,8 @@ assertThat(ds.getFirstBatchCallable(), query(is("abc")));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-query"><a class="anchor" href="#hamcrest-query"></a>5.2. Query Executions</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-query"><a class="anchor" href="#assert-query-hamcrest-query"></a>3.3.2. Query Executions</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1261,8 +1281,8 @@ assertThat(qe, callableOrBatchCallable());</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-statement"><a class="anchor" href="#hamcrest-statement"></a>5.3. Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-statement"><a class="anchor" href="#assert-query-hamcrest-statement"></a>3.3.3. Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1282,8 +1302,8 @@ assertThat(se, queryType(QueryType.SELECT));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-batch-statement"><a class="anchor" href="#hamcrest-batch-statement"></a>5.4. Batch Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-batch-statement"><a class="anchor" href="#assert-query-hamcrest-batch-statement"></a>3.3.4. Batch Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1302,8 +1322,8 @@ assertThat(sbe, queryTypes(0, either(insert()).or(update())));</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-prepared"><a class="anchor" href="#hamcrest-prepared"></a>5.5. Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-prepared"><a class="anchor" href="#assert-query-hamcrest-prepared"></a>3.3.5. Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1350,8 +1370,8 @@ assertThat(pe, allOf(
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-batch-prepared"><a class="anchor" href="#hamcrest-batch-prepared"></a>5.6. Batch Prepared Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-batch-prepared"><a class="anchor" href="#assert-query-hamcrest-batch-prepared"></a>3.3.6. Batch Prepared Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1387,8 +1407,8 @@ assertThat(pbe, batch(0, allOf(
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-callable"><a class="anchor" href="#hamcrest-callable"></a>5.7. Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-callable"><a class="anchor" href="#assert-query-hamcrest-callable"></a>3.3.7. Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1459,8 +1479,8 @@ assertThat(ce, allOf(
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="hamcrest-batch-callable"><a class="anchor" href="#hamcrest-batch-callable"></a>5.8. Batch Callable Statement</h3>
+<div class="sect3">
+<h4 id="assert-query-hamcrest-batch-callable"><a class="anchor" href="#assert-query-hamcrest-batch-callable"></a>3.3.8. Batch Callable Statement</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
@@ -1526,10 +1546,11 @@ assertThat(cbe, batch(0, allOf(
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0-SNAPSHOT<br>
-Last updated 2017-10-22 06:04:47 +00:00
+Last updated 2017-10-23 04:19:07 +00:00
 </div>
 </div>
 </body>

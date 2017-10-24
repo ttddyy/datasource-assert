@@ -76,6 +76,7 @@ public class PreparedExecutionAssert extends AbstractExecutionAssert<PreparedExe
 
     /**
      * @param paramValues Expecting parameter values. setNull is represented as {@code null}.
+     * @return {@code this} assertion object.
      */
     public PreparedExecutionAssert containsParamValuesExactly(Object... paramValues) {
 

@@ -52,6 +52,10 @@ public class DataSourceAssertMatchers {
      * assertThat(ds, executions(0, isPreparedOrBatchPrepared()));
      * assertThat(ds, executions(0, is(success())));
      * </pre>
+     *
+     * @param index index
+     * @param queryExecutionMatcher matcher for {@link QueryExecution}
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> executions(int index,
             Matcher<? super QueryExecution> queryExecutionMatcher) {
@@ -63,6 +67,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, executionCount(3)); </pre>
+     *
+     * @param count expected count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> executionCount(int count) {
         return ProxyTestDataSourceAssertions.executionCount(count);
@@ -73,6 +80,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, statementCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> statementCount(int count) {
         return ProxyTestDataSourceAssertions.statementCount(count);
@@ -83,6 +93,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, batchStatementCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> batchStatementCount(int count) {
         return ProxyTestDataSourceAssertions.batchStatementCount(count);
@@ -93,6 +106,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, statementOrBatchStatementCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> statementOrBatchStatementCount(int count) {
         return ProxyTestDataSourceAssertions.statementOrBatchStatementCount(count);
@@ -103,6 +119,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, preparedCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> preparedCount(int count) {
         return ProxyTestDataSourceAssertions.preparedCount(count);
@@ -113,6 +132,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, batchPreparedCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> batchPreparedCount(int count) {
         return ProxyTestDataSourceAssertions.batchPreparedCount(count);
@@ -123,6 +145,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, preparedOrBatchPreparedCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> preparedOrBatchPreparedCount(int count) {
         return ProxyTestDataSourceAssertions.preparedOrBatchPreparedCount(count);
@@ -133,6 +158,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, callableCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> callableCount(int count) {
         return ProxyTestDataSourceAssertions.callableCount(count);
@@ -143,6 +171,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, batchCallableCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> batchCallableCount(int count) {
         return ProxyTestDataSourceAssertions.batchCallableCount(count);
@@ -153,6 +184,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, callableOrBatchCallableCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> callableOrBatchCallableCount(int count) {
         return ProxyTestDataSourceAssertions.callableOrBatchCallableCount(count);
@@ -169,6 +203,8 @@ public class DataSourceAssertMatchers {
      * Example:
      * <pre> assertThat(ds, totalQueryCount(3)); </pre>
      *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      * @see #executionCount(int)
      */
     public static Matcher<ProxyTestDataSource> totalQueryCount(int count) {
@@ -180,6 +216,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, selectCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> selectCount(int count) {
         return ProxyTestDataSourceAssertions.selectCount(count);
@@ -190,6 +229,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, insertCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> insertCount(int count) {
         return ProxyTestDataSourceAssertions.insertCount(count);
@@ -200,6 +242,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, updateCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> updateCount(int count) {
         return ProxyTestDataSourceAssertions.updateCount(count);
@@ -210,6 +255,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, deleteCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> deleteCount(int count) {
         return ProxyTestDataSourceAssertions.deleteCount(count);
@@ -220,6 +268,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds, otherCount(3)); </pre>
+     *
+     * @param count count
+     * @return matcher for {@link ProxyTestDataSource}
      */
     public static Matcher<ProxyTestDataSource> otherCount(int count) {
         return ProxyTestDataSourceAssertions.otherCount(count);
@@ -234,6 +285,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, success()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<QueryExecution> success() {
         return QueryExecutionAssertions.success();
@@ -244,6 +297,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, failure()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<QueryExecution> failure() {
         return QueryExecutionAssertions.failure();
@@ -254,6 +309,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, batch()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> batch() {
         return QueryExecutionAssertions.batch();
@@ -264,6 +321,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, statement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> statement() {
         return QueryExecutionAssertions.statement();
@@ -274,6 +333,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, batchStatement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> batchStatement() {
         return QueryExecutionAssertions.batchStatement();
@@ -284,6 +345,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, statementOrBatchStatement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> statementOrBatchStatement() {
         return QueryExecutionAssertions.statementOrBatchStatement();
@@ -294,6 +357,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, prepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> prepared() {
         return QueryExecutionAssertions.prepared();
@@ -304,6 +369,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, batchPrepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> batchPrepared() {
         return QueryExecutionAssertions.batchPrepared();
@@ -314,6 +381,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, preparedOrBatchPrepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> preparedOrBatchPrepared() {
         return QueryExecutionAssertions.preparedOrBatchPrepared();
@@ -324,6 +393,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, callable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> callable() {
         return QueryExecutionAssertions.callable();
@@ -334,6 +405,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, batchCallable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> batchCallable() {
         return QueryExecutionAssertions.batchCallable();
@@ -344,6 +417,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, callableOrBatchCallable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> callableOrBatchCallable() {
         return QueryExecutionAssertions.callableOrBatchCallable();
@@ -355,6 +430,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isBatch()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isBatch() {
         return batch();
@@ -366,6 +443,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isStatement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isStatement() {
         return statement();
@@ -377,6 +456,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isBatchStatement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isBatchStatement() {
         return batchStatement();
@@ -388,6 +469,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isStatementOrBatchStatement()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isStatementOrBatchStatement() {
         return statementOrBatchStatement();
@@ -399,6 +482,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isPrepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isPrepared() {
         return prepared();
@@ -410,6 +495,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isBatchPrepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isBatchPrepared() {
         return batchPrepared();
@@ -421,6 +508,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isPreparedOrBatchPrepared()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isPreparedOrBatchPrepared() {
         return preparedOrBatchPrepared();
@@ -432,6 +521,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isCallable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isCallable() {
         return callable();
@@ -443,6 +534,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isBatchCallable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isBatchCallable() {
         return batchCallable();
@@ -454,6 +547,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, isCallableOrBatchCallable()); </pre>
+     *
+     * @return matcher for {@link QueryExecution}
      */
     public static Matcher<? super QueryExecution> isCallableOrBatchCallable() {
         return callableOrBatchCallable();
@@ -468,6 +563,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, query(startsWith("select"))); </pre>
+     *
+     * @param stringMatcher matcher for {@code String}
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> query(Matcher<String> stringMatcher) {
         return QueryHolderAssertions.query(stringMatcher);
@@ -478,6 +576,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, queryType(SELECT)); </pre>
+     *
+     * @param expectedType expected {@link QueryType}
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> queryType(QueryType expectedType) {
         return QueryHolderAssertions.queryType(expectedType);
@@ -488,6 +589,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, select()); </pre>
+     *
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> select() {
         return QueryHolderAssertions.select();
@@ -498,6 +601,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, insert()); </pre>
+     *
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> insert() {
         return QueryHolderAssertions.insert();
@@ -508,6 +613,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, update()); </pre>
+     *
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> update() {
         return QueryHolderAssertions.update();
@@ -518,6 +625,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, delete()); </pre>
+     *
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> delete() {
         return QueryHolderAssertions.delete();
@@ -528,6 +637,8 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(qe, other()); </pre>
+     *
+     * @return matcher for {@link QueryHolder}
      */
     public static Matcher<? super QueryHolder> other() {
         return QueryHolderAssertions.other();
@@ -560,6 +671,9 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds.getBatchStatements(), batchSize(3)); </pre>
+     *
+     * @param batchSize batch size
+     * @return matcher for {@link BatchParameterHolder}
      */
     public static Matcher<? super BatchParameterHolder> batchSize(int batchSize) {
         return BatchParameterHolderAssertions.batchSize(batchSize);
@@ -570,6 +684,10 @@ public class DataSourceAssertMatchers {
      *
      * Example:
      * <pre> assertThat(ds.getBatchStatements(), batch(0, param(1, String.class, is("FOO")))); </pre>
+     *
+     * @param index index
+     * @param parameterHolderMatcher matcher for {@link ParameterHolder}
+     * @return matcher for {@link BatchParameterHolder}
      */
     public static Matcher<? super BatchParameterHolder> batch(int index,
             Matcher<? super ParameterHolder> parameterHolderMatcher) {
@@ -587,6 +705,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByNameHolder, paramsByName(hasEntry("foo", (Object) "FOO"))); </pre>
      *
      * @param mapMatcher a {@link Map} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramsByName(
             Matcher<Map<? extends String, ?>> mapMatcher) {
@@ -600,6 +719,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByIndexHolder, paramsByName(paramsByIndex(1, (Object) "FOO"))); </pre>
      *
      * @param mapMatcher a {@link Map} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramsByIndex(
             Matcher<Map<? extends Integer, ?>> mapMatcher) {
@@ -613,6 +733,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByIndexHolder, paramIndexes(hasItem(1), hasItem(2))); </pre>
      *
      * @param collectionMatcher a {@link Collection} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramIndexes(
             Matcher<? super Collection<Integer>> collectionMatcher) {
@@ -626,6 +747,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByIndexHolder, paramIndexes(1,2,3)); </pre>
      *
      * @param indexes parameter indexes
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramIndexes(Integer... indexes) {
         return ParameterHolderAssertions.paramIndexes(indexes);
@@ -638,6 +760,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByNameHolder, paramNames(hasItem("foo"), hasItem("bar"))); </pre>
      *
      * @param collectionMatcher a {@link Collection} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramNames(
             Matcher<? super Collection<String>> collectionMatcher) {
@@ -651,6 +774,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByNameHolder, paramNames("foo","bar","baz")); </pre>
      *
      * @param names parameter names
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramNames(String... names) {
         return ParameterHolderAssertions.paramNames(names);
@@ -663,6 +787,8 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByNameHolder, param("foo", is((Object) "FOO"))); </pre>
      *
      * @param name parameter name
+     * @param matcher matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> param(String name, Matcher<Object> matcher) {
         return ParameterHolderAssertions.param(name, matcher);
@@ -676,6 +802,8 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(parameterByIndexHolder, param(1, is((Object) "FOO"))); </pre>
      *
      * @param index parameter index
+     * @param matcher matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> param(Integer index, Matcher<Object> matcher) {
         return ParameterHolderAssertions.param(index, matcher);
@@ -688,8 +816,11 @@ public class DataSourceAssertMatchers {
      * Example:
      * <pre> assertThat(parameterByNameHolder, param("foo", String.class, is("FOO"))); </pre>
      *
-     * @param name  parameter name
-     * @param clazz value type
+     * @param name    parameter name
+     * @param clazz   value type
+     * @param <T>     parameter type
+     * @param matcher matcher for {@code <T>}
+     * @return matcher for {@link ParameterHolder}
      */
     public static <T> Matcher<? super ParameterHolder> param(String name, Class<T> clazz,
             Matcher<? super T> matcher) {
@@ -704,6 +835,9 @@ public class DataSourceAssertMatchers {
      *
      * @param index parameter index
      * @param clazz value type
+     * @param <T>     parameter type
+     * @param matcher matcher for {@code <T>}
+     * @return matcher for {@link ParameterHolder}
      */
     public static <T> Matcher<? super ParameterHolder> param(int index, Class<T> clazz,
             Matcher<? super T> matcher) {
@@ -715,6 +849,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsString(1, is("FOO"))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code String}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsString(Integer index,
             Matcher<? super String> matcher) {
@@ -726,6 +864,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsInteger(1, is(100))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Integer}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsInteger(Integer index,
             Matcher<? super Integer> matcher) {
@@ -737,6 +879,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsLong(1, is(100L))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Long}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsLong(Integer index,
             Matcher<? super Long> matcher) {
@@ -748,6 +894,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsDouble(1, is(10.0))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Double}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsDouble(Integer index,
             Matcher<? super Double> matcher) {
@@ -759,6 +909,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsShort(1, is((short)1))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Short}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsShort(Integer index,
             Matcher<? super Short> matcher) {
@@ -770,6 +924,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsBoolean(1, is(true))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Boolean}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBoolean(Integer index,
             Matcher<? super Boolean> matcher) {
@@ -781,6 +939,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsByte(1, is((byte)1))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Byte}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsByte(Integer index,
             Matcher<? super Byte> matcher) {
@@ -792,6 +954,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsFloat(1, is((float)1.0))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code Float}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsFloat(Integer index,
             Matcher<? super Float> matcher) {
@@ -803,6 +969,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsBigDecimal(1, is(new BigDecimal(10))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code BitDecimal}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBigDecimal(Integer index,
             Matcher<? super BigDecimal> matcher) {
@@ -814,6 +984,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsBytes(1, is(new byte[]{0xa, 0xb}))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@code byte[]}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBytes(Integer index,
             Matcher<? super byte[]> matcher) {
@@ -825,6 +999,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsDate(1, is(new Date(100)))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@link Date}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsDate(Integer index,
             Matcher<? super Date> matcher) {
@@ -836,6 +1014,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsTime(1, is(new Time(1000)))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@link Time}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsTime(Integer index,
             Matcher<? super Time> matcher) {
@@ -847,6 +1029,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsTimestamp(1, is(new Timestamp(1000)))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@link Timestamp}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsTimestamp(Integer index,
             Matcher<? super Timestamp> matcher) {
@@ -858,6 +1044,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, paramAsArray(1, is(array))); </pre>
+     *
+     * @param index parameter index
+     * @param matcher type for {@link Array}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsArray(Integer index,
             Matcher<? super Array> matcher) {
@@ -869,6 +1059,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsString("foo", is("FOO"))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code String}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsString(String name,
             Matcher<? super String> matcher) {
@@ -880,6 +1074,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsInteger("foo", is(100))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Integer}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsInteger(String name,
             Matcher<? super Integer> matcher) {
@@ -891,6 +1089,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsLong("foo", is(100L))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Long}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsLong(String name,
             Matcher<? super Long> matcher) {
@@ -902,6 +1104,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsDouble("foo", is(10.0))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Double}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsDouble(String name,
             Matcher<? super Double> matcher) {
@@ -913,6 +1119,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsShort("foo", is((short)1))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Short}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsShort(String name,
             Matcher<? super Short> matcher) {
@@ -924,6 +1134,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsBoolean("foo", is(true))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Boolean}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBoolean(String name,
             Matcher<? super Boolean> matcher) {
@@ -935,6 +1149,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsBytes("foo", is(new byte[]{0xa, 0xb}))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Byte}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsByte(String name,
             Matcher<? super Byte> matcher) {
@@ -946,6 +1164,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsFloat("foo", is((float)1.0))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code Float}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsFloat(String name,
             Matcher<? super Float> matcher) {
@@ -957,6 +1179,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsBigDecimal("foo", is(new BigDecimal(10))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code BigDecimal}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBigDecimal(String name,
             Matcher<? super BigDecimal> matcher) {
@@ -968,6 +1194,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsBytes("foo", is(new byte[]{0xa, 0xb}))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@code byte[]}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsBytes(String name,
             Matcher<? super byte[]> matcher) {
@@ -979,6 +1209,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsTime("foo", is(new Time(1000)))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@link Date}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsDate(String name,
             Matcher<? super Date> matcher) {
@@ -990,8 +1224,11 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsTime("foo", is(new Time(1000)))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@link Time}
+     * @return matcher for {@link ParameterHolder}
      */
-
     public static Matcher<? super ParameterHolder> paramAsTime(String name,
             Matcher<? super Time> matcher) {
         return ParameterHolderAssertions.paramAsTime(name, matcher);
@@ -1002,6 +1239,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsTimestamp("foo", is(new Timestamp(1000)))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@link Timestamp}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsTimestamp(String name,
             Matcher<? super Timestamp> matcher) {
@@ -1013,6 +1254,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, paramAsArray("foo", is(array))); </pre>
+     *
+     * @param name parameter name
+     * @param matcher type for {@link Array}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> paramAsArray(String name,
             Matcher<? super Array> matcher) {
@@ -1024,6 +1269,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, nullParam(1, is(Types.VARCHAR))); </pre>
+     *
+     * @param index parameter index
+     * @param sqlType type for {@link java.sql.Types}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> nullParam(int index, int sqlType) {
         return ParameterHolderAssertions.nullParam(index, sqlType);
@@ -1034,6 +1283,10 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, nullParam("foo", is(Types.VARCHAR))); </pre>
+     *
+     * @param name parameter name
+     * @param sqlType type for {@link java.sql.Types}
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> nullParam(String name, int sqlType) {
         return ParameterHolderAssertions.nullParam(name, sqlType);
@@ -1044,6 +1297,9 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByNameHolder, nullParam("foo")); </pre>
+     *
+     * @param name parameter name
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> nullParam(String name) {
         return ParameterHolderAssertions.nullParam(name);
@@ -1054,6 +1310,9 @@ public class DataSourceAssertMatchers {
      * <p>
      * Example:
      * <pre> assertThat(parameterByIndexHolder, nullParam(1)); </pre>
+     *
+     * @param index index
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> nullParam(int index) {
         return ParameterHolderAssertions.nullParam(index);
@@ -1070,6 +1329,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(outParameterHolder, outParamNames(hasItem("foo"), hasItem("bar"))); </pre>
      *
      * @param collectionMatcher a {@link Collection} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParamNames(
             Matcher<? super Collection<String>> collectionMatcher) {
@@ -1083,6 +1343,7 @@ public class DataSourceAssertMatchers {
      * <pre> assertThat(outParameterHolder, outParamIndexes(hasItem(1))); </pre>
      *
      * @param collectionMatcher a {@link Collection} matcher
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParamIndexes(
             Matcher<? super Collection<Integer>> collectionMatcher) {
@@ -1097,6 +1358,7 @@ public class DataSourceAssertMatchers {
      *
      * @param paramName out-parameter name
      * @param sqlType   sqlType in int
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParam(String paramName, int sqlType) {
         return OutParameterHolderAssertions.outParam(paramName, sqlType);
@@ -1110,6 +1372,7 @@ public class DataSourceAssertMatchers {
      *
      * @param paramName out-parameter name
      * @param sqlType   sqlType
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParam(String paramName, SQLType sqlType) {
         return OutParameterHolderAssertions.outParam(paramName, sqlType);
@@ -1123,6 +1386,7 @@ public class DataSourceAssertMatchers {
      *
      * @param index   out-parameter index
      * @param sqlType sqlType in int
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParam(int index, int sqlType) {
         return OutParameterHolderAssertions.outParam(index, sqlType);
@@ -1136,6 +1400,7 @@ public class DataSourceAssertMatchers {
      *
      * @param index   out-parameter index
      * @param sqlType sqlType
+     * @return matcher for {@link ParameterHolder}
      */
     public static Matcher<? super ParameterHolder> outParam(int index, SQLType sqlType) {
         return OutParameterHolderAssertions.outParam(index, sqlType);

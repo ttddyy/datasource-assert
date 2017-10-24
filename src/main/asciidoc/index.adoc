@@ -11,6 +11,7 @@ ifdef::insert-analytics[]
 endif::[]
 
 :oss-snapshot-repository:           https://oss.sonatype.org/content/repositories/snapshots/net/ttddyy/datasource-assert/
+:datasource-assert:                 https://github.com/ttddyy/datasource-assert/
 :datasource-proxy:                  https://github.com/ttddyy/datasource-proxy/
 :junit:                             http://junit.org/
 :testng:                            http://testng.org/
@@ -21,3 +22,4 @@ include::about.adoc[]
 include::installation.adoc[]
 include::how-to-use.adoc[]
 include::assert-query.adoc[]
+include::development.adoc[]

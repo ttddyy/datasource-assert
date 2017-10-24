@@ -13,6 +13,10 @@ endif::[]
 :oss-snapshot-repository:           https://oss.sonatype.org/content/repositories/snapshots/net/ttddyy/datasource-assert/
 :datasource-assert:                 https://github.com/ttddyy/datasource-assert/
 :datasource-proxy:                  https://github.com/ttddyy/datasource-proxy/
+:user-guide-latest:                 https://ttddyy.github.io/datasource-assert/docs/latest/user-guide/index.html
+:user-guide-snapshot:               https://ttddyy.github.io/datasource-assert/docs/snapshot/user-guide/index.html
+:javadoc-latest:                    https://ttddyy.github.io/datasource-assert/docs/latest/api/index.html
+:javadoc-snapshot:                  https://ttddyy.github.io/datasource-assert/docs/snapshot/api/index.html
 :junit:                             http://junit.org/
 :testng:                            http://testng.org/
 :assertj:                           http://joel-costigliola.github.io/assertj/

@@ -16,3 +16,18 @@ assertThat(ds.getFirstStatement(), query(startsWith("SELECT * FROM")));  // with
 assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with AssertJ
 ```
 
+[[how-to-use-assertj]]
+=== With AssertJ
+For {assertj}[AssertJ], `DataSourceAssertAssertions` defines all `assertThat` methods and entry
+point methods. +
+To use them, static import those methods.
+
+```java
+import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
+```
+
+[[how-to-use-hamcrest]]
+=== With Hamcrest
+
+For {hamcrest}[Hamcrest], all matchers are defined in `DataSourceAssertMatchers` class.
+

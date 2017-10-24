@@ -3,13 +3,6 @@
 
 This section describes how to assert `ProxyTestDataSource` with {assertj}[AssertJ].
 
-`DataSourceAssertAssertions` defines all `assertThat` methods and entry point methods. +
-To use them, static import those methods.
-
-```java
-import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
-```
-
 
 [[assert-query-assertj-datasource]]
 ==== DataSource

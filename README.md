@@ -1,7 +1,32 @@
 # datasource-assert
 
-Assertions for `DataSource` using [datasource-proxy].  
-Also, includes custom assertions for `assertThat` in [Assertj][assertj] and [Hamcrest][hamcrest].
+`datasource-assert` provides assertion API for DataSource to validate query executions.
+
+The assertion API is used for assertion methods such as `assertEquals` in [JUnit][junit] and [TestNG][testng].
+Also, it comes with support for `assertThat` in [AssertJ][assertj] and [Hamcrest][hamcrest].
+
+
+## Artifacts
+
+### Released Version
+
+```xml
+<dependency>
+  <groupId>net.ttddyy</groupId>
+  <artifactId>datasource-assert</artifactId>
+  <version>[LATEST_VERSION]</version>
+</dependency>
+```
+
+## Documentation
+
+- User Guide
+  - [Latest Released Version][user-guide-latest]
+  - [Snapshot Version][user-guide-snapshot]
+- Javadoc
+  - [Latest Released Version][javadoc-latest]
+  - [Snapshot Version][javadoc-snapshot]
+
 
 ## How to use
 
@@ -70,33 +95,14 @@ assertThat((StatementExecution) statements.get(0), query(is("SELECT id FROM emp"
 - [HamcrestAssertionApiCheck](../master/src/test/java/net/ttddyy/dsproxy/asserts/api/HamcrestAssertionApiCheck.java)
 
 
-## Artifacts
-
-### SNAPSHOT (via JitPack)
-
-[![](https://jitpack.io/v/ttddyy/datasource-assert.svg)](https://jitpack.io/#ttddyy/datasource-assert)
-
-
-
-```xml
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
-
-```xml
-<dependency>
-    <groupId>om.github.ttddyy</groupId>
-    <artifactId>datasource-assert</artifactId>
-    <version>master-SNAPSHOT</version>
-</dependency>
-```
-
 ----
 
-[datasource-proxy]: https://github.com/ttddyy/datasource-proxy
-[assertj]: http://joel-costigliola.github.io/assertj/
-[hamcrest]: http://hamcrest.org
+[user-guide-latest]:   https://ttddyy.github.io/datasource-assert/docs/latest/user-guide/index.html
+[user-guide-snapshot]: https://ttddyy.github.io/datasource-assert/docs/snapshot/user-guide/index.html
+[javadoc-latest]:      https://ttddyy.github.io/datasource-assert/docs/latest/api/index.html
+[javadoc-snapshot]:    https://ttddyy.github.io/datasource-assert/docs/snapshot/api/index.html
+[datasource-proxy]:    https://github.com/ttddyy/datasource-proxy
+[junit]:     http://junit.org/
+[testng]:    http://testng.org/
+[assertj]:   http://joel-costigliola.github.io/assertj/
+[hamcrest]:  http://hamcrest.org

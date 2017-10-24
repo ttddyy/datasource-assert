@@ -414,6 +414,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad()</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1318853-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1318853-7');
+</script>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -437,7 +445,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_supported_java_versions">2.2. Supported Java Versions</a></li>
 </ul>
 </li>
-<li><a href="#how-to-use">3. How to use</a></li>
+<li><a href="#how-to-use">3. How to use</a>
+<ul class="sectlevel2">
+<li><a href="#how-to-use-assertj">3.1. With AssertJ</a></li>
+<li><a href="#how-to-use-hamcrest">3.2. With Hamcrest</a></li>
+</ul>
+</li>
 <li><a href="#assert-query-executions">4. Assert Query Executions</a>
 <ul class="sectlevel2">
 <li><a href="#assert-query-with-assertequals">4.1. assertEquals</a>
@@ -587,6 +600,25 @@ ProxyTestDataSource ds = new ProxyTestDataSource(actualDataSource);
 assertEquals("num of executed queries", 3, ds.getQueryExecutions().size());
 assertThat(ds.getFirstStatement(), query(startsWith("SELECT * FROM")));  // with Hamcrest
 assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with AssertJ</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-to-use-assertj"><a class="anchor" href="#how-to-use-assertj"></a>3.1. With AssertJ</h3>
+<div class="paragraph">
+<p>For <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a>, <code>DataSourceAssertAssertions</code> defines all <code>assertThat</code> methods and entry
+point methods.<br>
+To use them, static import those methods.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-to-use-hamcrest"><a class="anchor" href="#how-to-use-hamcrest"></a>3.2. With Hamcrest</h3>
+<div class="paragraph">
+<p>For <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>, all matchers are defined in <code>DataSourceAssertMatchers</code> class.</p>
 </div>
 </div>
 </div>
@@ -901,15 +933,6 @@ assertEquals(JDBCType.INTEGER, outParamByIndex.get(2));</code></pre>
 <div class="paragraph">
 <p>This section describes how to assert <code>ProxyTestDataSource</code> with <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a>.</p>
 </div>
-<div class="paragraph">
-<p><code>DataSourceAssertAssertions</code> defines all <code>assertThat</code> methods and entry point methods.<br>
-To use them, static import those methods.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-java" data-lang="java">import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;</code></pre>
-</div>
-</div>
 <div class="sect3">
 <h4 id="assert-query-assertj-datasource"><a class="anchor" href="#assert-query-assertj-datasource"></a>4.2.1. DataSource</h4>
 <div class="listingblock">
@@ -1205,9 +1228,6 @@ assertThat(ds.getQueryExecutions().get(0)).isBatchCallable().asBatchCallable().q
 <h3 id="assert-query-with-hamcrest"><a class="anchor" href="#assert-query-with-hamcrest"></a>4.3. Hamcrest</h3>
 <div class="paragraph">
 <p>This section describes how to assert <code>ProxyTestDataSource</code> with <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>.</p>
-</div>
-<div class="paragraph">
-<p>All matchers are defined in <code>DataSourceAssertMatchers</code> class.</p>
 </div>
 <div class="sect3">
 <h4 id="assert-query-hamcrest-datasource"><a class="anchor" href="#assert-query-hamcrest-datasource"></a>4.3.1. DataSource</h4>
@@ -1563,7 +1583,7 @@ assertThat(cbe, batch(0, allOf(
 <div id="footer">
 <div id="footer-text">
 Version 1.0-SNAPSHOT<br>
-Last updated 2017-10-23 15:30:09 +00:00
+Last updated 2017-10-24 03:05:53 +00:00
 </div>
 </div>
 </body>

@@ -1,5 +1,7 @@
 # datasource-assert
 
+![Maven Central][badge-maven-central]
+
 `datasource-assert` provides assertion API for DataSource to validate query executions.
 
 The assertion API is used for assertion methods such as `assertEquals` in [JUnit][junit] and [TestNG][testng].
@@ -97,6 +99,7 @@ assertThat((StatementExecution) statements.get(0), query(is("SELECT id FROM emp"
 
 ----
 
+[badge-maven-central]: https://maven-badges.herokuapp.com/maven-central/net.ttddyy/datasource-assert/badge.svg
 [user-guide-latest]:   https://ttddyy.github.io/datasource-assert/docs/latest/user-guide/index.html
 [user-guide-snapshot]: https://ttddyy.github.io/datasource-assert/docs/snapshot/user-guide/index.html
 [javadoc-latest]:      https://ttddyy.github.io/datasource-assert/docs/latest/api/index.html

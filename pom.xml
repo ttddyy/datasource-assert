@@ -1,11 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.ttddyy</groupId>
   <artifactId>datasource-assert</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 
   <packaging>jar</packaging>
 
@@ -28,7 +26,7 @@
     <connection>scm:git:https://github.com/ttddyy/datasource-assert.git</connection>
     <developerConnection>scm:git:https://github.com/ttddyy/datasource-assert.git</developerConnection>
     <url>https://github.com/ttddyy/datasource-assert</url>
-    <tag>HEAD</tag>
+    <tag>datasource-assert-1.0</tag>
   </scm>
 
   <distributionManagement>
@@ -204,9 +202,9 @@
               <attributes>
                 <toc>left</toc>
                 <highlightjs-theme>github</highlightjs-theme>
-                <sectanchors/>
+                <sectanchors />
                 <icons>font</icons>
-                <sectnums/>
+                <sectnums />
                 <testDir>${project.build.testSourceDirectory}</testDir>
                 <revnumber>${project.version}</revnumber>
               </attributes>

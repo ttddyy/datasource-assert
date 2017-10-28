@@ -30,10 +30,6 @@
   </scm>
 
   <distributionManagement>
-    <repository>
-      <id>bintray</id>
-      <url>https://api.bintray.com/maven/ttddyy/maven/datasource-assert</url>
-    </repository>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -105,7 +101,9 @@
             <configuration>
               <serverId>ossrh</serverId>
               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <!-- For safeguard, do not automatically release to maven central.
+                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              -->
             </configuration>
           </plugin>
         </plugins>

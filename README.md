@@ -32,7 +32,7 @@ Also, it comes with support for `assertThat` in [AssertJ][assertj] and [Hamcrest
 
 ## How to use
 
-Wrap your datasource to `ProxyTestDataSource`.
+Wrap your datasource with `ProxyTestDataSource`.
 
 ```java
 @Test
@@ -54,13 +54,15 @@ public void tearDown() {
 
 ### Regular assertions
 
-For normal assertions such as junit/testng `assertEquals`, use methods from `ProxyTestDataSource`. 
+For normal assertions such as [JUnit][junit]/[TestNG][testng] `assertEquals`, use methods from `ProxyTestDataSource`. 
 
 ```java
 assertEquals(3, ds.getQueryExecutions().size());
 PreparedExecution pe = ds.getFirstPrepared();
 assertTrue(pe.isSuccess());
 ```
+
+See more details on ["Usage examples"](#usage-examples).
 
 ### AssertJ
 
@@ -73,7 +75,10 @@ import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.asse
 ```java
 assertThat(ds.getQueryExecutions()).hasSize(1);
 assertThat(ds.getQueryExecutions().get(0)).isStatement().asStatement().query().isEqualTo("SELECT id FROM emp");
+assertThat(ds.getFirstPrepared()).containsParam(1, "foo");
 ```
+
+See more details on ["Usage examples"](#usage-examples).
 
 ### Hamcrest
 
@@ -83,7 +88,10 @@ Use matchers from `DataSourceAssertMatchers`.
 assertThat(ds, statementCount(3));
 assertThat(ds, executions(1, is(statement())));
 assertThat((StatementExecution) statements.get(0), query(is("SELECT id FROM emp")));
+assertThat(ds.getFirstPrepared(), paramAsInteger(1, is(100)));
 ```
+
+See more details on ["Usage examples"](#usage-examples).
 
 ## Usage examples
 

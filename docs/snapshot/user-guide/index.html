@@ -512,6 +512,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The assertion API is used for assertion methods such as <code>assertEquals</code> in <a href="http://junit.org/">JUnit</a> and <a href="http://testng.org/">TestNG</a>.
 Also, it comes with support for <code>assertThat</code> in <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> and <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>.</p>
 </div>
+<div class="paragraph">
+<p>Github project: <a href="https://github.com/ttddyy/datasource-assert/">datasource-assert</a></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -609,6 +612,9 @@ assertThat(ds.getFirstStatement(), query(startsWith("SELECT * FROM")));  // with
 assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with AssertJ</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See more details on <a href="#assert-query-with-assertequals">Assert Query Executions with assertEquals</a></p>
+</div>
 <div class="sect2">
 <h3 id="how-to-use-assertj"><a class="anchor" href="#how-to-use-assertj"></a>3.1. With AssertJ</h3>
 <div class="paragraph">
@@ -621,11 +627,17 @@ To use them, static import those methods.</p>
 <pre class="highlightjs highlight"><code class="language-java" data-lang="java">import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See more details on <a href="#assert-query-with-assertj">Assert Query Executions with AssertJ</a></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="how-to-use-hamcrest"><a class="anchor" href="#how-to-use-hamcrest"></a>3.2. With Hamcrest</h3>
 <div class="paragraph">
 <p>For <a href="http://hamcrest.org/JavaHamcrest/">Hamcrest</a>, all matchers are defined in <code>DataSourceAssertMatchers</code> class.</p>
+</div>
+<div class="paragraph">
+<p>See more details on <a href="#assert-query-with-hamcrest">Assert Query Executions with Hamcrest</a></p>
 </div>
 </div>
 </div>
@@ -636,7 +648,8 @@ To use them, static import those methods.</p>
 <div class="sect2">
 <h3 id="assert-query-with-assertequals"><a class="anchor" href="#assert-query-with-assertequals"></a>4.1. assertEquals</h3>
 <div class="paragraph">
-<p>This section describes how to assert <code>ProxyTestDataSource</code> with simple <code>assertEquals</code> from JUnit or TestNG.</p>
+<p>This section describes how to assert <code>ProxyTestDataSource</code> with simple <code>assertEquals</code> from <a href="http://junit.org/">JUnit</a> or
+<a href="http://testng.org/">TestNG</a>.</p>
 </div>
 <div class="paragraph">
 <p>All assertion examples below use JUnit4 <code>assertEquals</code>.</p>
@@ -1658,7 +1671,7 @@ assertThat(cbe, batch(0, allOf(
 <div id="footer">
 <div id="footer-text">
 Version 1.1-SNAPSHOT<br>
-Last updated 2017-10-29 18:17:37 +00:00
+Last updated 2017-10-30 04:02:50 +00:00
 </div>
 </div>
 </body>

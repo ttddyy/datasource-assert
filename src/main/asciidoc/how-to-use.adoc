@@ -16,6 +16,9 @@ assertThat(ds.getFirstStatement(), query(startsWith("SELECT * FROM")));  // with
 assertThat(ds.getFirstStatement()).hasQueryType(QueryType.SELECT);  // with AssertJ
 ```
 
+See more details on <<assert-query-with-assertequals, Assert Query Executions with assertEquals>>
+
+
 [[how-to-use-assertj]]
 === With AssertJ
 For {assertj}[AssertJ], `DataSourceAssertAssertions` defines all `assertThat` methods and entry
@@ -26,8 +29,12 @@ To use them, static import those methods.
 import static net.ttddyy.dsproxy.asserts.assertj.DataSourceAssertAssertions.assertThat;
 ```
 
+See more details on <<assert-query-with-assertj, Assert Query Executions with AssertJ>>
+
 [[how-to-use-hamcrest]]
 === With Hamcrest
 
 For {hamcrest}[Hamcrest], all matchers are defined in `DataSourceAssertMatchers` class.
+
+See more details on <<assert-query-with-hamcrest, Assert Query Executions with Hamcrest>>
 

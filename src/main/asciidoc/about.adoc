@@ -6,4 +6,5 @@
 The assertion API is used for assertion methods such as `assertEquals` in {junit}[JUnit] and {testng}[TestNG].
 Also, it comes with support for `assertThat` in {assertj}[AssertJ] and {hamcrest}[Hamcrest].
 
+Github project: {datasource-assert}[datasource-assert]
 

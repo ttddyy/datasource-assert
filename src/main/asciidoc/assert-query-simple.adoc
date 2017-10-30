@@ -1,7 +1,8 @@
 [[assert-query-with-assertequals]]
 === assertEquals
 
-This section describes how to assert `ProxyTestDataSource` with simple `assertEquals` from JUnit or TestNG.
+This section describes how to assert `ProxyTestDataSource` with simple `assertEquals` from {junit}[JUnit] or
+{testng}[TestNG].
 
 All assertion examples below use JUnit4 `assertEquals`.
 

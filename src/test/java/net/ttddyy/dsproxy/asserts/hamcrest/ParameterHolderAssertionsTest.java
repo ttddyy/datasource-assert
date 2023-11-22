@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 import static net.ttddyy.dsproxy.asserts.hamcrest.ParameterHolderAssertions.param;
 import static net.ttddyy.dsproxy.asserts.hamcrest.ParameterHolderAssertions.paramAsArray;
@@ -110,9 +111,9 @@ public class ParameterHolderAssertionsTest {
 
     @Test
     public void testParamsByNameUnmatchedMessage() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("foo", 100);
+        Map<String, Object> map = new LinkedHashMap<>();
         map.put("bar", 200);
+        map.put("foo", 100);
 
         ParameterByNameHolder holder = mock(ParameterByNameHolder.class);
         given(holder.getSetParamsByName()).willReturn(map);
